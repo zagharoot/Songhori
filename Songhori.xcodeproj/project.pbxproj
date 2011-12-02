@@ -13,6 +13,34 @@
 		08D2726D14894BAD00D4A103 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08D2726B14894BAD00D4A103 /* InfoPlist.strings */; };
 		08D2726F14894BAD00D4A103 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2726E14894BAD00D4A103 /* main.m */; };
 		08D2727314894BAD00D4A103 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2727214894BAD00D4A103 /* AppDelegate.m */; };
+		08D272A314894C5500D4A103 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2727C14894C5500D4A103 /* TFHpple.m */; };
+		08D272A414894C5500D4A103 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2727E14894C5500D4A103 /* TFHppleElement.m */; };
+		08D272A514894C5500D4A103 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2728014894C5500D4A103 /* XPathQuery.m */; };
+		08D272A814894C5500D4A103 /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2728714894C5500D4A103 /* MKMapView+ZoomLevel.m */; };
+		08D272A914894C5500D4A103 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2728914894C5500D4A103 /* NSObject+SBJson.m */; };
+		08D272AA14894C5500D4A103 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2728B14894C5500D4A103 /* NSString+SBJSON.m */; };
+		08D272AB14894C5500D4A103 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2728E14894C5500D4A103 /* SBJsonParser.m */; };
+		08D272AC14894C5500D4A103 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729014894C5500D4A103 /* SBJsonStreamParser.m */; };
+		08D272AD14894C5500D4A103 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729214894C5500D4A103 /* SBJsonStreamParserAccumulator.m */; };
+		08D272AE14894C5500D4A103 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729414894C5500D4A103 /* SBJsonStreamParserAdapter.m */; };
+		08D272AF14894C5500D4A103 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729614894C5500D4A103 /* SBJsonStreamParserState.m */; };
+		08D272B014894C5500D4A103 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729814894C5500D4A103 /* SBJsonStreamWriter.m */; };
+		08D272B114894C5500D4A103 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729A14894C5500D4A103 /* SBJsonStreamWriterAccumulator.m */; };
+		08D272B214894C5500D4A103 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729C14894C5500D4A103 /* SBJsonStreamWriterState.m */; };
+		08D272B314894C5500D4A103 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2729E14894C5500D4A103 /* SBJsonTokeniser.m */; };
+		08D272B414894C5500D4A103 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272A014894C5500D4A103 /* SBJsonUTF8Stream.m */; };
+		08D272B514894C5500D4A103 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272A214894C5500D4A103 /* SBJsonWriter.m */; };
+		08D272BA14894C6C00D4A103 /* cluster.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D272B714894C6C00D4A103 /* cluster.png */; };
+		08D272BB14894C6C00D4A103 /* cluster@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D272B814894C6C00D4A103 /* cluster@2x.png */; };
+		08D272BC14894C6C00D4A103 /* Locate_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D272B914894C6C00D4A103 /* Locate_me.png */; };
+		08D272C214894C7D00D4A103 /* ClusterAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272BF14894C7D00D4A103 /* ClusterAnnotationView.m */; };
+		08D272C314894C7D00D4A103 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272C114894C7D00D4A103 /* MapViewController.m */; };
+		08D272C914894CAE00D4A103 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272C614894CAE00D4A103 /* Restaurant.m */; };
+		08D272CA14894CAE00D4A103 /* RestaurantCluster.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272C714894CAE00D4A103 /* RestaurantCluster.m */; };
+		08D272CB14894CAE00D4A103 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D272C814894CAE00D4A103 /* YelpRestaurant.m */; };
+		08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272CC14894DB500D4A103 /* libxml2.dylib */; };
+		08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272D214894E8C00D4A103 /* MapKit.framework */; };
+		08D272D614894F4200D4A103 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D272D414894F4200D4A103 /* MapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +48,62 @@
 		08D2726214894BAC00D4A103 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08D2726414894BAD00D4A103 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08D2726614894BAD00D4A103 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		08D2726A14894BAD00D4A103 /* Songhori-Info.plist */ = {isa = PBXFileReference; path = "Songhori-Info.plist"; sourceTree = "<group>"; };
+		08D2726A14894BAD00D4A103 /* Songhori-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Songhori-Info.plist"; sourceTree = "<group>"; };
 		08D2726C14894BAD00D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08D2726E14894BAD00D4A103 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		08D2727014894BAD00D4A103 /* Songhori-Prefix.pch */ = {isa = PBXFileReference; path = "Songhori-Prefix.pch"; sourceTree = "<group>"; };
-		08D2727114894BAD00D4A103 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		08D2727014894BAD00D4A103 /* Songhori-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Songhori-Prefix.pch"; sourceTree = "<group>"; };
+		08D2727114894BAD00D4A103 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		08D2727214894BAD00D4A103 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		08D2727B14894C5500D4A103 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		08D2727C14894C5500D4A103 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		08D2727D14894C5500D4A103 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		08D2727E14894C5500D4A103 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		08D2727F14894C5500D4A103 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		08D2728014894C5500D4A103 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		08D2728514894C5500D4A103 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		08D2728614894C5500D4A103 /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		08D2728714894C5500D4A103 /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		08D2728814894C5500D4A103 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		08D2728914894C5500D4A103 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		08D2728A14894C5500D4A103 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		08D2728B14894C5500D4A103 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		08D2728C14894C5500D4A103 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		08D2728D14894C5500D4A103 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		08D2728E14894C5500D4A103 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		08D2728F14894C5500D4A103 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		08D2729014894C5500D4A103 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		08D2729114894C5500D4A103 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		08D2729214894C5500D4A103 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		08D2729314894C5500D4A103 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		08D2729414894C5500D4A103 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		08D2729514894C5500D4A103 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		08D2729614894C5500D4A103 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		08D2729714894C5500D4A103 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		08D2729814894C5500D4A103 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		08D2729914894C5500D4A103 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		08D2729A14894C5500D4A103 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		08D2729B14894C5500D4A103 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		08D2729C14894C5500D4A103 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		08D2729D14894C5500D4A103 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		08D2729E14894C5500D4A103 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		08D2729F14894C5500D4A103 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		08D272A014894C5500D4A103 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		08D272A114894C5500D4A103 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		08D272A214894C5500D4A103 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		08D272B714894C6C00D4A103 /* cluster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cluster.png; sourceTree = "<group>"; };
+		08D272B814894C6C00D4A103 /* cluster@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cluster@2x.png"; sourceTree = "<group>"; };
+		08D272B914894C6C00D4A103 /* Locate_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Locate_me.png; sourceTree = "<group>"; };
+		08D272BE14894C7D00D4A103 /* ClusterAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterAnnotationView.h; sourceTree = "<group>"; };
+		08D272BF14894C7D00D4A103 /* ClusterAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterAnnotationView.m; sourceTree = "<group>"; };
+		08D272C014894C7D00D4A103 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		08D272C114894C7D00D4A103 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		08D272C514894CAE00D4A103 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		08D272C614894CAE00D4A103 /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		08D272C714894CAE00D4A103 /* RestaurantCluster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantCluster.m; sourceTree = "<group>"; };
+		08D272C814894CAE00D4A103 /* YelpRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurant.m; sourceTree = "<group>"; };
+		08D272CC14894DB500D4A103 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		08D272D214894E8C00D4A103 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		08D272D514894F4200D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Songhori/en.lproj/MapViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */,
+				08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */,
 				08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */,
 				08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */,
 				08D2726714894BAD00D4A103 /* CoreGraphics.framework in Frameworks */,
@@ -45,6 +125,8 @@
 		08D2725314894BAC00D4A103 = {
 			isa = PBXGroup;
 			children = (
+				08D272B614894C6C00D4A103 /* pics */,
+				08D2727914894C5500D4A103 /* lib */,
 				08D2726814894BAD00D4A103 /* Songhori */,
 				08D2726114894BAC00D4A103 /* Frameworks */,
 				08D2725F14894BAC00D4A103 /* Products */,
@@ -62,6 +144,8 @@
 		08D2726114894BAC00D4A103 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08D272D214894E8C00D4A103 /* MapKit.framework */,
+				08D272CC14894DB500D4A103 /* libxml2.dylib */,
 				08D2726214894BAC00D4A103 /* UIKit.framework */,
 				08D2726414894BAD00D4A103 /* Foundation.framework */,
 				08D2726614894BAD00D4A103 /* CoreGraphics.framework */,
@@ -72,6 +156,8 @@
 		08D2726814894BAD00D4A103 /* Songhori */ = {
 			isa = PBXGroup;
 			children = (
+				08D272C414894CAE00D4A103 /* Core */,
+				08D272BD14894C7D00D4A103 /* UI */,
 				08D2727114894BAD00D4A103 /* AppDelegate.h */,
 				08D2727214894BAD00D4A103 /* AppDelegate.m */,
 				08D2726914894BAD00D4A103 /* Supporting Files */,
@@ -88,6 +174,98 @@
 				08D2727014894BAD00D4A103 /* Songhori-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		08D2727914894C5500D4A103 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				08D2727A14894C5500D4A103 /* hpple */,
+				08D2728114894C5500D4A103 /* JSON */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		08D2727A14894C5500D4A103 /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				08D2727B14894C5500D4A103 /* TFHpple.h */,
+				08D2727C14894C5500D4A103 /* TFHpple.m */,
+				08D2727D14894C5500D4A103 /* TFHppleElement.h */,
+				08D2727E14894C5500D4A103 /* TFHppleElement.m */,
+				08D2727F14894C5500D4A103 /* XPathQuery.h */,
+				08D2728014894C5500D4A103 /* XPathQuery.m */,
+			);
+			path = hpple;
+			sourceTree = "<group>";
+		};
+		08D2728114894C5500D4A103 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				08D2728514894C5500D4A103 /* JSON.h */,
+				08D2728614894C5500D4A103 /* MKMapView+ZoomLevel.h */,
+				08D2728714894C5500D4A103 /* MKMapView+ZoomLevel.m */,
+				08D2728814894C5500D4A103 /* NSObject+SBJson.h */,
+				08D2728914894C5500D4A103 /* NSObject+SBJson.m */,
+				08D2728A14894C5500D4A103 /* NSString+SBJSON.h */,
+				08D2728B14894C5500D4A103 /* NSString+SBJSON.m */,
+				08D2728C14894C5500D4A103 /* SBJson.h */,
+				08D2728D14894C5500D4A103 /* SBJsonParser.h */,
+				08D2728E14894C5500D4A103 /* SBJsonParser.m */,
+				08D2728F14894C5500D4A103 /* SBJsonStreamParser.h */,
+				08D2729014894C5500D4A103 /* SBJsonStreamParser.m */,
+				08D2729114894C5500D4A103 /* SBJsonStreamParserAccumulator.h */,
+				08D2729214894C5500D4A103 /* SBJsonStreamParserAccumulator.m */,
+				08D2729314894C5500D4A103 /* SBJsonStreamParserAdapter.h */,
+				08D2729414894C5500D4A103 /* SBJsonStreamParserAdapter.m */,
+				08D2729514894C5500D4A103 /* SBJsonStreamParserState.h */,
+				08D2729614894C5500D4A103 /* SBJsonStreamParserState.m */,
+				08D2729714894C5500D4A103 /* SBJsonStreamWriter.h */,
+				08D2729814894C5500D4A103 /* SBJsonStreamWriter.m */,
+				08D2729914894C5500D4A103 /* SBJsonStreamWriterAccumulator.h */,
+				08D2729A14894C5500D4A103 /* SBJsonStreamWriterAccumulator.m */,
+				08D2729B14894C5500D4A103 /* SBJsonStreamWriterState.h */,
+				08D2729C14894C5500D4A103 /* SBJsonStreamWriterState.m */,
+				08D2729D14894C5500D4A103 /* SBJsonTokeniser.h */,
+				08D2729E14894C5500D4A103 /* SBJsonTokeniser.m */,
+				08D2729F14894C5500D4A103 /* SBJsonUTF8Stream.h */,
+				08D272A014894C5500D4A103 /* SBJsonUTF8Stream.m */,
+				08D272A114894C5500D4A103 /* SBJsonWriter.h */,
+				08D272A214894C5500D4A103 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		08D272B614894C6C00D4A103 /* pics */ = {
+			isa = PBXGroup;
+			children = (
+				08D272B714894C6C00D4A103 /* cluster.png */,
+				08D272B814894C6C00D4A103 /* cluster@2x.png */,
+				08D272B914894C6C00D4A103 /* Locate_me.png */,
+			);
+			path = pics;
+			sourceTree = "<group>";
+		};
+		08D272BD14894C7D00D4A103 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				08D272BE14894C7D00D4A103 /* ClusterAnnotationView.h */,
+				08D272BF14894C7D00D4A103 /* ClusterAnnotationView.m */,
+				08D272C014894C7D00D4A103 /* MapViewController.h */,
+				08D272C114894C7D00D4A103 /* MapViewController.m */,
+				08D272D414894F4200D4A103 /* MapViewController.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		08D272C414894CAE00D4A103 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				08D272C514894CAE00D4A103 /* Restaurant.h */,
+				08D272C614894CAE00D4A103 /* Restaurant.m */,
+				08D272C714894CAE00D4A103 /* RestaurantCluster.m */,
+				08D272C814894CAE00D4A103 /* YelpRestaurant.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +320,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				08D2726D14894BAD00D4A103 /* InfoPlist.strings in Resources */,
+				08D272BA14894C6C00D4A103 /* cluster.png in Resources */,
+				08D272BB14894C6C00D4A103 /* cluster@2x.png in Resources */,
+				08D272BC14894C6C00D4A103 /* Locate_me.png in Resources */,
+				08D272D614894F4200D4A103 /* MapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +336,28 @@
 			files = (
 				08D2726F14894BAD00D4A103 /* main.m in Sources */,
 				08D2727314894BAD00D4A103 /* AppDelegate.m in Sources */,
+				08D272A314894C5500D4A103 /* TFHpple.m in Sources */,
+				08D272A414894C5500D4A103 /* TFHppleElement.m in Sources */,
+				08D272A514894C5500D4A103 /* XPathQuery.m in Sources */,
+				08D272A814894C5500D4A103 /* MKMapView+ZoomLevel.m in Sources */,
+				08D272A914894C5500D4A103 /* NSObject+SBJson.m in Sources */,
+				08D272AA14894C5500D4A103 /* NSString+SBJSON.m in Sources */,
+				08D272AB14894C5500D4A103 /* SBJsonParser.m in Sources */,
+				08D272AC14894C5500D4A103 /* SBJsonStreamParser.m in Sources */,
+				08D272AD14894C5500D4A103 /* SBJsonStreamParserAccumulator.m in Sources */,
+				08D272AE14894C5500D4A103 /* SBJsonStreamParserAdapter.m in Sources */,
+				08D272AF14894C5500D4A103 /* SBJsonStreamParserState.m in Sources */,
+				08D272B014894C5500D4A103 /* SBJsonStreamWriter.m in Sources */,
+				08D272B114894C5500D4A103 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				08D272B214894C5500D4A103 /* SBJsonStreamWriterState.m in Sources */,
+				08D272B314894C5500D4A103 /* SBJsonTokeniser.m in Sources */,
+				08D272B414894C5500D4A103 /* SBJsonUTF8Stream.m in Sources */,
+				08D272B514894C5500D4A103 /* SBJsonWriter.m in Sources */,
+				08D272C214894C7D00D4A103 /* ClusterAnnotationView.m in Sources */,
+				08D272C314894C7D00D4A103 /* MapViewController.m in Sources */,
+				08D272C914894CAE00D4A103 /* Restaurant.m in Sources */,
+				08D272CA14894CAE00D4A103 /* RestaurantCluster.m in Sources */,
+				08D272CB14894CAE00D4A103 /* YelpRestaurant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +370,14 @@
 				08D2726C14894BAD00D4A103 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		08D272D414894F4200D4A103 /* MapViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08D272D514894F4200D4A103 /* en */,
+			);
+			name = MapViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -219,6 +431,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Songhori/Songhori-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = "Songhori/Songhori-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
