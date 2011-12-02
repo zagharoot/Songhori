@@ -1,0 +1,262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726214894BAC00D4A103 /* UIKit.framework */; };
+		08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726414894BAD00D4A103 /* Foundation.framework */; };
+		08D2726714894BAD00D4A103 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726614894BAD00D4A103 /* CoreGraphics.framework */; };
+		08D2726D14894BAD00D4A103 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08D2726B14894BAD00D4A103 /* InfoPlist.strings */; };
+		08D2726F14894BAD00D4A103 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2726E14894BAD00D4A103 /* main.m */; };
+		08D2727314894BAD00D4A103 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D2727214894BAD00D4A103 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08D2725E14894BAC00D4A103 /* Songhori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songhori.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08D2726214894BAC00D4A103 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		08D2726414894BAD00D4A103 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		08D2726614894BAD00D4A103 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		08D2726A14894BAD00D4A103 /* Songhori-Info.plist */ = {isa = PBXFileReference; path = "Songhori-Info.plist"; sourceTree = "<group>"; };
+		08D2726C14894BAD00D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		08D2726E14894BAD00D4A103 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		08D2727014894BAD00D4A103 /* Songhori-Prefix.pch */ = {isa = PBXFileReference; path = "Songhori-Prefix.pch"; sourceTree = "<group>"; };
+		08D2727114894BAD00D4A103 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		08D2727214894BAD00D4A103 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08D2725B14894BAC00D4A103 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */,
+				08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */,
+				08D2726714894BAD00D4A103 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08D2725314894BAC00D4A103 = {
+			isa = PBXGroup;
+			children = (
+				08D2726814894BAD00D4A103 /* Songhori */,
+				08D2726114894BAC00D4A103 /* Frameworks */,
+				08D2725F14894BAC00D4A103 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08D2725F14894BAC00D4A103 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08D2725E14894BAC00D4A103 /* Songhori.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08D2726114894BAC00D4A103 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08D2726214894BAC00D4A103 /* UIKit.framework */,
+				08D2726414894BAD00D4A103 /* Foundation.framework */,
+				08D2726614894BAD00D4A103 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08D2726814894BAD00D4A103 /* Songhori */ = {
+			isa = PBXGroup;
+			children = (
+				08D2727114894BAD00D4A103 /* AppDelegate.h */,
+				08D2727214894BAD00D4A103 /* AppDelegate.m */,
+				08D2726914894BAD00D4A103 /* Supporting Files */,
+			);
+			path = Songhori;
+			sourceTree = "<group>";
+		};
+		08D2726914894BAD00D4A103 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08D2726A14894BAD00D4A103 /* Songhori-Info.plist */,
+				08D2726B14894BAD00D4A103 /* InfoPlist.strings */,
+				08D2726E14894BAD00D4A103 /* main.m */,
+				08D2727014894BAD00D4A103 /* Songhori-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08D2725D14894BAC00D4A103 /* Songhori */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08D2727614894BAD00D4A103 /* Build configuration list for PBXNativeTarget "Songhori" */;
+			buildPhases = (
+				08D2725A14894BAC00D4A103 /* Sources */,
+				08D2725B14894BAC00D4A103 /* Frameworks */,
+				08D2725C14894BAC00D4A103 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Songhori;
+			productName = Songhori;
+			productReference = 08D2725E14894BAC00D4A103 /* Songhori.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08D2725514894BAC00D4A103 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = Rutgers;
+			};
+			buildConfigurationList = 08D2725814894BAC00D4A103 /* Build configuration list for PBXProject "Songhori" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08D2725314894BAC00D4A103;
+			productRefGroup = 08D2725F14894BAC00D4A103 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08D2725D14894BAC00D4A103 /* Songhori */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08D2725C14894BAC00D4A103 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08D2726D14894BAD00D4A103 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08D2725A14894BAC00D4A103 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08D2726F14894BAD00D4A103 /* main.m in Sources */,
+				08D2727314894BAD00D4A103 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		08D2726B14894BAD00D4A103 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08D2726C14894BAD00D4A103 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		08D2727414894BAD00D4A103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		08D2727514894BAD00D4A103 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		08D2727714894BAD00D4A103 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Songhori/Songhori-Prefix.pch";
+				INFOPLIST_FILE = "Songhori/Songhori-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		08D2727814894BAD00D4A103 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Songhori/Songhori-Prefix.pch";
+				INFOPLIST_FILE = "Songhori/Songhori-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08D2725814894BAC00D4A103 /* Build configuration list for PBXProject "Songhori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08D2727414894BAD00D4A103 /* Debug */,
+				08D2727514894BAD00D4A103 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08D2727614894BAD00D4A103 /* Build configuration list for PBXNativeTarget "Songhori" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08D2727714894BAD00D4A103 /* Debug */,
+				08D2727814894BAD00D4A103 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08D2725514894BAC00D4A103 /* Project object */;
+}
