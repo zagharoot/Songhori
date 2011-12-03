@@ -12,8 +12,8 @@
 @interface Restaurant : NSObject <MKAnnotation>
 {
 @protected
-    NSString* _title; 
-    NSString* _subtitle; 
+    NSString* _name; 
+    NSString* _detail; 
     
     CLLocationCoordinate2D __coordinate; 
     
@@ -21,6 +21,9 @@
 
 -(id) initWithJSONData:(id) json; 
 
+
+@property (nonatomic, copy) NSString* name; 
+@property (nonatomic, copy) NSString* detail; 
 @end
 
 

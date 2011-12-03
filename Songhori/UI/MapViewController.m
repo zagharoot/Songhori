@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "Restaurant.h" 
 #import "MKMapView+ZoomLevel.h"
+#import "CalloutMapAnnotationView.h"
 
 #import "ClusterAnnotationView.h"
 
@@ -25,6 +26,8 @@
 
 @synthesize urlConnection=_urlConnection; 
 @synthesize incomingData=_incomingData; 
+@synthesize calloutAnnotation=_calloutAnnotation; 
+@synthesize selectedAnnotationView=_selectedAnnotationView; 
 
 - (void)didReceiveMemoryWarning
 {
@@ -161,7 +164,7 @@
 //load the data for the current view 
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    MKCoordinateRegion r =  mapView.region; 
+//    MKCoordinateRegion r =  mapView.region; 
     self.redoSearchBtn.hidden = NO; 
     
     
@@ -182,17 +185,18 @@
 
 -(MKAnnotationView*) mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    if([annotation class] == MKUserLocation.class) {
+
+/*    if([annotation class] == MKUserLocation.class) {
 		//userLocation = annotation;
 		return nil;
 	}
+*/    
     
     
-    
-    MKAnnotationView *annView;
     
     if( [annotation isKindOfClass:[RestaurantCluster class]])
     {
+        MKAnnotationView *annView;
         RestaurantCluster* cluster = (RestaurantCluster*) annotation; 
         
         annView = (ClusterAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
@@ -203,14 +207,41 @@
         annView.image = [UIImage imageNamed:@"cluster.png"];
         [(ClusterAnnotationView*)annView setClusterText:[NSString stringWithFormat:@"%i",cluster.count]];
         annView.canShowCallout = YES;
-    } else {
-//        Restaurant* rest = (Restaurant*) annotation; 
-       
-        //it's a pin 
-        return nil;         
+        
+        return annView; 
+    } else if ([annotation isKindOfClass:[CalloutMapAnnotation class]])
+    {
+            CalloutMapAnnotationView *calloutMapAnnotationView = (CalloutMapAnnotationView *)[self.myMapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutAnnotation"];
+            if (!calloutMapAnnotationView) 
+            {
+                calloutMapAnnotationView = [[[CalloutMapAnnotationView alloc] initWithAnnotation:annotation andParentAnnotationView:self.selectedAnnotationView  
+                                                                                 reuseIdentifier:@"CalloutAnnotation"] autorelease];
+                calloutMapAnnotationView.contentHeight = 120.0f;
+                UIImage *asynchronyLogo = [UIImage imageNamed:@"asynchrony-logo-small.png"];
+                UIImageView *asynchronyLogoView = [[[UIImageView alloc] initWithImage:asynchronyLogo] autorelease];
+                asynchronyLogoView.frame = CGRectMake(5, 2, asynchronyLogoView.frame.size.width, asynchronyLogoView.frame.size.height);
+//                [calloutMapAnnotationView.contentView addSubview:asynchronyLogoView];
+            }
+            calloutMapAnnotationView.parentAnnotationView = self.selectedAnnotationView;
+            calloutMapAnnotationView.mapView = self.myMapView;
+            return calloutMapAnnotationView;
+    }else if ([annotation isKindOfClass:[FNRestaurant class]])
+    {
+		MKPinAnnotationView *annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation 
+																			   reuseIdentifier:@"FNRestaurant"] autorelease];
+		annotationView.canShowCallout = NO;
+		annotationView.pinColor = MKPinAnnotationColorPurple; 
+		return annotationView;
+    }else if ([annotation isKindOfClass:[YelpRestaurant class]])
+    {
+		MKPinAnnotationView *annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation 
+																			   reuseIdentifier:@"YelpRestaurant"] autorelease];
+		annotationView.canShowCallout = NO;
+		annotationView.pinColor = MKPinAnnotationColorGreen;
+		return annotationView;
     }
-    return annView;
     
+    return nil; 
 }
 
 
@@ -311,14 +342,33 @@
             [r release]; 
         }
     }
-        
 
-    
-    
     //adjust other stuff 
     self.redoSearchBtn.hidden = YES; 
     [self.searchActivityIndicator stopAnimating]; 
     return YES; 
 }
+
+
+
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if (self.calloutAnnotation == nil) 
+			self.calloutAnnotation = [[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
+																	   andLongitude:view.annotation.coordinate.longitude];
+    else
+    {
+        self.calloutAnnotation.latitude = view.annotation.coordinate.latitude; 
+        self.calloutAnnotation.longitude = view.annotation.coordinate.longitude; 
+    }
+    
+    [self.myMapView addAnnotation:self.calloutAnnotation];
+    self.selectedAnnotationView = view;
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+		[self.myMapView removeAnnotation: self.calloutAnnotation];
+}
+
 
 @end

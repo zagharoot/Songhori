@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-
+#import "CalloutMapAnnotationView.h"
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 {
@@ -22,6 +22,9 @@
     NSMutableData* _incomingData; 
     NSURLConnection* _urlConnection; 
     
+    
+	CalloutMapAnnotation *_calloutAnnotation;
+	MKAnnotationView *_selectedAnnotationView;
 }
 
 -(void) setup; 
@@ -39,5 +42,9 @@
 @property (retain, nonatomic, readonly) NSURL* url; 
 @property (nonatomic, retain) NSURLConnection* urlConnection; 
 @property (nonatomic, retain) NSMutableData* incomingData; 
+
+@property (nonatomic, retain) MKAnnotationView *selectedAnnotationView;
+@property (nonatomic, retain) CalloutMapAnnotation* calloutAnnotation; 
+
 
 @end

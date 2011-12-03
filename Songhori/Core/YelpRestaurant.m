@@ -20,16 +20,16 @@
     {
         __coordinate.latitude = [[data objectAtIndex:1] doubleValue];
         __coordinate.longitude = [[data objectAtIndex:2] doubleValue]; 
-        _title = @""; 
-        _subtitle =  @""; 
+        _name = @""; 
+        _detail =  @""; 
 
         @try {
             
             id t = [data objectAtIndex:3]; 
             if ([t respondsToSelector:@selector(length)])
             {
-                _title = [[data objectAtIndex:3] copy]; 
-                _subtitle = [[data objectAtIndex:4] copy]; 
+                _name = [[data objectAtIndex:3] copy]; 
+                _detail = [[data objectAtIndex:4] copy]; 
             }
 
         }
@@ -47,8 +47,8 @@
 
 -(void) dealloc
 {
-    [_title release]; 
-    [_subtitle release]; 
+    [_name release]; 
+    [_detail release]; 
     [super dealloc]; 
     
 }

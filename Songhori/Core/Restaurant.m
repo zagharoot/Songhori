@@ -11,18 +11,8 @@
 
 @implementation Restaurant 
 @synthesize coordinate=__coordinate; 
-
-
--(NSString*) title
-{
-    return _title; 
-}
-
--(NSString*) subtitle
-{
-    return _subtitle; 
-}
-
+@synthesize name=_name; 
+@synthesize detail=_detail; 
 
 @end
 
@@ -35,11 +25,6 @@
 @synthesize specialty=_specialty; 
 
 
--(NSString*) subtitle
-{
-    return _specialty; 
-}
-
 -(id) initWithJSONData:(id) json
 {
     self = [super init]; 
@@ -48,16 +33,16 @@
         NSArray* data = (NSArray*) json; 
         __coordinate.latitude = [[data objectAtIndex:1] doubleValue];
         __coordinate.longitude = [[data objectAtIndex:2] doubleValue]; 
-        _title = @""; 
-        _subtitle =  @""; 
+        _name = @""; 
+        _detail =  @""; 
 
         @try {
             
             id t = [data objectAtIndex:3]; 
             if ([t respondsToSelector:@selector(length)])
             {
-                _title = [[data objectAtIndex:3] copy]; 
-                _subtitle = [[data objectAtIndex:4] copy]; 
+                _name = [[data objectAtIndex:3] copy]; 
+                _detail = [[data objectAtIndex:4] copy]; 
                 _specialtyURL = [NSString stringWithFormat:@"http://foodnetwork.com%@", [data objectAtIndex:13]]; 
                 [self loadSpecialty]; 
             }
@@ -91,8 +76,8 @@
 
 -(void) dealloc
 {
-    [_title release]; 
-    [_subtitle release]; 
+    [_name release]; 
+    [_detail release]; 
     [super dealloc]; 
     
 }
@@ -126,7 +111,7 @@
         TFHppleElement *element = [elements objectAtIndex:0];
     
         // Get the text within the cell tag
-        self.specialty = [element content];
+        self.detail = [element content];
     }
     
     [xpathParser release];    

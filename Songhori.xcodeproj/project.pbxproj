@@ -41,6 +41,7 @@
 		08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272CC14894DB500D4A103 /* libxml2.dylib */; };
 		08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272D214894E8C00D4A103 /* MapKit.framework */; };
 		08D272D614894F4200D4A103 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D272D414894F4200D4A103 /* MapViewController.xib */; };
+		08F5B5611489633000671969 /* CalloutMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,8 @@
 		08D272CC14894DB500D4A103 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		08D272D214894E8C00D4A103 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		08D272D514894F4200D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Songhori/en.lproj/MapViewController.xib; sourceTree = SOURCE_ROOT; };
+		08F5B55E1489633000671969 /* CalloutMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutMapAnnotationView.h; sourceTree = "<group>"; };
+		08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutMapAnnotationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +251,8 @@
 		08D272BD14894C7D00D4A103 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				08F5B55E1489633000671969 /* CalloutMapAnnotationView.h */,
+				08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */,
 				08D272BE14894C7D00D4A103 /* ClusterAnnotationView.h */,
 				08D272BF14894C7D00D4A103 /* ClusterAnnotationView.m */,
 				08D272C014894C7D00D4A103 /* MapViewController.h */,
@@ -358,6 +363,7 @@
 				08D272C914894CAE00D4A103 /* Restaurant.m in Sources */,
 				08D272CA14894CAE00D4A103 /* RestaurantCluster.m in Sources */,
 				08D272CB14894CAE00D4A103 /* YelpRestaurant.m in Sources */,
+				08F5B5611489633000671969 /* CalloutMapAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +474,7 @@
 				08D2727814894BAD00D4A103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
