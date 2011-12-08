@@ -229,6 +229,8 @@
     [searchActivityIndicator release];
     [locateMeBtn release];
     [locateMeActivityIndicator release];
+    
+    self.calloutAnnotation = nil; 
     [super dealloc];
 }
 
@@ -252,8 +254,8 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     if (self.calloutAnnotation == nil) 
-			self.calloutAnnotation = [[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
-																	   andLongitude:view.annotation.coordinate.longitude];
+			self.calloutAnnotation = [[[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
+																	   andLongitude:view.annotation.coordinate.longitude] autorelease];
     else
     {
         self.calloutAnnotation.latitude = view.annotation.coordinate.latitude; 

@@ -29,6 +29,7 @@
         
         if (![prs addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:curl options:nil error:&error])
         {
+            [prs release]; 
             return nil; 
         }
         
@@ -78,8 +79,8 @@
          } else         //success
          {
              
-             NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
-             NSLog(@"received %@\n", str);
+             //NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
+             //NSLog(@"received %@\n", str);
              
              
              SBJsonParser* parser = [[SBJsonParser alloc] init]; 
