@@ -61,14 +61,17 @@ static AccountManager* theAccountManager;
     if (self) 
     {
         _accounts = [[NSMutableArray alloc] initWithCapacity:self.NUMBER_OF_ACCOUNTS]; 
+        accountRequestProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
         
         //add food network account 
         FNAccount* fni = [[[FNAccount alloc] init] autorelease]; 
         fni.delegate = self; 
         [_accounts addObject:fni]; 
+        [accountRequestProgress setValue:@"NO" forKey:fni.accountName]; 
         
         
         YelpAccount* yi = [[[YelpAccount alloc] init] autorelease]; 
+        [accountRequestProgress setValue:@"NO" forKey:yi.accountName]; 
         yi.delegate = self; 
         //[_accounts addObject:yi]; //TODO: remove comment
         //WEBSITE: 
@@ -91,10 +94,18 @@ static AccountManager* theAccountManager;
 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion)region zoomLevel:(int)zoomLevel
 {
+    for (Account* a in self.accounts) {
+        [accountRequestProgress setValue:@"NO" forKey:a.accountName]; 
+        if ([a isActive])
+            [accountRequestProgress setValue:@"YES" forKey:a.accountName]; 
+    }
+    
     for (Account* a in self.accounts) 
     {
         if ([a isActive])
+        {
             [a sendRestaurantsInRegion:region zoomLevel:zoomLevel]; 
+        }
     }    
 }
 
@@ -102,12 +113,25 @@ static AccountManager* theAccountManager;
 
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
+    [accountRequestProgress setValue:@"YES" forKey:[provider accountName]]; 
     [self.delegate restaudantDataDidBecomeAvailable:restaurants forRegion:region fromProvider:self]; 
+    
+    for (Account* a in self.accounts) {
+        NSString* str = @"YES"; 
+        
+        if ([str compare:[accountRequestProgress valueForKey:a.accountName]])
+            return; 
+    }
+    
+    //all accounts are done. notify delegat if it reacts to it 
+    if (self.delegate && [self.delegate respondsToSelector:@selector(allDataForRequestSent)])
+        [self.delegate performSelector:@selector(allDataForRequestSent)]; 
 }
 
 
 -(void) dealloc
 {
+    [accountRequestProgress release]; 
     [_accounts release]; 
     
 }

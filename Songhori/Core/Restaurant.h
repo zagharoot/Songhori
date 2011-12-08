@@ -14,6 +14,9 @@
 //types of objects in them according to what class is sending the message to us. 
 @protocol RestaurantDataDelegate <NSObject>
 -(void) restaudantDataDidBecomeAvailable:(NSArray*) restaurants forRegion:(MKCoordinateRegion) region fromProvider:(id) provider; 
+
+@optional
+-(void) allDataForRequestSent;      //this is called when all the data for a particular request has been sent (useful when the source is collecting data from multiple places) 
 @end
 
 

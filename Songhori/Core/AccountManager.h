@@ -16,6 +16,7 @@
 @interface AccountManager : NSObject <RestaurantDataDelegate> 
 {
     NSMutableArray* _accounts;       //list of accounts: this is an array of Account*
+    NSMutableDictionary* accountRequestProgress;   //tracks what accounts are pending request data 
     
     id<RestaurantDataDelegate> _delegate; 
 }

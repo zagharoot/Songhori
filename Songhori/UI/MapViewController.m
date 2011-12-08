@@ -17,6 +17,7 @@
 
 
 @implementation MapViewController
+@synthesize loadSettingsPage;
 @synthesize locateMeBtn;
 @synthesize myMapView;
 @synthesize redoSearchBtn;
@@ -109,6 +110,7 @@
     [self setSearchActivityIndicator:nil];
     [self setLocateMeBtn:nil];
     [self setLocateMeActivityIndicator:nil];
+    [self setLoadSettingsPage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -231,6 +233,7 @@
     [locateMeActivityIndicator release];
     
     self.calloutAnnotation = nil; 
+    [loadSettingsPage release];
     [super dealloc];
 }
 
@@ -241,13 +244,15 @@
     for (Restaurant* r in items) {
         [restaurants addObject:r]; 
         [myMapView addAnnotation:r]; 
-    }
-    
-    //adjust other stuff 
+    }    
+}
+
+
+-(void) allDataForRequestSent
+{
     self.redoSearchBtn.hidden = YES; 
     [self.searchActivityIndicator stopAnimating]; 
 }
-
 
 
 
