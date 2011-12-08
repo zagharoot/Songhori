@@ -11,11 +11,10 @@
 #import "Restaurant.h" 
 #import "MKMapView+ZoomLevel.h"
 #import "CalloutMapAnnotationView.h"
-
+#import "YelpRestaurant.h" 
 #import "ClusterAnnotationView.h"
 
 
-#define BASE_URL @"http://www.foodnetwork.com/local/search/cxfDispatcher/foodLocalMapSearch?"
 
 @implementation MapViewController
 @synthesize locateMeBtn;
@@ -24,8 +23,6 @@
 @synthesize searchActivityIndicator;
 @synthesize locateMeActivityIndicator;
 
-@synthesize urlConnection=_urlConnection; 
-@synthesize incomingData=_incomingData; 
 @synthesize calloutAnnotation=_calloutAnnotation; 
 @synthesize selectedAnnotationView=_selectedAnnotationView; 
 
@@ -36,29 +33,17 @@
 }
 
 
--(NSURL*) url
-{
-    MKCoordinateRegion region = self.myMapView.region; 
-
-    CLLocationDegrees uplat =  region.center.latitude + region.span.latitudeDelta/2.0; 
-    CLLocationDegrees leftlon = region.center.longitude - region.span.longitudeDelta/2.0; 
-    CLLocationDegrees downlat = region.center.latitude - region.span.latitudeDelta/2.0; 
-    CLLocationDegrees rightlon = region.center.longitude + region.span.longitudeDelta/2.0; 
-    
-    int zoomLevel = [self.myMapView zoomLevel]; 
-    
-    NSString* str = [NSString stringWithFormat:@"%@uplat=%lf&leftlon=%lf&downlat=%lf&rightlon=%lf&level=%d&show=The+Best+Thing+I+Ever+Ate&_1316992333468=", BASE_URL, uplat, leftlon, downlat, rightlon, zoomLevel]; 
-    
-    NSURL* result = [NSURL URLWithString:str]; 
-    
-    return result; 
-    
-}
 
 
 -(void) setup
 {
 //    self.url = [NSURL URLWithString:@"http://www.foodnetwork.com/local/search/cxfDispatcher/foodLocalMapSearch?uplat=44.901874642580324&leftlon=-95.33265788750003&downlat=35.137067071169525&rightlon=-53.057267262500034&level=5&show=The+Best+Thing+I+Ever+Ate&_1316992333468="]; 
+
+    
+    accountManager = [AccountManager standardAccountManager]; 
+    accountManager.delegate = self; 
+    accountManager.fnAccount.active = YES; 
+    
     
     //default to zoom on USA 
     MKCoordinateRegion r; 
@@ -69,7 +54,6 @@
     
     myMapView.region = r; 
     
-
     
     restaurants = [[NSMutableArray alloc] initWithCapacity:100]; 
     centerOnUserFlag = YES; 
@@ -79,18 +63,14 @@
 
 
 - (IBAction)reloadData:(id)sender {
-    self.incomingData = nil; 
+
     
     [self.myMapView removeAnnotations:restaurants]; 
     [self.searchActivityIndicator startAnimating]; 
     
+    [restaurants removeAllObjects]; 
+    [accountManager sendRestaurantsInRegion:self.myMapView.region zoomLevel:[self.myMapView zoomLevel]]; 
     
-    request = [[NSMutableURLRequest alloc] initWithURL:self.url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:60]; 
-    
-    //set parameters of the request except for the body: 
-    [request setHTTPMethod:@"GET"]; 
-    
-    self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self]; 
 }
 
 - (IBAction)locateMe:(id)sender {
@@ -217,10 +197,6 @@
                 calloutMapAnnotationView = [[[CalloutMapAnnotationView alloc] initWithAnnotation:annotation andParentAnnotationView:self.selectedAnnotationView  
                                                                                  reuseIdentifier:@"CalloutAnnotation"] autorelease];
                 calloutMapAnnotationView.contentHeight = 120.0f;
-                UIImage *asynchronyLogo = [UIImage imageNamed:@"asynchrony-logo-small.png"];
-                UIImageView *asynchronyLogoView = [[[UIImageView alloc] initWithImage:asynchronyLogo] autorelease];
-                asynchronyLogoView.frame = CGRectMake(5, 2, asynchronyLogoView.frame.size.width, asynchronyLogoView.frame.size.height);
-//                [calloutMapAnnotationView.contentView addSubview:asynchronyLogoView];
             }
             calloutMapAnnotationView.parentAnnotationView = self.selectedAnnotationView;
             calloutMapAnnotationView.mapView = self.myMapView;
@@ -258,96 +234,18 @@
 
 
 
-#pragma mark - urlConnection delegate methods 
-
--(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+-(void) restaudantDataDidBecomeAvailable:(NSArray *)items forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
-    self.incomingData = [[[NSMutableData alloc] init] autorelease]; 
-}
-
--(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [self.incomingData appendData:data]; 
-}
-
--(void) connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    if ([self interpretIncomingData:self.incomingData])
-    {                
-//        [self.delegate detailDataBecameAvailable]; 
-        //TODO: update the map 
-        
-    }else
-    {
-        //this is the error case 
+    for (Restaurant* r in items) {
+        [restaurants addObject:r]; 
+        [myMapView addAnnotation:r]; 
     }
-}
-
-
-
-
--(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    self.incomingData = nil; 
-    [self.searchActivityIndicator stopAnimating]; 
     
-}
-
--(BOOL) interpretIncomingData:(NSData *)data
-{
-    //return NO; 
-    
-    //    
-        NSString* datastr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
-        NSLog(@"received data as %@\n", datastr); 
-        
-      
-    
-    
-       //use the data and extract the array of pictureID's
-        
-        SBJsonParser* parser = [[SBJsonParser alloc] init]; 
-        
-        parser.maxDepth = 4; 
-        
-        NSDictionary* d1 = [parser objectWithData:data]; 
-        
-        if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); return NO;}
-    
-    
-    NSArray* locations = [d1 objectForKey:@"locations"]; 
-    NSArray* clusters= [d1 objectForKey:@"locationClusters"]; 
-
-    
-    [restaurants removeAllObjects]; 
-
-    if (clusters.count>0)       //we are showing clusters (do we also show individuals? because they are in the data)
-    {
-        for (NSArray* item in clusters) {
-            RestaurantCluster* r = [[RestaurantCluster alloc] initWithJSONData:item]; 
-            [restaurants addObject:r]; 
-            
-            [myMapView addAnnotation:r]; 
-            
-            [r release]; 
-        }
-    }else           //only working with individual restaurants
-    {
-        for (NSArray* item in locations) {
-            Restaurant* r = [[FNRestaurant alloc] initWithJSONData:item]; 
-            [restaurants addObject:r]; 
-            
-            [myMapView addAnnotation:r]; 
-            
-            [r release]; 
-        }
-    }
-
     //adjust other stuff 
     self.redoSearchBtn.hidden = YES; 
     [self.searchActivityIndicator stopAnimating]; 
-    return YES; 
 }
+
 
 
 

@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "CalloutMapAnnotationView.h"
+#import "AccountManager.h"
+#import "Restaurant.h" 
 
-@interface MapViewController : UIViewController <MKMapViewDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, RestaurantDataDelegate> 
 {
     BOOL centerOnUserFlag;              //should we center the map at user location or not
     NSURL* _url; 
@@ -18,17 +20,21 @@
     NSMutableArray* restaurants; 
     
     //ivars necessary for retrieving and managing the detail data 
-    NSMutableURLRequest* request; 
-    NSMutableData* _incomingData; 
-    NSURLConnection* _urlConnection; 
+//    NSMutableURLRequest* request; 
+//    NSMutableData* _incomingData; 
+//    NSURLConnection* _urlConnection; 
     
     
 	CalloutMapAnnotation *_calloutAnnotation;
 	MKAnnotationView *_selectedAnnotationView;
+    
+    AccountManager* accountManager; 
+    
+    //TODO: not the best design(move to account manager) 
+//    YelpRestaurantDataProvider* yelpProvider; 
 }
 
 -(void) setup; 
--(BOOL) interpretIncomingData:(NSData*) data; 
 - (IBAction)reloadData:(id)sender;
 - (IBAction)locateMe:(id)sender;
 
@@ -38,10 +44,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *redoSearchBtn;
 @property (retain, nonatomic) IBOutlet UIActivityIndicatorView *searchActivityIndicator;
 @property (retain, nonatomic) IBOutlet UIActivityIndicatorView *locateMeActivityIndicator;
-
-@property (retain, nonatomic, readonly) NSURL* url; 
-@property (nonatomic, retain) NSURLConnection* urlConnection; 
-@property (nonatomic, retain) NSMutableData* incomingData; 
 
 @property (nonatomic, retain) MKAnnotationView *selectedAnnotationView;
 @property (nonatomic, retain) CalloutMapAnnotation* calloutAnnotation; 

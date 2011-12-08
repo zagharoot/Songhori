@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
+//Any object that needs to be notified for a search result should use this. 
+//various classes in the hierarchy use this approach. therefore, the result array might have different 
+//types of objects in them according to what class is sending the message to us. 
+@protocol RestaurantDataDelegate <NSObject>
+-(void) restaudantDataDidBecomeAvailable:(NSArray*) restaurants forRegion:(MKCoordinateRegion) region fromProvider:(id) provider; 
+@end
+
+
+
 @interface Restaurant : NSObject <MKAnnotation>
 {
 @protected
@@ -19,8 +28,7 @@
     
 }
 
--(id) initWithJSONData:(id) json; 
-
+-(UIImage*) logo; 
 
 @property (nonatomic, copy) NSString* name; 
 @property (nonatomic, copy) NSString* detail; 
@@ -41,6 +49,8 @@
     
 }
 
+-(id) initWithJSONData:(id) json; 
+
 
 -(void) loadSpecialty;
 
@@ -53,7 +63,7 @@
 @end
 
 
-
+/*
 @interface YelpRestaurant : Restaurant {
 @private
 
@@ -61,7 +71,7 @@
 
 @end
 
-
+*/
 
 
 
@@ -70,6 +80,7 @@
     int _count; 
 }
 
+-(id) initWithJSONData:(id) json; 
 
 @property (readonly) int count; 
 

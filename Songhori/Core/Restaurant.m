@@ -9,10 +9,18 @@
 #import "Restaurant.h"
 #import "TFHpple.h"
 
+static UIImage* FNLogo; 
+
+
 @implementation Restaurant 
 @synthesize coordinate=__coordinate; 
 @synthesize name=_name; 
 @synthesize detail=_detail; 
+
+-(UIImage*) logo
+{
+    return nil; //each account should implement their own 
+}
 
 @end
 
@@ -24,6 +32,16 @@
 @synthesize incomingData=_incomingData; 
 @synthesize specialty=_specialty; 
 
+
+-(UIImage*) logo
+{
+    if (!FNLogo)
+    {
+        FNLogo = [[UIImage imageNamed:@"FNLogo.png"] retain]; 
+    }
+    
+    return FNLogo; 
+}
 
 -(id) initWithJSONData:(id) json
 {

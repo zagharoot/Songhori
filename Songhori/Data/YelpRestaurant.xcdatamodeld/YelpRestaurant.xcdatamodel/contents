@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="10K549" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="YelpRestaurant" representedClassName="YelpRestaurant" syncable="YES">
+        <attribute name="checkinCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="checkinDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="y_id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="YelpUser" inverseName="checkins" inverseEntity="YelpUser" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="checkinDate"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="YelpUser" representedClassName="YelpUser" syncable="YES">
+        <attribute name="lastCheckinDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YelpRestaurant" inverseName="user" inverseEntity="YelpRestaurant" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="YelpRestaurant" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="YelpUser" positionX="-144" positionY="-3" width="144" height="90"/>
+    </elements>
+</model>

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0815A1C5148EB0BD00593ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0815A1C4148EB0BD00593ABC /* CoreData.framework */; };
+		0815A1C9148EB13800593ABC /* YelpRestaurant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1C7148EB13800593ABC /* YelpRestaurant.xcdatamodeld */; };
+		0815A1CC148EB68D00593ABC /* YelpUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1CB148EB68D00593ABC /* YelpUser.m */; };
+		0815A1D5148EBD8500593ABC /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1D4148EBD8500593ABC /* YelpRestaurant.m */; };
+		0815A1DC1491050600593ABC /* FNRestaurantDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1DB1491050600593ABC /* FNRestaurantDataProvider.m */; };
+		0815A1DF149108D700593ABC /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1DE149108D700593ABC /* MKMapView+ZoomLevel.m */; };
 		08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726214894BAC00D4A103 /* UIKit.framework */; };
 		08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726414894BAD00D4A103 /* Foundation.framework */; };
 		08D2726714894BAD00D4A103 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726614894BAD00D4A103 /* CoreGraphics.framework */; };
@@ -42,9 +48,28 @@
 		08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272D214894E8C00D4A103 /* MapKit.framework */; };
 		08D272D614894F4200D4A103 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D272D414894F4200D4A103 /* MapViewController.xib */; };
 		08F5B5611489633000671969 /* CalloutMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */; };
+		08F5B565148A5BC800671969 /* FNLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B563148A5BC800671969 /* FNLogo.png */; };
+		08F5B566148A5BC800671969 /* FNLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B564148A5BC800671969 /* FNLogo@2x.png */; };
+		08F5B56D148AA62100671969 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B568148AA62100671969 /* Account.m */; };
+		08F5B56E148AA62100671969 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B56A148AA62100671969 /* AccountManager.m */; };
+		08F5B571148AA76200671969 /* FNAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B570148AA76200671969 /* FNAccount.m */; };
+		08F5B57F148ACD4700671969 /* YelpRestaurantDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B57E148ACD4700671969 /* YelpRestaurantDataProvider.m */; };
+		08F5B582148AD31700671969 /* YelpAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B581148AD31700671969 /* YelpAccount.m */; };
+		08F5B585148AEC7600671969 /* yelpLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B583148AEC7600671969 /* yelpLogo.png */; };
+		08F5B586148AEC7600671969 /* yelpLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B584148AEC7600671969 /* yelpLogo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0815A1C4148EB0BD00593ABC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0815A1C8148EB13800593ABC /* YelpRestaurant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YelpRestaurant.xcdatamodel; sourceTree = "<group>"; };
+		0815A1CA148EB68D00593ABC /* YelpUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpUser.h; sourceTree = "<group>"; };
+		0815A1CB148EB68D00593ABC /* YelpUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpUser.m; sourceTree = "<group>"; };
+		0815A1D3148EBD8500593ABC /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
+		0815A1D4148EBD8500593ABC /* YelpRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurant.m; sourceTree = "<group>"; };
+		0815A1DA1491050600593ABC /* FNRestaurantDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNRestaurantDataProvider.h; sourceTree = "<group>"; };
+		0815A1DB1491050600593ABC /* FNRestaurantDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNRestaurantDataProvider.m; sourceTree = "<group>"; };
+		0815A1DD149108D700593ABC /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		0815A1DE149108D700593ABC /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		08D2725E14894BAC00D4A103 /* Songhori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songhori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D2726214894BAC00D4A103 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08D2726414894BAD00D4A103 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +132,20 @@
 		08D272D514894F4200D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Songhori/en.lproj/MapViewController.xib; sourceTree = SOURCE_ROOT; };
 		08F5B55E1489633000671969 /* CalloutMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutMapAnnotationView.h; sourceTree = "<group>"; };
 		08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutMapAnnotationView.m; sourceTree = "<group>"; };
+		08F5B563148A5BC800671969 /* FNLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FNLogo.png; sourceTree = "<group>"; };
+		08F5B564148A5BC800671969 /* FNLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FNLogo@2x.png"; sourceTree = "<group>"; };
+		08F5B567148AA62100671969 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		08F5B568148AA62100671969 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		08F5B569148AA62100671969 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		08F5B56A148AA62100671969 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
+		08F5B56B148AA62100671969 /* FNAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNAccount.h; sourceTree = "<group>"; };
+		08F5B570148AA76200671969 /* FNAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNAccount.m; sourceTree = "<group>"; };
+		08F5B57D148ACD4700671969 /* YelpRestaurantDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurantDataProvider.h; sourceTree = "<group>"; };
+		08F5B57E148ACD4700671969 /* YelpRestaurantDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurantDataProvider.m; sourceTree = "<group>"; };
+		08F5B580148AD31600671969 /* YelpAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpAccount.h; sourceTree = "<group>"; };
+		08F5B581148AD31700671969 /* YelpAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAccount.m; sourceTree = "<group>"; };
+		08F5B583148AEC7600671969 /* yelpLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yelpLogo.png; sourceTree = "<group>"; };
+		08F5B584148AEC7600671969 /* yelpLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelpLogo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0815A1C5148EB0BD00593ABC /* CoreData.framework in Frameworks */,
 				08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */,
 				08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */,
 				08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */,
@@ -147,6 +187,7 @@
 		08D2726114894BAC00D4A103 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0815A1C4148EB0BD00593ABC /* CoreData.framework */,
 				08D272D214894E8C00D4A103 /* MapKit.framework */,
 				08D272CC14894DB500D4A103 /* libxml2.dylib */,
 				08D2726214894BAC00D4A103 /* UIKit.framework */,
@@ -159,6 +200,7 @@
 		08D2726814894BAD00D4A103 /* Songhori */ = {
 			isa = PBXGroup;
 			children = (
+				08F5B57C148ACCD400671969 /* Data */,
 				08D272C414894CAE00D4A103 /* Core */,
 				08D272BD14894C7D00D4A103 /* UI */,
 				08D2727114894BAD00D4A103 /* AppDelegate.h */,
@@ -241,6 +283,10 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08F5B583148AEC7600671969 /* yelpLogo.png */,
+				08F5B584148AEC7600671969 /* yelpLogo@2x.png */,
+				08F5B563148A5BC800671969 /* FNLogo.png */,
+				08F5B564148A5BC800671969 /* FNLogo@2x.png */,
 				08D272B714894C6C00D4A103 /* cluster.png */,
 				08D272B814894C6C00D4A103 /* cluster@2x.png */,
 				08D272B914894C6C00D4A103 /* Locate_me.png */,
@@ -251,6 +297,8 @@
 		08D272BD14894C7D00D4A103 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				0815A1DD149108D700593ABC /* MKMapView+ZoomLevel.h */,
+				0815A1DE149108D700593ABC /* MKMapView+ZoomLevel.m */,
 				08F5B55E1489633000671969 /* CalloutMapAnnotationView.h */,
 				08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */,
 				08D272BE14894C7D00D4A103 /* ClusterAnnotationView.h */,
@@ -265,12 +313,36 @@
 		08D272C414894CAE00D4A103 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				08F5B567148AA62100671969 /* Account.h */,
+				08F5B568148AA62100671969 /* Account.m */,
+				08F5B569148AA62100671969 /* AccountManager.h */,
+				08F5B56A148AA62100671969 /* AccountManager.m */,
+				08F5B56B148AA62100671969 /* FNAccount.h */,
+				08F5B570148AA76200671969 /* FNAccount.m */,
+				08F5B580148AD31600671969 /* YelpAccount.h */,
+				08F5B581148AD31700671969 /* YelpAccount.m */,
 				08D272C514894CAE00D4A103 /* Restaurant.h */,
 				08D272C614894CAE00D4A103 /* Restaurant.m */,
 				08D272C714894CAE00D4A103 /* RestaurantCluster.m */,
 				08D272C814894CAE00D4A103 /* YelpRestaurant.m */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		08F5B57C148ACCD400671969 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				08F5B57D148ACD4700671969 /* YelpRestaurantDataProvider.h */,
+				08F5B57E148ACD4700671969 /* YelpRestaurantDataProvider.m */,
+				0815A1C7148EB13800593ABC /* YelpRestaurant.xcdatamodeld */,
+				0815A1DA1491050600593ABC /* FNRestaurantDataProvider.h */,
+				0815A1DB1491050600593ABC /* FNRestaurantDataProvider.m */,
+				0815A1D3148EBD8500593ABC /* YelpRestaurant.h */,
+				0815A1D4148EBD8500593ABC /* YelpRestaurant.m */,
+				0815A1CA148EB68D00593ABC /* YelpUser.h */,
+				0815A1CB148EB68D00593ABC /* YelpUser.m */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,6 +401,10 @@
 				08D272BB14894C6C00D4A103 /* cluster@2x.png in Resources */,
 				08D272BC14894C6C00D4A103 /* Locate_me.png in Resources */,
 				08D272D614894F4200D4A103 /* MapViewController.xib in Resources */,
+				08F5B565148A5BC800671969 /* FNLogo.png in Resources */,
+				08F5B566148A5BC800671969 /* FNLogo@2x.png in Resources */,
+				08F5B585148AEC7600671969 /* yelpLogo.png in Resources */,
+				08F5B586148AEC7600671969 /* yelpLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +440,16 @@
 				08D272CA14894CAE00D4A103 /* RestaurantCluster.m in Sources */,
 				08D272CB14894CAE00D4A103 /* YelpRestaurant.m in Sources */,
 				08F5B5611489633000671969 /* CalloutMapAnnotationView.m in Sources */,
+				08F5B56D148AA62100671969 /* Account.m in Sources */,
+				08F5B56E148AA62100671969 /* AccountManager.m in Sources */,
+				08F5B571148AA76200671969 /* FNAccount.m in Sources */,
+				08F5B57F148ACD4700671969 /* YelpRestaurantDataProvider.m in Sources */,
+				08F5B582148AD31700671969 /* YelpAccount.m in Sources */,
+				0815A1C9148EB13800593ABC /* YelpRestaurant.xcdatamodeld in Sources */,
+				0815A1CC148EB68D00593ABC /* YelpUser.m in Sources */,
+				0815A1D5148EBD8500593ABC /* YelpRestaurant.m in Sources */,
+				0815A1DC1491050600593ABC /* FNRestaurantDataProvider.m in Sources */,
+				0815A1DF149108D700593ABC /* MKMapView+ZoomLevel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +563,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0815A1C7148EB13800593ABC /* YelpRestaurant.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0815A1C8148EB13800593ABC /* YelpRestaurant.xcdatamodel */,
+			);
+			currentVersion = 0815A1C8148EB13800593ABC /* YelpRestaurant.xcdatamodel */;
+			path = YelpRestaurant.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 08D2725514894BAC00D4A103 /* Project object */;
 }

@@ -50,6 +50,9 @@
 
 @implementation CalloutContentView
 @synthesize restaurant=_restaurant; 
+@synthesize logo=_logo; 
+
+
 
 -(id) initWithRestaurant:(Restaurant *)r
 {
@@ -59,10 +62,11 @@
         self.restaurant = r; 
         _nameLabel = [[UILabel alloc] init]; 
         _detailLabel = [[UILabel alloc] init]; 
-        
+        _logo = [[UIImageView alloc] init]; 
                 
         [self addSubview:_nameLabel]; 
         [self addSubview:_detailLabel]; 
+        [self addSubview:_logo]; 
         
         
         _nameLabel.text = r.name; 
@@ -91,6 +95,10 @@
     _restaurant = restaurant; 
     _nameLabel.text = restaurant.name; 
     _detailLabel.text = restaurant.detail; 
+    
+    self.logo.image = restaurant.logo; 
+    [self.logo sizeToFit]; 
+    
     [self setNeedsDisplay]; 
 }
 
@@ -100,10 +108,11 @@
     
     CGRect nameRect = CGRectMake(rect.origin.x+10, rect.origin.y, rect.size.width-20, 25); 
     CGRect detailRect = CGRectMake(rect.origin.x+10, rect.origin.y+17, rect.size.width-20, rect.size.height-30); 
-    
+    CGRect logoRect = CGRectMake(rect.origin.x+rect.size.width-30, rect.origin.y, 23, 23); 
     
     _nameLabel.frame = nameRect; 
     _detailLabel.frame = detailRect; 
+    self.logo.frame = logoRect ;
 }
 
 
@@ -111,6 +120,7 @@
 {
     [_nameLabel release]; 
     [_detailLabel release]; 
+    [_logo release]; 
     [super dealloc]; 
 }
 
@@ -143,7 +153,7 @@
 
 -(void) setParentAnnotationView:(MKAnnotationView *)parentAnnotationView
 {
-    [_parentAnnotationView release]; 
+//    [_parentAnnotationView release]; 
     _parentAnnotationView = parentAnnotationView; 
     
     ((CalloutContentView*) _contentView).restaurant = parentAnnotationView.annotation; 
