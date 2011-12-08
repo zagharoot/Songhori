@@ -15,7 +15,7 @@
     id<RestaurantDataDelegate> _delegate; 
     MKCoordinateRegion selectedRegion; 
     
-        NSMutableURLRequest* request; 
+        NSMutableURLRequest* _request; 
         NSMutableData* _incomingData; 
         NSURLConnection* _urlConnection; 
     
@@ -30,6 +30,6 @@
 
 @property (nonatomic, retain) NSURLConnection* urlConnection; 
 @property (nonatomic, retain) NSMutableData* incomingData; 
-
+@property (nonatomic, retain) NSMutableURLRequest* request; 
 
 @end

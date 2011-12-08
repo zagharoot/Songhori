@@ -19,6 +19,7 @@
 
 @synthesize urlConnection=_urlConnection; 
 @synthesize incomingData=_incomingData; 
+@synthesize request=_request; 
 
 -(id) init
 {
@@ -38,6 +39,7 @@
 {
     self.urlConnection = nil; 
     self.incomingData = nil; 
+    self.request = nil; 
     
     [super dealloc]; 
 }
@@ -63,12 +65,12 @@
 {
     self.incomingData = nil; 
         
-    request = [[NSMutableURLRequest alloc] initWithURL:[self urlForRegion:region zoomLevel:zoomLevel] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:60]; 
+    self.request = [[[NSMutableURLRequest alloc] initWithURL:[self urlForRegion:region zoomLevel:zoomLevel] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:60] autorelease]; 
     
     //set parameters of the request except for the body: 
-    [request setHTTPMethod:@"GET"]; 
+    [self.request setHTTPMethod:@"GET"]; 
     
-    self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self]; 
+    self.urlConnection = [NSURLConnection connectionWithRequest:self.request delegate:self]; 
     
     selectedRegion = region; 
     

@@ -94,6 +94,9 @@ static UIImage* FNLogo;
 
 -(void) dealloc
 {
+    self.urlConnection = nil; 
+    self.incomingData = nil; 
+    [request release]; 
     [_name release]; 
     [_detail release]; 
     [super dealloc]; 
