@@ -24,8 +24,8 @@
         if (aa)
         {
             _active = YES; 
-            _dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:aa] autorelease];
-            _dataProvider.delegate = self; 
+            self.dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:aa] autorelease];
+            self.dataProvider.delegate = self; 
         }
         else
             _active = NO; 
@@ -60,19 +60,23 @@
 
 -(void) activateAccount:(NSString *)username
 {
+    if ([self isActive])    //TODO: what about if we want to change the username? 
+        return; 
+    
     //replace the value in the userdefaults
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
     
     [ud setValue:username forKey:@"YelpAccountUsername"]; 
 
-    _dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:username] autorelease];
-    _dataProvider.delegate = self; 
+    self.dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:username] autorelease];
+    self.dataProvider.delegate = self; 
     
     
     _active = YES;  
 }
 
--(void) restaurantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
+
+-(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
     //the array we get is of YelpRestaurant, but we need to change it to YelpRestaurantAnnotation
     
