@@ -23,7 +23,7 @@
 @interface YelpRestaurantDataProvider : NSObject
 {
     NSMutableURLRequest* _requestCheckin; 
-    YelpUser* userData; 
+    YelpUser* _userData; 
     
     NSManagedObjectContext* context; 
     NSManagedObjectModel* model; 
@@ -35,7 +35,7 @@
 -(id) initWithUserid:(NSString*) u; 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region; //array of YelpRestaurant
 
-
+-(NSURL*) urlForPage:(int) pageNumber; 
 
 
 -(void) loadCheckins; 
@@ -44,5 +44,5 @@
 
 @property (retain, readonly) NSMutableURLRequest* requestCheckin;
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate;  //we send array of YelpRestaurant
-
+@property (nonatomic, retain) YelpUser* userData; 
 @end

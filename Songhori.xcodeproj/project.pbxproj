@@ -56,7 +56,6 @@
 		08F5B57F148ACD4700671969 /* YelpRestaurantDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B57E148ACD4700671969 /* YelpRestaurantDataProvider.m */; };
 		08F5B582148AD31700671969 /* YelpAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B581148AD31700671969 /* YelpAccount.m */; };
 		08F5B585148AEC7600671969 /* yelpLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B583148AEC7600671969 /* yelpLogo.png */; };
-		08F5B586148AEC7600671969 /* yelpLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B584148AEC7600671969 /* yelpLogo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,7 +144,6 @@
 		08F5B580148AD31600671969 /* YelpAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpAccount.h; sourceTree = "<group>"; };
 		08F5B581148AD31700671969 /* YelpAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAccount.m; sourceTree = "<group>"; };
 		08F5B583148AEC7600671969 /* yelpLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yelpLogo.png; sourceTree = "<group>"; };
-		08F5B584148AEC7600671969 /* yelpLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelpLogo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				08F5B583148AEC7600671969 /* yelpLogo.png */,
-				08F5B584148AEC7600671969 /* yelpLogo@2x.png */,
 				08F5B563148A5BC800671969 /* FNLogo.png */,
 				08F5B564148A5BC800671969 /* FNLogo@2x.png */,
 				08D272B714894C6C00D4A103 /* cluster.png */,
@@ -404,7 +401,6 @@
 				08F5B565148A5BC800671969 /* FNLogo.png in Resources */,
 				08F5B566148A5BC800671969 /* FNLogo@2x.png in Resources */,
 				08F5B585148AEC7600671969 /* yelpLogo.png in Resources */,
-				08F5B586148AEC7600671969 /* yelpLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +531,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Songhori/Songhori-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = "Songhori/Songhori-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

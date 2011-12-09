@@ -57,10 +57,20 @@
 @end
 
 
+static UIImage* YelpLogo; 
 
 
+
+//-----------------------------------------------------------
 @implementation YelpRestaurantAnnotation
 @synthesize restaurant=_restaurant; 
+
+
+-(NSString*) name
+{
+    return self.restaurant.name; 
+}
+
 
 
 -(id) initWithYelpRestaurant:(YelpRestaurant *)r
@@ -83,9 +93,27 @@
 }
 
 
+-(UIImage*) logo
+{
+    if (!YelpLogo)
+    {
+        YelpLogo = [[UIImage imageNamed:@"YelpLogo.png"] retain]; 
+    }
+    
+    return YelpLogo; 
+}
+
+
+
+
 -(NSString*) detail
 {
-    NSString* result = [NSString stringWithFormat:@"number of checkins: %d\nlast on: %@", self.restaurant.checkinCount, self.restaurant.checkinDate]; 
+    int cnt = self.restaurant.checkinCount; 
+    NSTimeInterval t = self.restaurant.checkinDate; 
+    NSDate* d = [NSDate dateWithTimeIntervalSince1970:t]; 
+    
+    
+    NSString* result = [NSString stringWithFormat:@"number of checkins: %d\nlast on: %@", cnt, d]; 
     
     return result; 
 }

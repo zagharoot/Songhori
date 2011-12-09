@@ -13,6 +13,7 @@
 
 @synthesize requestCheckin=_requestCheckin;
 @synthesize delegate=_delegate; 
+@synthesize userData=_userData; 
 
 - (id)initWithUserid:(NSString*) u
 {
@@ -23,7 +24,12 @@
         
         NSPersistentStoreCoordinator* prs = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model]; 
         
-        NSString* path = @"yelp.data"; 
+        
+        //get the path to the document
+        NSArray* documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* documentRootPath = [documentPaths objectAtIndex:0];
+        
+        NSString* path = [NSString stringWithFormat:@"%@/yelp.data", documentRootPath]; 
         NSURL* curl = [NSURL fileURLWithPath:path]; 
         NSError* error = nil; 
         
@@ -50,10 +56,11 @@
         NSArray* arr = [context executeFetchRequest:fetchRequest error:&err] ;
         if (! arr) 
         {
-            userData = [self createYelpUserWithUsername:u]; 
-        }
+            self.userData = [self createYelpUserWithUsername:u]; 
+        }else if (arr.count ==0)
+            self.userData = [self createYelpUserWithUsername:u]; 
         else
-            userData = [arr objectAtIndex:0]; 
+            self.userData = [arr objectAtIndex:0]; 
         
         
         //create the request: only the body part of the request remains to be created on the fly at each call
@@ -99,8 +106,13 @@
              
              for (id item in items) {
                  YelpRestaurant* yr = [self createYelpRestaurantWithJsonData:item]; 
-                 [userData addCheckinsObject:yr]; 
+                 [self.userData addCheckinsObject:yr]; 
              }
+             
+             NSError* err = nil; 
+             [context save:&err];
+             if (err)
+                 NSLog(@"Error saving yelp data to sql: %@\n", err);
              
              //cleanup 
              [parser release];
@@ -134,9 +146,9 @@
 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion)region
 {
-    NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity:userData.checkins.count]; 
+    NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity:self.userData.checkins.count]; 
     
-    for (YelpRestaurant* r in userData.checkins) 
+    for (YelpRestaurant* r in self.userData.checkins) 
     {
         //TODO: check if r is in the region 
         [result addObject:r]; 
@@ -156,6 +168,7 @@
 
 -(void) dealloc
 {
+    self.userData = nil; 
     [_requestCheckin release]; 
     
     [super dealloc]; 

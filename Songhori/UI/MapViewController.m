@@ -44,6 +44,7 @@
     accountManager = [AccountManager standardAccountManager]; 
     accountManager.delegate = self; 
     accountManager.fnAccount.active = YES; 
+    [accountManager.yelpAccount activateAccount:@"alidoon"]; 
     
     
     //default to zoom on USA 
