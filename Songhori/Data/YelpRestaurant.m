@@ -70,10 +70,14 @@
     {
         _restaurant = r;    //this is an assign, so never release
         
-        CLLocationCoordinate2D loc; 
-        loc.latitude = r.latitude; 
-        loc.longitude = r.longitude; 
-        [self setCoordinate:loc]; 
+        __coordinate.latitude = r.latitude; 
+        __coordinate.longitude = r.longitude; 
+        
+        
+//        CLLocationCoordinate2D loc; 
+//        loc.latitude = r.latitude; 
+//        loc.longitude = r.longitude; 
+//        [self setCoordinate:loc]; 
     }
     return self; 
 }
