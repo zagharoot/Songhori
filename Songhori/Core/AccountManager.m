@@ -73,7 +73,7 @@ static AccountManager* theAccountManager;
         YelpAccount* yi = [[[YelpAccount alloc] init] autorelease]; 
         [accountRequestProgress setValue:@"NO" forKey:yi.accountName]; 
         yi.delegate = self; 
-        //[_accounts addObject:yi]; //TODO: remove comment
+        [_accounts addObject:yi]; 
         //WEBSITE: 
         
     }
@@ -153,9 +153,10 @@ static AccountManager* theAccountManager;
 -(YelpAccount*) yelpAccount
 {
     if ([self.accounts count] > YELP_INDEX)
-        return [self.accounts objectAtIndex:YELP_INDEX]; 
+        return  [self.accounts objectAtIndex:YELP_INDEX]; 
     else
         return nil; 
+    
 }
 
 
