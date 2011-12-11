@@ -202,7 +202,7 @@ static UIImage* YelpLogo;
 {
     if (!YelpLogo)
     {
-        YelpLogo = [[UIImage imageNamed:@"YelpLogo.png"] retain]; 
+        YelpLogo = [[UIImage imageNamed:@"yelpLogo.png"] retain]; 
     }
     
     return YelpLogo; 
