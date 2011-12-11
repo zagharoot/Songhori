@@ -18,9 +18,15 @@
 @interface YelpUser: NSManagedObject
 
 @property (nonatomic) NSTimeInterval lastCheckinDate;
+@property (nonatomic) NSTimeInterval lastSyncDate;          //when was the last time we synced with the website
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSSet *checkins;
+
+-(void) recalculateLastCheckin; 
+
 @end
+
+
 
 @interface YelpUser (CoreDataGeneratedAccessors)
 
