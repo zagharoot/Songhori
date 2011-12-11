@@ -72,7 +72,7 @@
         NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.userData.lastSyncDate; 
         
         if (diff > 86400)       //it's been more than one day 
-            [self loadCheckins:7]; 
+            [self loadCheckins:6]; 
     }
     
     return self;
@@ -240,7 +240,10 @@
 {
     NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity:self.userData.checkins.count]; 
     
-    for (YelpRestaurant* r in self.userData.checkins) 
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"latitude>%lf AND latitude<%lf AND longitude>%lf AND longitude < %lf", region.center.latitude-region.span.latitudeDelta/2.0, region.center.latitude+region.span.latitudeDelta/2.0, region.center.longitude-region.span.longitudeDelta/2.0, region.center.longitude+region.span.longitudeDelta/2.0]; 
+    NSSet* filtered = [self.userData.checkins filteredSetUsingPredicate:predicate]; 
+    
+    for (YelpRestaurant* r in filtered) 
     {
         //TODO: check if r is in the region 
         if ([r isDetailDataAvailable])
