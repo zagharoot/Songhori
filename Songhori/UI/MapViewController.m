@@ -182,6 +182,7 @@
         MKAnnotationView *annView;
         RestaurantCluster* cluster = (RestaurantCluster*) annotation; 
         
+        
         annView = (ClusterAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"cluster"];
         
         if( !annView )
@@ -189,7 +190,8 @@
         
         annView.image = [UIImage imageNamed:@"cluster.png"];
         [(ClusterAnnotationView*)annView setClusterText:[NSString stringWithFormat:@"%i",cluster.count]];
-        annView.canShowCallout = YES;
+        annView.canShowCallout = NO;
+        
         
         return annView; 
     } else if ([annotation isKindOfClass:[CalloutMapAnnotation class]])
