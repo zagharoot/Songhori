@@ -55,7 +55,9 @@
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret session:(NSString *)aSession
 		 duration:(NSNumber *)aDuration attributes:(NSDictionary *)theAttributes created:(NSDate *)creation
 		renewable:(BOOL)renew {
-	[super init];
+	self = [super init];
+    if (self) 
+    {
 	self.key = aKey;
 	self.secret = aSecret;
 	self.session = aSession;
@@ -64,7 +66,8 @@
 	created = [creation retain];
 	renewable = renew;
 	forRenewal = NO;
-
+    }
+    
 	return self;
 }
 
@@ -104,7 +107,9 @@
 }
 
 - (id)initWithUserDefaultsUsingServiceProviderName:(const NSString *)provider prefix:(const NSString *)prefix {
-	[super init];
+	self = [super init];
+    if (self) 
+    {
 	self.key = [OAToken loadSetting:@"key" provider:provider prefix:prefix];
 	self.secret = [OAToken loadSetting:@"secret" provider:provider prefix:prefix];
 	self.session = [OAToken loadSetting:@"session" provider:provider prefix:prefix];
@@ -112,7 +117,8 @@
 	self.attributes = [OAToken loadSetting:@"attributes" provider:provider prefix:prefix];
 	created = [OAToken loadSetting:@"created" provider:provider prefix:prefix];
 	renewable = [[OAToken loadSetting:@"renewable" provider:provider prefix:prefix] boolValue];
-
+    }
+    
 	if (![self isValid]) {
 		[self autorelease];
 		return nil;

@@ -32,10 +32,14 @@
 #pragma mark init
 
 - (id)initWithKey:(const NSString *)aKey secret:(const NSString *)aSecret {
-	[super init];
+	self = [super init];
+    if (self) 
+    {
 	self.key = [aKey retain];
 	self.secret = [aSecret retain];
-	return self;
+    }
+    
+    return self;
 }
 
 - (BOOL)isEqual:(id)object {

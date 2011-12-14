@@ -83,23 +83,24 @@
              NSLog(@"Error downloading checkins from yelp: %@\n", [error description]); 
          } else         //success
          {
-             NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
+             NSString* str = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]; 
              // NSLog(@"received %@\n", str);
              
              SBJsonParser* parser = [[SBJsonParser alloc] init]; 
              parser.maxDepth = 5; 
              
              NSDictionary* d1 = [parser objectWithData:data]; 
-             if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; return;}
+             if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", str); [parser release];  return;}
              
              
              self.jsonData = str; 
-             [str release]; 
              
              
              //loading the coordinates: 
              NSDictionary* locDic = [d1 objectForKey:@"location"]; 
-             if (locDic == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; return;}
+             if (locDic == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", str); [parser release]; return;}
+
+            
              
              NSDictionary* coordinateDic = [locDic objectForKey:@"coordinate"]; 
              if (coordinateDic) 
@@ -123,6 +124,9 @@
          }// if 
          
      }]; 
+    
+    
+    [request release]; 
 }
 
 

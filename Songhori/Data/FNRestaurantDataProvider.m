@@ -94,7 +94,7 @@
 {
     
     //    
-    //NSString* datastr = [[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding]; 
+    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
     //NSLog(@"received data as %@\n", datastr); 
     
     
@@ -108,7 +108,10 @@
     
     NSDictionary* d1 = [parser objectWithData:self.incomingData]; 
     
-    if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release];  return; }
+    if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", datastr); [parser release];   return; }
+    
+    
+
     
     
     NSArray* locations = [d1 objectForKey:@"locations"]; 

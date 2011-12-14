@@ -51,8 +51,11 @@
 				 realm:(const NSString *)aRealm callback:(const NSString *)aCallback
 			  delegate:(NSObject <OATokenManagerDelegate> *)aDelegate {
 
-	[super init];
-	consumer = [aConsumer retain];
+	self = [super init];
+	if (self) 
+    {
+        
+    consumer = [aConsumer retain];
 	acToken = nil;
 	reqToken = nil;
 	initialToken = [aToken retain];
@@ -65,7 +68,8 @@
 	selectors = [[NSMutableArray alloc] init];
 	delegates = [[NSMutableDictionary alloc] init];
 	isDispatching = NO;
-
+    }
+    
 	return self;
 }
 

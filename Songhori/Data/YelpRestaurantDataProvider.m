@@ -171,6 +171,9 @@
         return; //TODO: 
     
     
+    NSLog(@"Loading yelp checkin page %d\n", pageNumber); 
+    
+    
     self.requestCheckin = [[[NSMutableURLRequest alloc] initWithURL:[self urlForPage:pageNumber] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:60] autorelease]; 
     
     //set parameters of the request except for the body: 
