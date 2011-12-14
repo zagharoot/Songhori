@@ -35,6 +35,12 @@
 }
 
 
+-(void) save
+{
+    [self.dataProvider save]; 
+}
+
+
 -(NSString*) accountName
 {
     return @"YelpAccount" ; 

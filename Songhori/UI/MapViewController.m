@@ -13,7 +13,7 @@
 #import "CalloutMapAnnotationView.h"
 #import "YelpRestaurant.h" 
 #import "ClusterAnnotationView.h"
-
+#import <MapKit/MapKit.h>
 
 
 @implementation MapViewController
@@ -106,6 +106,10 @@
 
 - (void)viewDidUnload
 {
+    
+    self.calloutAnnotation = nil; 
+    [loadSettingsPage release];
+    
     [self setMyMapView:nil];
     [self setRedoSearchBtn:nil];
     [self setSearchActivityIndicator:nil];
@@ -134,6 +138,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [[AccountManager standardAccountManager] save]; 
 	[super viewDidDisappear:animated];
 }
 
@@ -149,7 +154,7 @@
 {
 //    MKCoordinateRegion r =  mapView.region; 
     self.redoSearchBtn.hidden = NO; 
-    
+    [self.redoSearchBtn setNeedsDisplay]; 
     
 }
 
@@ -176,7 +181,7 @@
 */    
     
     
-    
+
     if( [annotation isKindOfClass:[RestaurantCluster class]])
     {
         MKAnnotationView *annView;
@@ -195,7 +200,11 @@
         
         return annView; 
     } else if ([annotation isKindOfClass:[CalloutMapAnnotation class]])
-    {
+    {        
+            //if the selected item is not restaurant, just return 
+            if (![self.selectedAnnotationView isKindOfClass:[MKPinAnnotationView class]])
+                return nil;  
+        
             CalloutMapAnnotationView *calloutMapAnnotationView = (CalloutMapAnnotationView *)[self.myMapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutAnnotation"];
             if (!calloutMapAnnotationView) 
             {
@@ -226,19 +235,6 @@
 }
 
 
-- (void)dealloc {
-    [myMapView release];
-    [_url release]; 
-    [restaurants release]; 
-    [redoSearchBtn release];
-    [searchActivityIndicator release];
-    [locateMeBtn release];
-    [locateMeActivityIndicator release];
-    
-    self.calloutAnnotation = nil; 
-    [loadSettingsPage release];
-    [super dealloc];
-}
 
 
 
@@ -261,6 +257,7 @@
 
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
     if (self.calloutAnnotation == nil) 
 			self.calloutAnnotation = [[[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
 																	   andLongitude:view.annotation.coordinate.longitude] autorelease];

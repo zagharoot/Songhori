@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Restaurant.h"
+#import "YelpCheckin.h" 
 
 @class YelpUser;
 @class YelpRestaurantAnnotation; 
@@ -42,20 +43,33 @@
 @property (nonatomic, retain) NSString * y_id;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * jsonData; 
-@property (nonatomic) NSTimeInterval checkinDate;
+@property (nonatomic) NSTimeInterval lastCheckinDate;
 @property (nonatomic) int16_t checkinCount;
 @property (nonatomic, retain) YelpUser *user;
+@property (nonatomic, retain) NSSet *checkins;
 
 
 @property (nonatomic, readonly) YelpRestaurantAnnotation* annotation; 
 @property (nonatomic, assign) id<YelpRestaurantDelegate> delegate; 
 
 
--(void) loadFromJSON:(id) json;         //given checkin json data, load attributes (this only has id, checkin count and date) 
 -(void) loadDetailsFromWebsite;         //this uses the business id to get more information from the website 
 -(BOOL) isDetailDataAvailable;          //returns true if the details of the restaurant data is available 
+-(void) addCheckin:(YelpCheckin*) checkin; 
+
 
 @end
+
+
+@interface YelpRestaurant (CoreDataGeneratedAccessors)
+
+- (void)addCheckinsObject:(YelpCheckin *)value;
+- (void)removeCheckinsObject:(YelpCheckin *)value;
+- (void)addCheckins:(NSSet *)values;
+- (void)removeCheckins:(NSSet *)values;
+@end
+
+
 
 
 @interface YelpRestaurantAnnotation : Restaurant {

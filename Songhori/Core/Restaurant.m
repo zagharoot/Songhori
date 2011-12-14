@@ -118,25 +118,33 @@ static UIImage* FNLogo;
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //incomingData has the html file. Let's parse it and extract the relevant data 
-    
-    // Create parser
-    TFHpple* xpathParser = [[TFHpple alloc] initWithHTMLData:self.incomingData];
-    
-    //Get all the cells of the 2nd row of the 3rd table 
-    NSArray* elements = [xpathParser searchWithXPathQuery:@"//div[@id='fn-w']/div[3]/p[1]"]; 
 
-    if (elements.count>0)
-    {
-        // Access the first cell
-        TFHppleElement *element = [elements objectAtIndex:0];
     
-        // Get the text within the cell tag
-        self.detail = [element content];
-    }
-    
-    [xpathParser release];    
-    
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //incomingData has the html file. Let's parse it and extract the relevant data 
+        
+        // Create parser
+        TFHpple* xpathParser = [[TFHpple alloc] initWithHTMLData:self.incomingData];
+        
+        //Get all the cells of the 2nd row of the 3rd table 
+        NSArray* elements = [xpathParser searchWithXPathQuery:@"//div[@id='fn-w']/div[3]/p[1]"]; 
+        
+        if (elements.count>0)
+        {
+            // Access the first cell
+            TFHppleElement *element = [elements objectAtIndex:0];
+            
+            // Get the text within the cell tag
+            self.detail = [element content];
+        }
+        
+        [xpathParser release];    
+
+        dispatch_async( dispatch_get_main_queue(), ^{
+            // Add code here to update the UI/send notifications based on the
+            // results of the background processing
+        });
+    });
 }
 
 

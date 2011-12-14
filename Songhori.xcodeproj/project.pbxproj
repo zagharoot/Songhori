@@ -10,7 +10,6 @@
 		0815A1C5148EB0BD00593ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0815A1C4148EB0BD00593ABC /* CoreData.framework */; };
 		0815A1C9148EB13800593ABC /* YelpRestaurant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1C7148EB13800593ABC /* YelpRestaurant.xcdatamodeld */; };
 		0815A1CC148EB68D00593ABC /* YelpUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1CB148EB68D00593ABC /* YelpUser.m */; };
-		0815A1D5148EBD8500593ABC /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1D4148EBD8500593ABC /* YelpRestaurant.m */; };
 		0815A1DC1491050600593ABC /* FNRestaurantDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1DB1491050600593ABC /* FNRestaurantDataProvider.m */; };
 		0815A1DF149108D700593ABC /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1DE149108D700593ABC /* MKMapView+ZoomLevel.m */; };
 		0815A2521494E24B00593ABC /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A22E1494E24B00593ABC /* NSMutableURLRequest+Parameters.m */; };
@@ -30,6 +29,8 @@
 		0815A2601494E24B00593ABC /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A24B1494E24B00593ABC /* OAServiceTicket.m */; };
 		0815A2611494E24B00593ABC /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A24E1494E24B00593ABC /* OAToken.m */; };
 		0815A2621494E24B00593ABC /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A2501494E24B00593ABC /* OATokenManager.m */; };
+		089ED000149678D500BA8306 /* YelpCheckin.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ECFFF149678D500BA8306 /* YelpCheckin.m */; };
+		089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ED0031496896700BA8306 /* YelpRestaurant.m */; };
 		08B8E0FF1495290E00331505 /* locateMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FA1495290E00331505 /* locateMeButton.png */; };
 		08B8E1001495290E00331505 /* locateMeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FB1495290E00331505 /* locateMeButton@2x.png */; };
 		08B8E1011495290E00331505 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FC1495290E00331505 /* settingsButton.png */; };
@@ -83,8 +84,6 @@
 		0815A1C8148EB13800593ABC /* YelpRestaurant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YelpRestaurant.xcdatamodel; sourceTree = "<group>"; };
 		0815A1CA148EB68D00593ABC /* YelpUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpUser.h; sourceTree = "<group>"; };
 		0815A1CB148EB68D00593ABC /* YelpUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpUser.m; sourceTree = "<group>"; };
-		0815A1D3148EBD8500593ABC /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
-		0815A1D4148EBD8500593ABC /* YelpRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurant.m; sourceTree = "<group>"; };
 		0815A1DA1491050600593ABC /* FNRestaurantDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNRestaurantDataProvider.h; sourceTree = "<group>"; };
 		0815A1DB1491050600593ABC /* FNRestaurantDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNRestaurantDataProvider.m; sourceTree = "<group>"; };
 		0815A1DD149108D700593ABC /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
@@ -125,6 +124,10 @@
 		0815A24F1494E24B00593ABC /* OATokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OATokenManager.h; sourceTree = "<group>"; };
 		0815A2501494E24B00593ABC /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		0815A2511494E24B00593ABC /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
+		089ECFFE149678D500BA8306 /* YelpCheckin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpCheckin.h; sourceTree = "<group>"; };
+		089ECFFF149678D500BA8306 /* YelpCheckin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpCheckin.m; sourceTree = "<group>"; };
+		089ED0021496896700BA8306 /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
+		089ED0031496896700BA8306 /* YelpRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurant.m; sourceTree = "<group>"; };
 		08B8E0FA1495290E00331505 /* locateMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButton.png; sourceTree = "<group>"; };
 		08B8E0FB1495290E00331505 /* locateMeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButton@2x.png"; sourceTree = "<group>"; };
 		08B8E0FC1495290E00331505 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
@@ -454,12 +457,14 @@
 				08F5B57D148ACD4700671969 /* YelpRestaurantDataProvider.h */,
 				08F5B57E148ACD4700671969 /* YelpRestaurantDataProvider.m */,
 				0815A1C7148EB13800593ABC /* YelpRestaurant.xcdatamodeld */,
+				089ECFFE149678D500BA8306 /* YelpCheckin.h */,
+				089ECFFF149678D500BA8306 /* YelpCheckin.m */,
 				0815A1DA1491050600593ABC /* FNRestaurantDataProvider.h */,
 				0815A1DB1491050600593ABC /* FNRestaurantDataProvider.m */,
-				0815A1D3148EBD8500593ABC /* YelpRestaurant.h */,
-				0815A1D4148EBD8500593ABC /* YelpRestaurant.m */,
 				0815A1CA148EB68D00593ABC /* YelpUser.h */,
 				0815A1CB148EB68D00593ABC /* YelpUser.m */,
+				089ED0021496896700BA8306 /* YelpRestaurant.h */,
+				089ED0031496896700BA8306 /* YelpRestaurant.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -568,7 +573,6 @@
 				08F5B582148AD31700671969 /* YelpAccount.m in Sources */,
 				0815A1C9148EB13800593ABC /* YelpRestaurant.xcdatamodeld in Sources */,
 				0815A1CC148EB68D00593ABC /* YelpUser.m in Sources */,
-				0815A1D5148EBD8500593ABC /* YelpRestaurant.m in Sources */,
 				0815A1DC1491050600593ABC /* FNRestaurantDataProvider.m in Sources */,
 				0815A1DF149108D700593ABC /* MKMapView+ZoomLevel.m in Sources */,
 				0815A2521494E24B00593ABC /* NSMutableURLRequest+Parameters.m in Sources */,
@@ -588,6 +592,8 @@
 				0815A2601494E24B00593ABC /* OAServiceTicket.m in Sources */,
 				0815A2611494E24B00593ABC /* OAToken.m in Sources */,
 				0815A2621494E24B00593ABC /* OATokenManager.m in Sources */,
+				089ED000149678D500BA8306 /* YelpCheckin.m in Sources */,
+				089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

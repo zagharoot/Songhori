@@ -19,19 +19,25 @@
 @dynamic y_id;
 @dynamic name;
 @dynamic jsonData; 
-@dynamic checkinDate;
+@dynamic lastCheckinDate;
 @dynamic checkinCount;
 @dynamic user;
-
+@dynamic checkins; 
 
 -(YelpRestaurantAnnotation*) annotation
 {
     if (! _annotation)
         _annotation = [[YelpRestaurantAnnotation alloc] initWithYelpRestaurant:self]; 
     
-    
     return _annotation; 
+}
+
+-(void) addCheckin:(YelpCheckin *)checkin
+{
+    if (self.lastCheckinDate < checkin.visitDate) 
+        self.lastCheckinDate = checkin.visitDate; 
     
+    [self addCheckinsObject:checkin]; 
 }
 
 
@@ -80,11 +86,8 @@
              NSString* str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]; 
              // NSLog(@"received %@\n", str);
              
-             
              SBJsonParser* parser = [[SBJsonParser alloc] init]; 
-             
-             parser.maxDepth = 9; 
-             
+             parser.maxDepth = 5; 
              
              NSDictionary* d1 = [parser objectWithData:data]; 
              if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; return;}
@@ -94,14 +97,11 @@
              [str release]; 
              
              
-             
              //loading the coordinates: 
-             
              NSDictionary* locDic = [d1 objectForKey:@"location"]; 
              if (locDic == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; return;}
              
              NSDictionary* coordinateDic = [locDic objectForKey:@"coordinate"]; 
-             
              if (coordinateDic) 
              {
                  self.longitude = [[coordinateDic objectForKey:@"longitude"] doubleValue]; 
@@ -136,26 +136,10 @@
 }
 
 
-
--(void) loadFromJSON:(id)json
-{
-    NSDictionary* business = json; // [((NSDictionary*) json) objectForKey:@"business"]; 
-    
-    self.y_id = [business objectForKey:@"business_id"]; 
-    id t =  [business objectForKey:@"time_created"];
-    self.checkinDate = [t doubleValue]-NSTimeIntervalSince1970; 
-    self.checkinCount = [[business objectForKey:@"check_in_count"] intValue]; 
-
-    self.longitude = 0; 
-    self.latitude = 0; 
-    self.name = nil; 
-    
-}
-
-
 -(void) dealloc
 {
     [_annotation release]; 
+    [super dealloc]; 
 }
 
 
@@ -188,11 +172,6 @@ static UIImage* YelpLogo;
         __coordinate.latitude = r.latitude; 
         __coordinate.longitude = r.longitude; 
         
-        
-//        CLLocationCoordinate2D loc; 
-//        loc.latitude = r.latitude; 
-//        loc.longitude = r.longitude; 
-//        [self setCoordinate:loc]; 
     }
     return self; 
 }
@@ -214,7 +193,7 @@ static UIImage* YelpLogo;
 -(NSString*) detail
 {
     int cnt = self.restaurant.checkinCount; 
-    NSTimeInterval t = self.restaurant.checkinDate; 
+    NSTimeInterval t = self.restaurant.lastCheckinDate; 
     NSDate* d = [NSDate dateWithTimeIntervalSince1970:t+NSTimeIntervalSince1970];  
     
     

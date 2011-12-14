@@ -25,8 +25,8 @@
     NSTimeInterval max = self.lastCheckinDate; 
     
     for (YelpRestaurant* r in self.checkins) {
-        if (r.checkinDate > max) 
-            max = r.checkinDate; 
+        if (r.lastCheckinDate > max) 
+            max = r.lastCheckinDate; 
     }
     self.lastCheckinDate = max; 
 }
