@@ -23,6 +23,13 @@
     //each account should implement their own
 }
 
+
+-(void) save
+{
+    //each account should implement their own if they respond to this
+}
+
+
 -(UIImage*) logoImage
 {
     if (_logoImage != nil)

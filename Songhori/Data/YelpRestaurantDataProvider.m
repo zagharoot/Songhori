@@ -8,6 +8,7 @@
 
 #import "YelpRestaurantDataProvider.h"
 #import "YelpRestaurant.h"
+#import "YelpCheckin.h"
 
 @implementation YelpRestaurantDataProvider
 
@@ -15,19 +16,62 @@
 @synthesize delegate=_delegate; 
 @synthesize userData=_userData; 
 
+
+-(void) adjustData
+{
+    
+    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithCapacity:200]; 
+    NSMutableSet* removeSet = [NSMutableArray arrayWithCapacity:100]; 
+    
+    
+    for (YelpRestaurant* restaurant in self.userData.checkins) 
+    {
+        YelpRestaurant* tmp; 
+        if ((tmp = [dic objectForKey:restaurant.y_id]))     //already exist
+        {
+            //mark for deletion 
+            [removeSet addObject:restaurant]; 
+        }else
+        {
+            tmp = restaurant; 
+            [dic setValue:restaurant forKey:restaurant.y_id]; 
+        }   
+
+    
+        //tmp is the restaurant obj. add the checkin to it
+        YelpCheckin* checkin = [NSEntityDescription insertNewObjectForEntityForName:@"YelpCheckin" inManagedObjectContext:context]; 
+        
+        checkin.y_id = tmp.y_id; 
+        checkin.visitDate = restaurant.lastCheckinDate; 
+        
+        [tmp addCheckinsObject:checkin]; 
+    }
+    
+    [self.userData removeCheckins:removeSet]; 
+    
+    NSError* err = nil; 
+    [context save:&err]; 
+}
+
+
+-(void) save
+{
+    if ([context hasChanges])
+        [context save:nil]; 
+}
+
 - (id)initWithUserid:(NSString*) u
 {
     self = [super init];
     if (self) {
         outstandingRestaurantDownloads = -1;        //indicates inactivity
         
-        
-        model = [[NSManagedObjectModel mergedModelFromBundles:nil] retain]; 
-        
+        //load the yelp user object from database
+        model = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];         
         NSPersistentStoreCoordinator* prs = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model]; 
         
         
-        //get the path to the document
+        //get the path to the document folder 
         NSArray* documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString* documentRootPath = [documentPaths objectAtIndex:0];
         
@@ -41,12 +85,10 @@
             return nil; 
         }
         
-        context = [[NSManagedObjectContext alloc] init ]; 
+        context = [[NSManagedObjectContext alloc] init]; 
         context.persistentStoreCoordinator = prs; 
         [prs release]; 
         context.undoManager = nil; 
-        
-        
         
         NSFetchRequest* fetchRequest = [[[NSFetchRequest alloc] init] autorelease]; 
         NSEntityDescription* e = [[model entitiesByName] objectForKey:@"YelpUser"]; 
@@ -54,40 +96,39 @@
         
         fetchRequest.predicate = [NSPredicate predicateWithFormat:@"username=%@", u]; 
         
-        NSError* err = nil; 
-        NSArray* arr = [context executeFetchRequest:fetchRequest error:&err] ;
+        NSArray* arr = [context executeFetchRequest:fetchRequest error:nil];
         
-        if (! arr) 
+        if (! arr) //error reading file
         {
             self.userData = [self createYelpUserWithUsername:u]; 
-        }else if (arr.count ==0)
+        }else if (arr.count ==0)    //no such user on database, create it
             self.userData = [self createYelpUserWithUsername:u]; 
-        else
-        {
+        else        //successfully fetched 
             self.userData = [arr objectAtIndex:0]; 
-        }
         
         
         //only resync if we haven't already today 
         NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.userData.lastSyncDate; 
-        
         if (diff > 86400)       //it's been more than one day 
-            [self loadCheckins:6]; 
+            [self loadCheckins:1]; 
+
     }
     
     return self;
 }
 
+
+//each time we ask a yelp restaurant to load the details of its data form yelp, we increase the counter. 
+//here we decrement it because the data is successfully loaded (used to save to db) 
 -(void) detailDataDidDownloadForRestaurant:(YelpRestaurant *)restaurant
 {
     outstandingRestaurantDownloads--; 
     
-    if (outstandingRestaurantDownloads==0)
+    if (outstandingRestaurantDownloads==0)  //everything loaded. save to file
         [context save:nil]; 
-    
 }
 
-
+//this should be rewritten in future if yelp api allows it. 
 -(NSURL*) urlForPage:(int)pageNumber
 {
     NSString* str; 
@@ -123,6 +164,7 @@
     return [NSURL URLWithString:str]; 
 }
 
+
 -(void) loadCheckins:(int) pageNumber 
 {
     if (pageNumber>8)
@@ -133,8 +175,6 @@
     
     //set parameters of the request except for the body: 
     [self.requestCheckin setHTTPMethod:@"GET"]; 
-    
-    
     
     [NSURLConnection sendAsynchronousRequest:self.requestCheckin queue:[NSOperationQueue mainQueue] completionHandler:
     ^(NSURLResponse* response, NSData* data, NSError* error)
@@ -150,12 +190,10 @@
              
              
              SBJsonParser* parser = [[SBJsonParser alloc] init]; 
-             
              parser.maxDepth = 9; 
              
              
              NSDictionary* d1 = [parser objectWithData:data]; 
-             
              if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; return;}
              
              
@@ -166,8 +204,8 @@
              if (items.count < 20)
                  nextPageFlag = NO; 
              
-             for (id item in items) {
-                 
+             for (id item in items) 
+             {
                  //extract the date of this item
                  id t =  [item objectForKey:@"time_created"];
                  NSTimeInterval time = [t doubleValue]-NSTimeIntervalSince1970; 
@@ -181,10 +219,7 @@
                  }
                  
                  //we don't have this item, lets create it and link the wires 
-                 YelpRestaurant* yr = [self createYelpRestaurantWithJsonData:item]; 
-                 [yr loadDetailsFromWebsite]; 
-                 outstandingRestaurantDownloads = MAX(outstandingRestaurantDownloads+1, 1); 
-                 [self.userData addCheckinsObject:yr];
+                 [self createCheckinWithJsonData:item]; 
              }
              
              if (nextPageFlag)
@@ -212,11 +247,11 @@
 }
 
 
--(YelpRestaurant*) createYelpRestaurantWithJsonData:(id)json
+-(YelpRestaurant*) createYelpRestaurantWithID:(NSString*) y_id
 {
     YelpRestaurant* result = [NSEntityDescription insertNewObjectForEntityForName:@"YelpRestaurant" inManagedObjectContext:context]; 
     
-    [result loadFromJSON:json]; 
+    result.y_id = y_id; 
     result.delegate = self; 
     
     return result; 
@@ -236,16 +271,55 @@
 }
 
 
+-(YelpCheckin*) createCheckinWithJsonData:(id)json
+{
+    YelpCheckin* checkin = [NSEntityDescription insertNewObjectForEntityForName:@"YelpCheckin" inManagedObjectContext:context]; 
+    
+    
+    checkin.visitDate = [[json objectForKey:@"time_created"] doubleValue]-NSTimeIntervalSince1970; 
+    checkin.y_id      = [json objectForKey:@"business_id"]; 
+    checkin.jsonData  = [json description]; 
+    
+    
+    //look for corresponding restaurant: 
+    NSString * cond = [NSString stringWithFormat:@"y_id='%@'", checkin.y_id]; 
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:cond]; 
+    NSSet* filtered = [self.userData.checkins filteredSetUsingPredicate:predicate]; 
+    
+    YelpRestaurant* result=nil; 
+    if (filtered.count > 0) //already exist
+    {
+        result = [filtered anyObject];
+    }else 
+    {
+        //create restaurant object 
+        result = [self createYelpRestaurantWithID:checkin.y_id]; 
+        [self.userData addCheckinsObject:result]; 
+        //TODO: download other stuff 
+        
+        outstandingRestaurantDownloads++; 
+        result.delegate = self; 
+        [result loadDetailsFromWebsite]; 
+    }
+    
+    [result addCheckin:checkin]; 
+    result.checkinCount++; 
+
+    return checkin; 
+}
+
+
+
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion)region
 {
     NSMutableArray* result = [[NSMutableArray alloc] initWithCapacity:self.userData.checkins.count]; 
     
+    //only retrieve the ones that fall in the region
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"latitude>%lf AND latitude<%lf AND longitude>%lf AND longitude < %lf", region.center.latitude-region.span.latitudeDelta/2.0, region.center.latitude+region.span.latitudeDelta/2.0, region.center.longitude-region.span.longitudeDelta/2.0, region.center.longitude+region.span.longitudeDelta/2.0]; 
     NSSet* filtered = [self.userData.checkins filteredSetUsingPredicate:predicate]; 
     
     for (YelpRestaurant* r in filtered) 
     {
-        //TODO: check if r is in the region 
         if ([r isDetailDataAvailable])
             [result addObject:r]; 
     }
@@ -257,9 +331,6 @@
     if (self.delegate) 
         [self.delegate restaudantDataDidBecomeAvailable:result2 forRegion:region fromProvider:self]; 
 }
-
-
-
 
 
 -(void) dealloc

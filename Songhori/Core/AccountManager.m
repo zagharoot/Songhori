@@ -45,7 +45,13 @@ static AccountManager* theAccountManager;
 }
 
 
-
+-(void) save
+{
+    for (Account* a in self.accounts) {
+        if ([a isActive])
+            [a save]; 
+    }
+}
 
 
 -(int) NUMBER_OF_ACCOUNTS
@@ -113,13 +119,13 @@ static AccountManager* theAccountManager;
 
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
-    [accountRequestProgress setValue:@"YES" forKey:[provider accountName]]; 
+    [accountRequestProgress setValue:@"NO" forKey:[provider accountName]]; 
     [self.delegate restaudantDataDidBecomeAvailable:restaurants forRegion:region fromProvider:self]; 
     
     for (Account* a in self.accounts) {
         NSString* str = @"YES"; 
-        
-        if ([str compare:[accountRequestProgress valueForKey:a.accountName]])
+    
+        if ([str compare:[accountRequestProgress valueForKey:a.accountName]]== NSOrderedSame)
             return; 
     }
     

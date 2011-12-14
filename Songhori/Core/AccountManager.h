@@ -25,6 +25,7 @@
 -(FNAccount*) fnAccount;                //WEBSITE: 
 -(YelpAccount*) yelpAccount;        
 
+-(void) save;                           //sends save command to each individual account 
 -(BOOL) hasAnyActiveAccount; 
 -(Account*) getAccountAtIndex:(int) index; 
 

@@ -29,6 +29,8 @@ enum ACCOUNT_INDEX  //WEBSITE: add the website here
 }
 
 -(BOOL) isActive;         //returns true if the account has been set up and ready to use
+-(void) save; 
+
 
 -(NSString*) accountName; 
 -(void) didReceiveMemoryWarning; 

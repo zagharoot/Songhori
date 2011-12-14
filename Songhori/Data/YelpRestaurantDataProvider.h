@@ -44,11 +44,12 @@
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region; //array of YelpRestaurant
 
 -(NSURL*) urlForPage:(int) pageNumber; 
-
+-(void) save; 
 
 -(void) loadCheckins:(int) pageNumber;  
--(YelpRestaurant*) createYelpRestaurantWithJsonData:(id) json; 
+-(YelpRestaurant*) createYelpRestaurantWithID:(NSString*) y_id; 
 -(YelpUser*) createYelpUserWithUsername:(NSString*) username; 
+-(YelpCheckin*) createCheckinWithJsonData:(id) json;         //creates the YelpCheckin objects and returns it. automatically links the wires to restaurant and userData 
 
 @property (retain, nonatomic) NSMutableURLRequest* requestCheckin;
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate;  //we send array of YelpRestaurant
