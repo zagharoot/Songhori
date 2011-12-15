@@ -34,6 +34,17 @@
     return self;
 }
 
+-(BOOL) syncData
+{
+    return [self.dataProvider syncData]; 
+}
+
+
+-(void) syncFinished:(id) provider
+{
+    if ([self.delegate respondsToSelector:@selector(syncFinished:)])
+        [self.delegate syncFinished:self]; 
+}
 
 -(void) save
 {

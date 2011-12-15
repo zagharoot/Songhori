@@ -29,6 +29,10 @@
     //each account should implement their own if they respond to this
 }
 
+-(BOOL) syncData
+{
+    return NO; 
+}
 
 -(UIImage*) logoImage
 {

@@ -30,7 +30,7 @@ enum ACCOUNT_INDEX  //WEBSITE: add the website here
 
 -(BOOL) isActive;         //returns true if the account has been set up and ready to use
 -(void) save; 
-
+-(BOOL) syncData;       //try to sync any data we have offline. Return NO if we don't need syncing
 
 -(NSString*) accountName; 
 -(void) didReceiveMemoryWarning; 

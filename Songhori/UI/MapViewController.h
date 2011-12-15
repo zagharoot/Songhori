@@ -11,27 +11,23 @@
 #import "CalloutMapAnnotationView.h"
 #import "AccountManager.h"
 #import "Restaurant.h" 
+#import "GCDiscreetNotificationView.h" 
+
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, RestaurantDataDelegate> 
 {
     BOOL centerOnUserFlag;              //should we center the map at user location or not
     NSURL* _url; 
     
-    NSMutableArray* restaurants; 
-    
-    //ivars necessary for retrieving and managing the detail data 
-//    NSMutableURLRequest* request; 
-//    NSMutableData* _incomingData; 
-//    NSURLConnection* _urlConnection; 
-    
-    
+    NSMutableArray* restaurants;        //this is the array of annotation objects 
+        
 	CalloutMapAnnotation *_calloutAnnotation;
 	MKAnnotationView *_selectedAnnotationView;
     
     AccountManager* accountManager; 
     
-    //TODO: not the best design(move to account manager) 
-//    YelpRestaurantDataProvider* yelpProvider; 
+        
+    GCDiscreetNotificationView* _notificationView; 
 }
 
 -(void) setup; 
@@ -48,6 +44,6 @@
 
 @property (nonatomic, retain) MKAnnotationView *selectedAnnotationView;
 @property (nonatomic, retain) CalloutMapAnnotation* calloutAnnotation; 
-
+@property (nonatomic, retain) GCDiscreetNotificationView*  notificationView; 
 
 @end

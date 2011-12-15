@@ -26,6 +26,23 @@
 
 @synthesize calloutAnnotation=_calloutAnnotation; 
 @synthesize selectedAnnotationView=_selectedAnnotationView; 
+@synthesize notificationView=_notificationView; 
+
+
+
+-(GCDiscreetNotificationView*) notificationView
+{
+    if (!_notificationView)
+        _notificationView = [[GCDiscreetNotificationView alloc] initWithText:@"" 
+                                                           showActivity:YES
+                                                     inPresentationMode:GCDiscreetNotificationViewPresentationModeTop 
+                                                                 inView:self.view];
+    
+    
+    
+    return _notificationView; 
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -102,6 +119,13 @@
 //    [self.myMapView setCenterCoordinate:self.myMapView.centerCoordinate zoomLevel:10 animated:YES]; 
 
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    if ([accountManager syncData]) 
+    {
+        self.notificationView.textLabel = @"Updating data..."; 
+        [self.notificationView setShowActivity:YES animated:YES]; 
+        [self.notificationView show:YES]; 
+    }
 }
 
 - (void)viewDidUnload
@@ -116,6 +140,9 @@
     [self setLocateMeBtn:nil];
     [self setLocateMeActivityIndicator:nil];
     [self setLoadSettingsPage:nil];
+    [self setNotificationView:nil] ; 
+    
+    
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -251,9 +278,21 @@
 {
     self.redoSearchBtn.hidden = YES; 
     [self.searchActivityIndicator stopAnimating]; 
+    
+    //no results found
+    if (restaurants.count==0)
+    {
+        self.notificationView.textLabel = @"No results found!"; 
+        [self.notificationView showAndDismissAfter:3]; 
+    }
 }
 
 
+-(void) syncFinished:(id)provider
+{
+    [self.notificationView setTextLabel:@"Completed!" andSetShowActivity:NO animated:NO]; 
+    [self.notificationView hideAnimatedAfter:1]; 
+}
 
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {

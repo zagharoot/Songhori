@@ -17,6 +17,7 @@
 
 @optional
 -(void) allDataForRequestSent;      //this is called when all the data for a particular request has been sent (useful when the source is collecting data from multiple places) 
+-(void) syncFinished:(id) provider;               //this is called when all the sync activity is finished. 
 @end
 
 

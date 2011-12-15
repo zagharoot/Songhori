@@ -80,6 +80,7 @@
      {
          if (response == nil)       //error happened
          {
+             [self notifyDelegateOfDetailDownloadFinish:NO];
              NSLog(@"Error downloading checkins from yelp: %@\n", [error description]); 
          } else         //success
          {
@@ -90,7 +91,7 @@
              parser.maxDepth = 5; 
              
              NSDictionary* d1 = [parser objectWithData:data]; 
-             if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", str); [parser release];  return;}
+             if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", str); [parser release]; [self notifyDelegateOfDetailDownloadFinish:NO]; return;}
              
              
              self.jsonData = str; 
@@ -98,7 +99,8 @@
              
              //loading the coordinates: 
              NSDictionary* locDic = [d1 objectForKey:@"location"]; 
-             if (locDic == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", str); [parser release]; return;}
+             if (locDic == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", str); [parser release]; [self notifyDelegateOfDetailDownloadFinish:NO]; 
+return;}
 
             
              
@@ -116,11 +118,8 @@
              //cleanup 
              [parser release];
              
-             //inform the delegate
-             if(self.delegate)
-                 if ([self.delegate respondsToSelector:@selector(detailDataDidDownloadForRestaurant:)])
-                     [self.delegate detailDataDidDownloadForRestaurant:self]; 
-             
+
+             [self notifyDelegateOfDetailDownloadFinish:YES]; 
          }// if 
          
      }]; 
@@ -130,12 +129,23 @@
 }
 
 
+
+-(void) notifyDelegateOfDetailDownloadFinish:(BOOL)success
+{
+    //TODO: we don't care about success for now 
+    
+    //inform the delegate
+    if(self.delegate)
+        if ([self.delegate respondsToSelector:@selector(detailDataDidDownloadForRestaurant:)])
+            [self.delegate detailDataDidDownloadForRestaurant:self]; 
+}
+
 -(void) awakeFromFetch
 {
     [super awakeFromFetch]; 
 
-    if (!self.isDetailDataAvailable)
-        [self loadDetailsFromWebsite]; 
+//    if (!self.isDetailDataAvailable)
+//        [self loadDetailsFromWebsite]; 
     
 }
 

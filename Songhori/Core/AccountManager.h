@@ -17,6 +17,7 @@
 {
     NSMutableArray* _accounts;       //list of accounts: this is an array of Account*
     NSMutableDictionary* accountRequestProgress;   //tracks what accounts are pending request data 
+    NSMutableDictionary* syncProgress;             //tracks what accounts are pending sync 
     
     id<RestaurantDataDelegate> _delegate; 
 }
@@ -26,6 +27,9 @@
 -(YelpAccount*) yelpAccount;        
 
 -(void) save;                           //sends save command to each individual account 
+-(BOOL) syncData;                     //sends updateData to each individual account (returns NO if we don't need)
+
+
 -(BOOL) hasAnyActiveAccount; 
 -(Account*) getAccountAtIndex:(int) index; 
 

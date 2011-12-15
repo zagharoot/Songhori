@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080B8DE314992D7100162DDE /* GCDiscreetNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 080B8DE214992D7100162DDE /* GCDiscreetNotificationView.m */; };
 		0815A1C5148EB0BD00593ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0815A1C4148EB0BD00593ABC /* CoreData.framework */; };
 		0815A1C9148EB13800593ABC /* YelpRestaurant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1C7148EB13800593ABC /* YelpRestaurant.xcdatamodeld */; };
 		0815A1CC148EB68D00593ABC /* YelpUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A1CB148EB68D00593ABC /* YelpUser.m */; };
@@ -80,6 +81,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080B8DE114992D7100162DDE /* GCDiscreetNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscreetNotificationView.h; sourceTree = "<group>"; };
+		080B8DE214992D7100162DDE /* GCDiscreetNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscreetNotificationView.m; sourceTree = "<group>"; };
 		0815A1C4148EB0BD00593ABC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0815A1C8148EB13800593ABC /* YelpRestaurant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YelpRestaurant.xcdatamodel; sourceTree = "<group>"; };
 		0815A1CA148EB68D00593ABC /* YelpUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpUser.h; sourceTree = "<group>"; };
@@ -225,6 +228,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080B8DE014992D7100162DDE /* general */ = {
+			isa = PBXGroup;
+			children = (
+				080B8DE114992D7100162DDE /* GCDiscreetNotificationView.h */,
+				080B8DE214992D7100162DDE /* GCDiscreetNotificationView.m */,
+			);
+			path = general;
+			sourceTree = "<group>";
+		};
 		0815A22B1494E24B00593ABC /* OAuthConsumer */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +432,7 @@
 		08D272BD14894C7D00D4A103 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				080B8DE014992D7100162DDE /* general */,
 				0815A1DD149108D700593ABC /* MKMapView+ZoomLevel.h */,
 				0815A1DE149108D700593ABC /* MKMapView+ZoomLevel.m */,
 				08F5B55E1489633000671969 /* CalloutMapAnnotationView.h */,
@@ -594,6 +607,7 @@
 				0815A2621494E24B00593ABC /* OATokenManager.m in Sources */,
 				089ED000149678D500BA8306 /* YelpCheckin.m in Sources */,
 				089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */,
+				080B8DE314992D7100162DDE /* GCDiscreetNotificationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

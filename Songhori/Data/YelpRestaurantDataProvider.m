@@ -15,11 +15,12 @@
 @synthesize requestCheckin=_requestCheckin;
 @synthesize delegate=_delegate; 
 @synthesize userData=_userData; 
+@synthesize outstandingDownloads=_outstandingRestaurantDownloads; 
 
-
+//TODO: this is useless, remove
 -(void) adjustData
 {
-    
+/*    
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithCapacity:200]; 
     NSMutableSet* removeSet = [NSMutableArray arrayWithCapacity:100]; 
     
@@ -51,6 +52,7 @@
     
     NSError* err = nil; 
     [context save:&err]; 
+*/ 
 }
 
 
@@ -64,7 +66,7 @@
 {
     self = [super init];
     if (self) {
-        outstandingRestaurantDownloads = -1;        //indicates inactivity
+        _outstandingRestaurantDownloads = 0;        //indicates inactivity
         
         //load the yelp user object from database
         model = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];         
@@ -105,27 +107,65 @@
             self.userData = [self createYelpUserWithUsername:u]; 
         else        //successfully fetched 
             self.userData = [arr objectAtIndex:0]; 
-        
-        
-        //only resync if we haven't already today 
-        NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.userData.lastSyncDate; 
-        if (diff > 86400)       //it's been more than one day 
-            [self loadCheckins:1]; 
-
     }
     
     return self;
 }
 
 
+-(BOOL) syncData
+{
+    BOOL result=NO; 
+    //only resync if we haven't already today 
+    NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.userData.lastSyncDate; 
+    if (diff > 86400)       //it's been more than one day 
+    {
+        [self incrementActivity]; 
+        [self loadCheckins:1]; 
+        result = YES; 
+    }
+    
+    //
+    for (YelpRestaurant* r in self.userData.checkins) {
+        if (! [ r isDetailDataAvailable])
+        {
+            result = YES; 
+            [self incrementActivity]; 
+            r.delegate = self; 
+            [r loadDetailsFromWebsite]; 
+        }
+    }
+    
+    return result; 
+}
+
+
+-(void) incrementActivity
+{
+    self.outstandingDownloads++; 
+}
+
+-(void) decrementActivity
+{
+    self.outstandingDownloads = MAX(0, self.outstandingDownloads  -1); 
+    
+    if (self.outstandingDownloads==0)
+    {
+        if ([context hasChanges])
+            [context save:nil]; 
+        
+        
+        if ([self.delegate respondsToSelector:@selector(syncFinished:)])
+            [self.delegate syncFinished:self]; 
+    }
+    
+}
+
 //each time we ask a yelp restaurant to load the details of its data form yelp, we increase the counter. 
 //here we decrement it because the data is successfully loaded (used to save to db) 
 -(void) detailDataDidDownloadForRestaurant:(YelpRestaurant *)restaurant
 {
-    outstandingRestaurantDownloads--; 
-    
-    if (outstandingRestaurantDownloads==0)  //everything loaded. save to file
-        [context save:nil]; 
+    [self decrementActivity];     
 }
 
 //this should be rewritten in future if yelp api allows it. 
@@ -170,7 +210,7 @@
     if (pageNumber>8)
         return; //TODO: 
     
-    
+   
     NSLog(@"Loading yelp checkin page %d\n", pageNumber); 
     
     
@@ -179,11 +219,13 @@
     //set parameters of the request except for the body: 
     [self.requestCheckin setHTTPMethod:@"GET"]; 
     
+
     [NSURLConnection sendAsynchronousRequest:self.requestCheckin queue:[NSOperationQueue mainQueue] completionHandler:
     ^(NSURLResponse* response, NSData* data, NSError* error)
      {
          if (response == nil)       //error happened
          {
+             [self decrementActivity]; 
              NSLog(@"Error downloading checkins from yelp: %@\n", [error description]); 
          } else         //success
          {
@@ -197,7 +239,7 @@
              
              
              NSDictionary* d1 = [parser objectWithData:data]; 
-             if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; return;}
+             if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly"); [parser release]; [self decrementActivity]; return;}
              
              
              NSArray* items = [d1 objectForKey:@"check_ins"]; 
@@ -234,6 +276,7 @@
                  
                  self.userData.lastSyncDate = [[NSDate date] timeIntervalSinceReferenceDate];  
                  
+                 [self decrementActivity]; 
                  NSError* err = nil; 
                  [context save:&err];
                  if (err)
@@ -300,7 +343,7 @@
         [self.userData addCheckinsObject:result]; 
         //TODO: download other stuff 
         
-        outstandingRestaurantDownloads++; 
+        [self incrementActivity]; 
         result.delegate = self; 
         [result loadDetailsFromWebsite]; 
     }

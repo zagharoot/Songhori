@@ -54,6 +54,24 @@ static AccountManager* theAccountManager;
 }
 
 
+-(BOOL) syncData
+{
+    BOOL result = NO; 
+    for (Account* a in self.accounts) {
+        [syncProgress setValue:@"NO" forKey:a.accountName]; 
+        if ([a isActive])
+            if ([a syncData])
+            {
+                result = YES; 
+                [syncProgress setValue:@"YES" forKey:a.accountName]; 
+            }
+    }
+    
+    return result; 
+}
+
+
+
 -(int) NUMBER_OF_ACCOUNTS
 {
     return 2; //there are two accounts
@@ -68,16 +86,19 @@ static AccountManager* theAccountManager;
     {
         _accounts = [[NSMutableArray alloc] initWithCapacity:self.NUMBER_OF_ACCOUNTS]; 
         accountRequestProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
+        syncProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
         
         //add food network account 
         FNAccount* fni = [[[FNAccount alloc] init] autorelease]; 
         fni.delegate = self; 
         [_accounts addObject:fni]; 
         [accountRequestProgress setValue:@"NO" forKey:fni.accountName]; 
+        [syncProgress setValue:@"NO" forKey:fni.accountName]; 
         
         
         YelpAccount* yi = [[[YelpAccount alloc] init] autorelease]; 
         [accountRequestProgress setValue:@"NO" forKey:yi.accountName]; 
+        [syncProgress setValue:@"NO" forKey:yi.accountName]; 
         yi.delegate = self; 
         [_accounts addObject:yi]; 
         //WEBSITE: 
@@ -117,6 +138,23 @@ static AccountManager* theAccountManager;
 
 
 
+-(void) syncFinished:(id) provider
+{
+    [syncProgress setValue:@"NO" forKey:[provider accountName]]; 
+    
+    for (Account* a in self.accounts) {
+        NSString* str = @"YES"; 
+        
+        if ([str compare:[syncProgress valueForKey:a.accountName]]== NSOrderedSame)
+            return; 
+    }
+    
+    //all accounts are done. notify delegat if it reacts to it 
+    if (self.delegate && [self.delegate respondsToSelector:@selector(syncFinished:)])
+        [self.delegate syncFinished:self]; 
+}
+
+
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
     [accountRequestProgress setValue:@"NO" forKey:[provider accountName]]; 
@@ -138,6 +176,7 @@ static AccountManager* theAccountManager;
 -(void) dealloc
 {
     [accountRequestProgress release]; 
+    [syncProgress release]; 
     [_accounts release]; 
     
 }

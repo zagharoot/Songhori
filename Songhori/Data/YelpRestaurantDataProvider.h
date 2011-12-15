@@ -36,7 +36,7 @@
     id<RestaurantDataDelegate> _delegate; 
     
     
-    int outstandingRestaurantDownloads;         //this indicates how many more restaurants need to be downloaded 
+    int _outstandingRestaurantDownloads;         //this indicates how many more restaurants need to be downloaded 
 }
 
 
@@ -45,6 +45,9 @@
 
 -(NSURL*) urlForPage:(int) pageNumber; 
 -(void) save; 
+-(BOOL) syncData; 
+-(void) incrementActivity; 
+-(void) decrementActivity; 
 
 -(void) loadCheckins:(int) pageNumber;  
 -(YelpRestaurant*) createYelpRestaurantWithID:(NSString*) y_id; 
@@ -54,4 +57,5 @@
 @property (retain, nonatomic) NSMutableURLRequest* requestCheckin;
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate;  //we send array of YelpRestaurant
 @property (nonatomic, retain) YelpUser* userData; 
+@property (atomic) int outstandingDownloads; 
 @end

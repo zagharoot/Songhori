@@ -56,7 +56,7 @@
 -(void) loadDetailsFromWebsite;         //this uses the business id to get more information from the website 
 -(BOOL) isDetailDataAvailable;          //returns true if the details of the restaurant data is available 
 -(void) addCheckin:(YelpCheckin*) checkin; 
-
+-(void) notifyDelegateOfDetailDownloadFinish:(BOOL) success; 
 
 @end
 
