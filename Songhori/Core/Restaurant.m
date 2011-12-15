@@ -22,6 +22,15 @@ static UIImage* FNLogo;
     return nil; //each account should implement their own 
 }
 
+
+-(void) setCoordinate:(CLLocationCoordinate2D)newCoordinate
+{
+    __coordinate.latitude = newCoordinate.latitude; 
+    __coordinate.longitude = newCoordinate.longitude; 
+    
+    
+}
+
 @end
 
 

@@ -55,7 +55,6 @@
 
 -(id) initWithJSONData:(id) json; 
 
-
 -(void) loadSpecialty;
 
 @property (nonatomic, copy) NSString* specialty; 
@@ -86,7 +85,7 @@
 
 -(id) initWithJSONData:(id) json; 
 
-@property (readonly) int count; 
+@property  int count; 
 
 @end
 

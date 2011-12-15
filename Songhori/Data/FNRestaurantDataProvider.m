@@ -130,10 +130,24 @@
         }
     }else           //only working with individual restaurants
     {
-        for (NSArray* item in locations) {
-            Restaurant* r = [[FNRestaurant alloc] initWithJSONData:item]; 
-            [result addObject:r];             
+        if (locations.count > 50) 
+        {
+                //create a cluster because too many points clutter the page 
+            RestaurantCluster* r = [[RestaurantCluster alloc] init]; 
+            [r setCoordinate:selectedRegion.center]; 
+            r.name = @"Cluster"; 
+            r.detail = @""; 
+            r.count = locations.count; 
+            
+            [result addObject:r]; 
             [r release]; 
+            
+        }else{
+            for (NSArray* item in locations) {
+                Restaurant* r = [[FNRestaurant alloc] initWithJSONData:item]; 
+                [result addObject:r];             
+                [r release]; 
+            }
         }
     }
 
