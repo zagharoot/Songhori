@@ -17,50 +17,6 @@
 @synthesize userData=_userData; 
 @synthesize outstandingDownloads=_outstandingRestaurantDownloads; 
 
-//TODO: this is useless, remove
--(void) adjustData
-{
-/*    
-    NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithCapacity:200]; 
-    NSMutableSet* removeSet = [NSMutableArray arrayWithCapacity:100]; 
-    
-    
-    for (YelpRestaurant* restaurant in self.userData.checkins) 
-    {
-        YelpRestaurant* tmp; 
-        if ((tmp = [dic objectForKey:restaurant.y_id]))     //already exist
-        {
-            //mark for deletion 
-            [removeSet addObject:restaurant]; 
-        }else
-        {
-            tmp = restaurant; 
-            [dic setValue:restaurant forKey:restaurant.y_id]; 
-        }   
-
-    
-        //tmp is the restaurant obj. add the checkin to it
-        YelpCheckin* checkin = [NSEntityDescription insertNewObjectForEntityForName:@"YelpCheckin" inManagedObjectContext:context]; 
-        
-        checkin.y_id = tmp.y_id; 
-        checkin.visitDate = restaurant.lastCheckinDate; 
-        
-        [tmp addCheckinsObject:checkin]; 
-    }
-    
-    [self.userData removeCheckins:removeSet]; 
-    
-    NSError* err = nil; 
-    [context save:&err]; 
-*/ 
-}
-
-
--(void) save
-{
-    if ([context hasChanges])
-        [context save:nil]; 
-}
 
 - (id)initWithUserid:(NSString*) u
 {
@@ -140,6 +96,13 @@
 }
 
 
+-(void) save
+{
+    if ([context hasChanges])
+        [context save:nil]; 
+}
+
+
 -(void) incrementActivity
 {
     self.outstandingDownloads++; 
@@ -161,12 +124,6 @@
     
 }
 
-//each time we ask a yelp restaurant to load the details of its data form yelp, we increase the counter. 
-//here we decrement it because the data is successfully loaded (used to save to db) 
--(void) detailDataDidDownloadForRestaurant:(YelpRestaurant *)restaurant
-{
-    [self decrementActivity];     
-}
 
 //this should be rewritten in future if yelp api allows it. 
 -(NSURL*) urlForPage:(int)pageNumber
@@ -388,6 +345,16 @@
     self.requestCheckin = nil; 
     
     [super dealloc]; 
+}
+
+
+#pragma mark - delegate methods 
+
+//each time we ask a yelp restaurant to load the details of its data form yelp, we increase the counter. 
+//here we decrement it because the data is successfully loaded (used to save to db) 
+-(void) detailDataDidDownloadForRestaurant:(YelpRestaurant *)restaurant
+{
+    [self decrementActivity];     
 }
 
 @end

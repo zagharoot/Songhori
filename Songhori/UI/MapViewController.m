@@ -37,9 +37,7 @@
                                                            showActivity:YES
                                                      inPresentationMode:GCDiscreetNotificationViewPresentationModeTop 
                                                                  inView:self.view];
-    
-    
-    
+     
     return _notificationView; 
 }
 

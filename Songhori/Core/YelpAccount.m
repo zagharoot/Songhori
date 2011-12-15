@@ -123,11 +123,6 @@ static NSString* st_TOKEN_SECRET;
 }
 
 
--(void) syncFinished:(id) provider
-{
-    if ([self.delegate respondsToSelector:@selector(syncFinished:)])
-        [self.delegate syncFinished:self]; 
-}
 
 -(void) save
 {
@@ -175,6 +170,19 @@ static NSString* st_TOKEN_SECRET;
     _active = YES;  
 }
 
+-(void) sendRestaurantsInRegion:(MKCoordinateRegion)region zoomLevel:(int)zoomLevel
+{
+    if (![self isActive])
+        return; 
+    
+    if (! self.dataProvider)
+        return; 
+    
+    [self.dataProvider sendRestaurantsInRegion:region];     
+}
+
+
+#pragma mark - delegate methods 
 
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
@@ -189,17 +197,12 @@ static NSString* st_TOKEN_SECRET;
 
 }
 
-
--(void) sendRestaurantsInRegion:(MKCoordinateRegion)region zoomLevel:(int)zoomLevel
+-(void) syncFinished:(id) provider
 {
-    if (![self isActive])
-        return; 
-    
-    if (! self.dataProvider)
-        return; 
-    
-    [self.dataProvider sendRestaurantsInRegion:region];     
+    if ([self.delegate respondsToSelector:@selector(syncFinished:)])
+        [self.delegate syncFinished:self]; 
 }
+
 
 
 @end
