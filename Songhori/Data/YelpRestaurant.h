@@ -16,12 +16,6 @@
 
 #define BUSINESS_LOOKUP_API     @"http://api.yelp.com/v2/business/"
 
-#define YWSID       eWttnhjwtIn33JRWFb2wVg          //this is ywsid for api version 1.0 
-
-#define CONSUMER_KEY        @"oGh6qFD1JCawaSJcTMYM_w"
-#define CONSUMER_SECRET     @"KU5IJYgdIIKlXW6kWko2xfxUSDw"
-#define TOKEN               @"eBcbXmC6BlHAH23VOb2UsPGSpH7_VuNh"
-#define TOKEN_SECRET        @"qnTr-pols2Odq4j99qBaXPhnou4"
 
 
 @class YelpRestaurant; 

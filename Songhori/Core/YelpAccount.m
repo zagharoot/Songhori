@@ -9,10 +9,93 @@
 #import "YelpAccount.h"
 #import "YelpRestaurant.h"
 
+
+static NSString* st_YWSID;
+static NSString* st_CONSUMER_KEY; 
+static NSString* st_CONSUMER_SECRET; 
+static NSString* st_TOKEN; 
+static NSString* st_TOKEN_SECRET; 
+
+
 @implementation YelpAccount
 @synthesize dataProvider=_dataProvider; 
 @synthesize active=_active; 
 
+#pragma mark - read settings from plist file 
++(void) loadSettings
+{
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"AccountSettings" ofType:@"plist"]; 
+    NSData* data = [NSData dataWithContentsOfFile:path]; 
+    
+    NSString* error; 
+    NSPropertyListFormat format; 
+    NSDictionary* plist; 
+    
+    plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error]; 
+    
+    if (!plist) 
+    {
+        NSLog(@"%@", error); 
+        [error release]; 
+        return; 
+    }
+    
+    NSDictionary* yelp = [plist objectForKey:@"Yelp"]; 
+    
+    
+    st_YWSID = [yelp objectForKey:@"YWSID"]; 
+    st_CONSUMER_KEY = [yelp objectForKey:@"CONSUMER_KEY"]; 
+    st_CONSUMER_SECRET = [yelp objectForKey:@"CONSUMER_SECRET"]; 
+    st_TOKEN = [yelp objectForKey:@"TOKEN"]; 
+    st_TOKEN_SECRET = [yelp objectForKey:@"TOKEN_SECRET"]; 
+    
+    
+}
+
++(NSString*) YWSID
+{
+    if (!st_YWSID)
+    {
+        [YelpAccount loadSettings]; 
+    }
+    
+    return st_YWSID; 
+}
+
++(NSString*) CONSUMER_KEY
+{
+    if (!st_CONSUMER_KEY)
+        [YelpAccount loadSettings]; 
+    
+    return st_CONSUMER_KEY; 
+}
+
++(NSString*) CONSUMER_SECRET
+{
+    if (!st_CONSUMER_SECRET)
+        [YelpAccount loadSettings]; 
+
+    return st_CONSUMER_SECRET;
+}
+
++(NSString*) TOKEN
+{
+    if (!st_TOKEN)
+        [YelpAccount loadSettings]; 
+
+    return st_TOKEN; 
+}
+
++(NSString*) TOKEN_SECRET
+{
+    if (!st_TOKEN_SECRET)
+        [YelpAccount loadSettings]; 
+
+    return st_TOKEN_SECRET;
+}
+
+
+#pragma mark - general methods 
 - (id)init
 {
     self = [super init];

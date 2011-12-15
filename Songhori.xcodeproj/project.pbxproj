@@ -37,6 +37,7 @@
 		08B8E1011495290E00331505 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FC1495290E00331505 /* settingsButton.png */; };
 		08B8E1021495290E00331505 /* settingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FD1495290E00331505 /* settingsButton@2x.png */; };
 		08B8E1031495290E00331505 /* yelpLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FE1495290E00331505 /* yelpLogo@2x.png */; };
+		08BF547A149A4F7100F23A4E /* AccountSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08BF5479149A4F7100F23A4E /* AccountSettings.plist */; };
 		08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726214894BAC00D4A103 /* UIKit.framework */; };
 		08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726414894BAD00D4A103 /* Foundation.framework */; };
 		08D2726714894BAD00D4A103 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726614894BAD00D4A103 /* CoreGraphics.framework */; };
@@ -136,6 +137,7 @@
 		08B8E0FC1495290E00331505 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
 		08B8E0FD1495290E00331505 /* settingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsButton@2x.png"; sourceTree = "<group>"; };
 		08B8E0FE1495290E00331505 /* yelpLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelpLogo@2x.png"; sourceTree = "<group>"; };
+		08BF5479149A4F7100F23A4E /* AccountSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountSettings.plist; sourceTree = "<group>"; };
 		08D2725E14894BAC00D4A103 /* Songhori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songhori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D2726214894BAC00D4A103 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08D2726414894BAD00D4A103 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				08D2726A14894BAD00D4A103 /* Songhori-Info.plist */,
+				08BF5479149A4F7100F23A4E /* AccountSettings.plist */,
 				08D2726B14894BAD00D4A103 /* InfoPlist.strings */,
 				08D2726E14894BAD00D4A103 /* main.m */,
 				08D2727014894BAD00D4A103 /* Songhori-Prefix.pch */,
@@ -545,6 +548,7 @@
 				08B8E1011495290E00331505 /* settingsButton.png in Resources */,
 				08B8E1021495290E00331505 /* settingsButton@2x.png in Resources */,
 				08B8E1031495290E00331505 /* yelpLogo@2x.png in Resources */,
+				08BF547A149A4F7100F23A4E /* AccountSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

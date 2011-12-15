@@ -17,6 +17,13 @@
 
 -(void) activateAccount:(NSString*) username; 
 
++(NSString*) YWSID;
++(NSString*) CONSUMER_KEY; 
++(NSString*) CONSUMER_SECRET; 
++(NSString*) TOKEN; 
++(NSString*) TOKEN_SECRET; 
++(void)      loadSettings; 
+
 @property (nonatomic, readonly) BOOL active; 
 @property (nonatomic, retain) YelpRestaurantDataProvider* dataProvider; 
 

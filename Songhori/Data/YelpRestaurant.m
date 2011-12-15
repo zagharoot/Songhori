@@ -9,6 +9,7 @@
 #import "YelpRestaurant.h"
 #import "YelpUser.h"
 #import "OAuthConsumer.h"
+#import "YelpAccount.h"
 
 @implementation YelpRestaurant
 @synthesize annotation=_annotation; 
@@ -61,8 +62,8 @@
     //get the other stuff from another api call:
     NSString* str = [NSString stringWithFormat:@"%@%@", BUSINESS_LOOKUP_API, self.y_id]; 
     NSURL *URL = [NSURL URLWithString:str];
-    OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:CONSUMER_KEY   secret:CONSUMER_SECRET] autorelease];
-    OAToken *token = [[[OAToken alloc] initWithKey:TOKEN secret:TOKEN_SECRET] autorelease];  
+    OAConsumer *consumer = [[[OAConsumer alloc] initWithKey:[YelpAccount CONSUMER_KEY]   secret:[YelpAccount CONSUMER_SECRET]] autorelease];
+    OAToken *token = [[[OAToken alloc] initWithKey:[YelpAccount TOKEN] secret:[YelpAccount TOKEN_SECRET]] autorelease];  
     
     id<OASignatureProviding, NSObject> provider = [[[OAHMAC_SHA1SignatureProvider alloc] init] autorelease];
     NSString *realm = nil;  
