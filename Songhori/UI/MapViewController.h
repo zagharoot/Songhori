@@ -33,6 +33,8 @@
 -(void) setup; 
 - (IBAction)reloadData:(id)sender;
 - (IBAction)locateMe:(id)sender;
+- (IBAction)openSettingPage:(id)sender;
+
 @property (retain, nonatomic) IBOutlet UIButton *loadSettingsPage;
 
 @property (retain, nonatomic) IBOutlet UIButton *locateMeBtn;

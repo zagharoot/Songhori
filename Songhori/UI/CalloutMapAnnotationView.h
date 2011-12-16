@@ -31,6 +31,8 @@
 	CGPoint _offsetFromParent;
 	CGFloat _contentHeight;
     
+    UINavigationController* _navigationController; 
+    
 }
 
 @property (nonatomic, assign) MKAnnotationView *parentAnnotationView;
@@ -38,6 +40,7 @@
 @property (nonatomic, readonly) UIView *contentView;
 @property (nonatomic) CGPoint offsetFromParent;
 @property (nonatomic) CGFloat contentHeight;
+@property (nonatomic, assign) UINavigationController* navigationController; 
 
 - (id) initWithAnnotation:(id <MKAnnotation>)annotation andParentAnnotationView:(MKAnnotationView*) p reuseIdentifier:(NSString *)reuseIdentifier; 
 
@@ -54,14 +57,21 @@
     UILabel* _nameLabel; 
     UILabel* _detailLabel; 
     UIButton* _logoBtn; 
+    UIButton* _restaurantDetailBtn; 
+    
+    CalloutMapAnnotationView* _parent; 
 }
 
--(id) initWithRestaurant:(Restaurant*) r; 
+-(id) initWithRestaurant:(Restaurant*) r andParent:(CalloutMapAnnotationView*) p;
 
 -(void) openRestaurantURL:(id) sender; 
+-(void) openRestaurantDetailPage:(id) sender; 
 
 @property (nonatomic, assign) Restaurant* restaurant; 
 @property (nonatomic, retain) UIButton* logoBtn; 
+@property (nonatomic, retain) UIButton* restaurantDetailBtn; 
+
+@property (nonatomic, assign) CalloutMapAnnotationView* parent; 
 @end
 
 

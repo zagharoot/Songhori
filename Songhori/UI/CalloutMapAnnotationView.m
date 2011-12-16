@@ -1,6 +1,7 @@
 #import "CalloutMapAnnotationView.h"
 #import <CoreGraphics/CoreGraphics.h>
 #import <QuartzCore/QuartzCore.h>
+#import "RestaurantDetailViewController.h"
 
 #define CalloutMapAnnotationViewBottomShadowBufferSize 6.0f
 #define CalloutMapAnnotationViewContentHeightBuffer 8.0f
@@ -33,7 +34,8 @@
 		self.latitude = latitude;
 		self.longitude = longitude;
 	}
-	return self;
+	return self; 
+    
 }
 
 - (CLLocationCoordinate2D)coordinate {
@@ -46,27 +48,32 @@
 @end
 
 
-
+//--------------------------------------------------------------------------------------
 
 @implementation CalloutContentView
 @synthesize restaurant=_restaurant; 
 @synthesize logoBtn=_logoBtn; 
+@synthesize restaurantDetailBtn=_restaurantDetailBtn; 
+@synthesize parent=_parent; 
 
 
-
--(id) initWithRestaurant:(Restaurant *)r
+-(id) initWithRestaurant:(Restaurant *)r andParent:(CalloutMapAnnotationView*) p
 {
     self = [super initWithFrame:CGRectZero]; 
     if (self)
     {
+        self.parent = p; 
         self.restaurant = r; 
         _nameLabel = [[UILabel alloc] init]; 
         _detailLabel = [[UILabel alloc] init]; 
         self.logoBtn = [UIButton buttonWithType:UIButtonTypeCustom]; 
+        self.restaurantDetailBtn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure]; 
                 
         [self addSubview:_nameLabel]; 
         [self addSubview:_detailLabel]; 
-        [self addSubview:self.logoBtn]; 
+        [self addSubview:self.logoBtn];
+        [self addSubview:self.restaurantDetailBtn]; 
+        
         
         
         _nameLabel.text = r.name; 
@@ -101,10 +108,25 @@
     
     if (restaurant.url) 
         [self.logoBtn addTarget:self action:@selector(openRestaurantURL:) forControlEvents:UIControlEventTouchDown]; 
-        
+
+    [self.restaurantDetailBtn addTarget:self action:@selector(openRestaurantDetailPage:) forControlEvents:UIControlEventTouchDown]; 
+
+    
     
     [self setNeedsDisplay]; 
 }
+
+-(void) openRestaurantDetailPage:(id) sender 
+{
+    if (!self.parent)
+        return; 
+    
+    
+    RestaurantDetailViewController* rdc = [[RestaurantDetailViewController alloc] initWithRestaurant:self.restaurant]; 
+    
+    [self.parent.navigationController pushViewController:rdc animated:YES]; 
+}
+
 
 
 -(void) openRestaurantURL:(id) sender
@@ -120,10 +142,13 @@
     CGRect nameRect = CGRectMake(rect.origin.x+10, rect.origin.y, rect.size.width-20, 25); 
     CGRect detailRect = CGRectMake(rect.origin.x+10, rect.origin.y+17, rect.size.width-20, rect.size.height-30); 
     CGRect logoRect = CGRectMake(rect.origin.x+rect.size.width-30, rect.origin.y, 23, 23); 
+    CGRect detailBtnRect = CGRectMake(rect.origin.x+rect.size.width-35, rect.origin.y + 23+  (rect.size.height -23)/2-15  , 30, 30 ) ; 
+    
     
     _nameLabel.frame = nameRect; 
     _detailLabel.frame = detailRect; 
     self.logoBtn.frame = logoRect; 
+    self.restaurantDetailBtn.frame = detailBtnRect; 
 }
 
 
@@ -131,7 +156,8 @@
 {
     [_nameLabel release]; 
     [_detailLabel release]; 
-    self.logoBtn = nil; 
+    self.logoBtn = nil;
+    self.restaurantDetailBtn = nil; 
     [super dealloc]; 
 }
 
@@ -149,6 +175,7 @@
 @synthesize yShadowOffset = _yShadowOffset;
 @synthesize offsetFromParent = _offsetFromParent;
 @synthesize contentHeight = _contentHeight;
+@synthesize navigationController=_navigationController; 
 
 - (id) initWithAnnotation:(id <MKAnnotation>)annotation andParentAnnotationView:(MKAnnotationView *)p reuseIdentifier:(NSString *)reuseIdentifier{
 	if (self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier]) {
@@ -195,7 +222,7 @@
 	CGRect contentFrame = CGRectMake(self.bounds.origin.x + 10, 
 									 self.bounds.origin.y + 3, 
 									 self.bounds.size.width - 20, 
-									 self.contentHeight);
+									 self.contentHeight-6);
 
 	self.contentView.frame = contentFrame;
 }
@@ -460,7 +487,7 @@
 
 - (UIView *)contentView {
 	if (!_contentView) {
-		_contentView = [[CalloutContentView alloc] initWithRestaurant:self.parentAnnotationView.annotation]; 
+		_contentView = [[CalloutContentView alloc] initWithRestaurant:self.parentAnnotationView.annotation andParent:self]; 
 		self.contentView.backgroundColor = [UIColor clearColor];
 		self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		[self addSubview:self.contentView];

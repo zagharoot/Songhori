@@ -15,6 +15,7 @@
 #import "ClusterAnnotationView.h"
 #import <MapKit/MapKit.h>
 
+#import "RestaurantDetailViewController.h"      //TODO: remove this 
 
 @implementation MapViewController
 @synthesize loadSettingsPage;
@@ -106,6 +107,13 @@
     }
 }
 
+- (IBAction)openSettingPage:(id)sender {
+    RestaurantDetailViewController* rdc = [[RestaurantDetailViewController alloc] initWithRestaurant:[restaurants objectAtIndex:0] ]; 
+    
+    [self.navigationController pushViewController:rdc animated:YES]; 
+    
+}
+
 
 #pragma mark - View lifecycle
 
@@ -148,6 +156,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:YES];         //we don't show the navigation in this view
     [super viewWillAppear:animated];
 }
 
@@ -229,13 +238,13 @@
             //if the selected item is not restaurant, just return 
             if (![self.selectedAnnotationView isKindOfClass:[MKPinAnnotationView class]])
                 return nil;  
-        
             CalloutMapAnnotationView *calloutMapAnnotationView = (CalloutMapAnnotationView *)[self.myMapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutAnnotation"];
             if (!calloutMapAnnotationView) 
             {
                 calloutMapAnnotationView = [[[CalloutMapAnnotationView alloc] initWithAnnotation:annotation andParentAnnotationView:self.selectedAnnotationView  
                                                                                  reuseIdentifier:@"CalloutAnnotation"] autorelease];
                 calloutMapAnnotationView.contentHeight = 120.0f;
+                calloutMapAnnotationView.navigationController = self.navigationController; 
             }
             calloutMapAnnotationView.parentAnnotationView = self.selectedAnnotationView;
             calloutMapAnnotationView.mapView = self.myMapView;
