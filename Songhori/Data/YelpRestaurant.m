@@ -187,6 +187,10 @@ static UIImage* YelpLogo;
         __coordinate.latitude = r.latitude; 
         __coordinate.longitude = r.longitude; 
         
+        
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"yelp:"]])
+            self.url = [NSString stringWithFormat:@"yelp:///biz/%@", r.y_id]; 
+        
     }
     return self; 
 }
@@ -218,6 +222,12 @@ static UIImage* YelpLogo;
 }
 
 
+-(void) dealloc
+{
+    self.url = nil; 
+    
+    [super dealloc]; 
+}
 
 
 @end

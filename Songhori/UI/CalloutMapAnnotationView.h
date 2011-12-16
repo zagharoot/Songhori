@@ -31,8 +31,6 @@
 	CGPoint _offsetFromParent;
 	CGFloat _contentHeight;
     
-    //restaurant specific content stuff 
-    UIImageView* _logoImageView;     
 }
 
 @property (nonatomic, assign) MKAnnotationView *parentAnnotationView;
@@ -55,13 +53,15 @@
     Restaurant* _restaurant; 
     UILabel* _nameLabel; 
     UILabel* _detailLabel; 
-    UIImageView* _logo; 
+    UIButton* _logoBtn; 
 }
 
 -(id) initWithRestaurant:(Restaurant*) r; 
 
+-(void) openRestaurantURL:(id) sender; 
+
 @property (nonatomic, assign) Restaurant* restaurant; 
-@property (nonatomic, retain) UIImageView* logo; 
+@property (nonatomic, retain) UIButton* logoBtn; 
 @end
 
 

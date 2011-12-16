@@ -50,7 +50,7 @@
 
 @implementation CalloutContentView
 @synthesize restaurant=_restaurant; 
-@synthesize logo=_logo; 
+@synthesize logoBtn=_logoBtn; 
 
 
 
@@ -62,11 +62,11 @@
         self.restaurant = r; 
         _nameLabel = [[UILabel alloc] init]; 
         _detailLabel = [[UILabel alloc] init]; 
-        _logo = [[UIImageView alloc] init]; 
+        self.logoBtn = [UIButton buttonWithType:UIButtonTypeCustom]; 
                 
         [self addSubview:_nameLabel]; 
         [self addSubview:_detailLabel]; 
-        [self addSubview:_logo]; 
+        [self addSubview:self.logoBtn]; 
         
         
         _nameLabel.text = r.name; 
@@ -96,11 +96,22 @@
     _nameLabel.text = restaurant.name; 
     _detailLabel.text = restaurant.detail; 
     
-    self.logo.image = restaurant.logo; 
-    [self.logo sizeToFit]; 
+    [self.logoBtn setImage:restaurant.logo forState:UIControlStateNormal]; 
+    
+    
+    if (restaurant.url) 
+        [self.logoBtn addTarget:self action:@selector(openRestaurantURL:) forControlEvents:UIControlEventTouchDown]; 
+        
     
     [self setNeedsDisplay]; 
 }
+
+
+-(void) openRestaurantURL:(id) sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.restaurant.url]]; 
+}
+
 
 -(void) layoutSubviews
 {
@@ -112,7 +123,7 @@
     
     _nameLabel.frame = nameRect; 
     _detailLabel.frame = detailRect; 
-    self.logo.frame = logoRect ;
+    self.logoBtn.frame = logoRect; 
 }
 
 
@@ -120,7 +131,7 @@
 {
     [_nameLabel release]; 
     [_detailLabel release]; 
-    [_logo release]; 
+    self.logoBtn = nil; 
     [super dealloc]; 
 }
 

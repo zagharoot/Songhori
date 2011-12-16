@@ -16,6 +16,7 @@ static UIImage* FNLogo;
 @synthesize coordinate=__coordinate; 
 @synthesize name=_name; 
 @synthesize detail=_detail; 
+@synthesize url=_url; 
 
 -(UIImage*) logo
 {
@@ -27,8 +28,6 @@ static UIImage* FNLogo;
 {
     __coordinate.latitude = newCoordinate.latitude; 
     __coordinate.longitude = newCoordinate.longitude; 
-    
-    
 }
 
 @end

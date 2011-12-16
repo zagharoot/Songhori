@@ -27,6 +27,7 @@
 @protected
     NSString* _name; 
     NSString* _detail; 
+    NSString* _url;                         //this url will open more info about the restaurant
     
     CLLocationCoordinate2D __coordinate; 
     
@@ -36,6 +37,7 @@
 
 @property (nonatomic, copy) NSString* name; 
 @property (nonatomic, copy) NSString* detail; 
+@property (nonatomic, copy) NSString* url; 
 @end
 
 
