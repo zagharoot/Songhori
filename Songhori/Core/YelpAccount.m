@@ -43,11 +43,11 @@ static NSString* st_TOKEN_SECRET;
     NSDictionary* yelp = [plist objectForKey:@"Yelp"]; 
     
     
-    st_YWSID = [yelp objectForKey:@"YWSID"]; 
-    st_CONSUMER_KEY = [yelp objectForKey:@"CONSUMER_KEY"]; 
-    st_CONSUMER_SECRET = [yelp objectForKey:@"CONSUMER_SECRET"]; 
-    st_TOKEN = [yelp objectForKey:@"TOKEN"]; 
-    st_TOKEN_SECRET = [yelp objectForKey:@"TOKEN_SECRET"]; 
+    st_YWSID = [[yelp objectForKey:@"YWSID"] retain]; 
+    st_CONSUMER_KEY = [[yelp objectForKey:@"CONSUMER_KEY"] retain]; 
+    st_CONSUMER_SECRET = [[yelp objectForKey:@"CONSUMER_SECRET"] retain]; 
+    st_TOKEN = [[yelp objectForKey:@"TOKEN"] retain]; 
+    st_TOKEN_SECRET = [[yelp objectForKey:@"TOKEN_SECRET"] retain]; 
     
     
 }
