@@ -56,9 +56,24 @@
     return YES; 
 }
 
+-(BOOL) hasError
+{
+    if ([self isDetailDataAvailable])
+        return NO; 
+    
+    if (!self.jsonData) 
+        return NO; 
+    
+    if (self.jsonData.length==0)
+        return NO; 
+    
+    
+    return YES;             //TODO: how about read the json to see what error is in there? 
+}
 
 -(void) loadDetailsFromWebsite
 {
+    
     //get the other stuff from another api call:
     NSString* str = [NSString stringWithFormat:@"%@%@", BUSINESS_LOOKUP_API, self.y_id]; 
     NSURL *URL = [NSURL URLWithString:str];

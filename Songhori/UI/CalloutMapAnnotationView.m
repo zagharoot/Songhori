@@ -125,6 +125,8 @@
     RestaurantDetailViewController* rdc = [[RestaurantDetailViewController alloc] initWithRestaurant:self.restaurant]; 
     
     [self.parent.navigationController pushViewController:rdc animated:YES]; 
+
+    [rdc release]; 
 }
 
 

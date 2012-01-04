@@ -16,7 +16,7 @@
 @dynamic lastSyncDate; 
 @dynamic username;
 @dynamic checkins;
-
+@dynamic active; 
 
 
 

@@ -19,6 +19,7 @@
 
 @property (nonatomic) NSTimeInterval lastCheckinDate;
 @property (nonatomic) NSTimeInterval lastSyncDate;          //when was the last time we synced with the website
+@property (nonatomic) BOOL active; 
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSSet *checkins;
 

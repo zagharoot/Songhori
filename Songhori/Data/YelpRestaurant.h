@@ -51,7 +51,7 @@
 -(BOOL) isDetailDataAvailable;          //returns true if the details of the restaurant data is available 
 -(void) addCheckin:(YelpCheckin*) checkin; 
 -(void) notifyDelegateOfDetailDownloadFinish:(BOOL) success; 
-
+-(BOOL) hasError; 
 @end
 
 

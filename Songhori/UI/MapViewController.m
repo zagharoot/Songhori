@@ -14,6 +14,7 @@
 #import "YelpRestaurant.h" 
 #import "ClusterAnnotationView.h"
 #import <MapKit/MapKit.h>
+#import "AccountsUIViewController.h" 
 
 #import "RestaurantDetailViewController.h"      //TODO: remove this 
 
@@ -59,8 +60,6 @@
     
     accountManager = [AccountManager standardAccountManager]; 
     accountManager.delegate = self; 
-    accountManager.fnAccount.active = YES; 
-    [accountManager.yelpAccount activateAccount:@"alidoon"]; 
     
     
     //default to zoom on USA 
@@ -107,10 +106,13 @@
     }
 }
 
-- (IBAction)openSettingPage:(id)sender {
-    RestaurantDetailViewController* rdc = [[RestaurantDetailViewController alloc] initWithRestaurant:[restaurants objectAtIndex:0] ]; 
-    
-    [self.navigationController pushViewController:rdc animated:YES]; 
+- (IBAction)openSettingPage:(id)sender 
+{
+    AccountsUIViewController* ac = [[AccountsUIViewController alloc] initWithNibName:@"AccountsUIViewController" bundle:[NSBundle mainBundle]]; 
+
+    [self.navigationController pushViewController:ac animated:YES]; 
+
+    [ac release]; 
     
 }
 
@@ -290,6 +292,7 @@
     if (restaurants.count==0)
     {
         self.notificationView.textLabel = @"No results found!"; 
+        self.notificationView.showActivity = NO; 
         [self.notificationView showAndDismissAfter:3]; 
     }
 }

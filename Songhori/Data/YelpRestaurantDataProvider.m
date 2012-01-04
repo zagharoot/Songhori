@@ -9,6 +9,7 @@
 #import "YelpRestaurantDataProvider.h"
 #import "YelpRestaurant.h"
 #import "YelpCheckin.h"
+#import "AccountManager.h"
 
 @implementation YelpRestaurantDataProvider
 
@@ -24,29 +25,10 @@
     if (self) {
         _outstandingRestaurantDownloads = 0;        //indicates inactivity
         
-        //load the yelp user object from database
-        model = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];         
-        NSPersistentStoreCoordinator* prs = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model]; 
         
+        model = [AccountManager standardAccountManager].coreModel; 
+        context = [AccountManager standardAccountManager].coreContext; 
         
-        //get the path to the document folder 
-        NSArray* documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString* documentRootPath = [documentPaths objectAtIndex:0];
-        
-        NSString* path = [NSString stringWithFormat:@"%@/yelp.data", documentRootPath]; 
-        NSURL* curl = [NSURL fileURLWithPath:path]; 
-        NSError* error = nil; 
-        
-        if (![prs addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:curl options:nil error:&error])
-        {
-            [prs release]; 
-            return nil; 
-        }
-        
-        context = [[NSManagedObjectContext alloc] init]; 
-        context.persistentStoreCoordinator = prs; 
-        [prs release]; 
-        context.undoManager = nil; 
         
         NSFetchRequest* fetchRequest = [[[NSFetchRequest alloc] init] autorelease]; 
         NSEntityDescription* e = [[model entitiesByName] objectForKey:@"YelpUser"]; 
@@ -74,6 +56,7 @@
     BOOL result=NO; 
     //only resync if we haven't already today 
     NSTimeInterval diff = [NSDate timeIntervalSinceReferenceDate] - self.userData.lastSyncDate; 
+    //TODO: remove the comment
     if (diff > 86400)       //it's been more than one day 
     {
         [self incrementActivity]; 
@@ -83,7 +66,7 @@
     
     //
     for (YelpRestaurant* r in self.userData.checkins) {
-        if (! [ r isDetailDataAvailable])
+        if (! [ r isDetailDataAvailable] && ![r hasError])
         {
             result = YES; 
             [self incrementActivity]; 
@@ -269,6 +252,7 @@
     result.username = username; 
     result.lastCheckinDate = 0; 
     result.lastSyncDate = 0;            //never synced 
+    result.active = YES; 
     
     return result; 
 }

@@ -8,7 +8,7 @@
 
 #import "YelpAccount.h"
 #import "YelpRestaurant.h"
-
+#import "AccountManager.h"
 
 static NSString* st_YWSID;
 static NSString* st_CONSUMER_KEY; 
@@ -19,7 +19,6 @@ static NSString* st_TOKEN_SECRET;
 
 @implementation YelpAccount
 @synthesize dataProvider=_dataProvider; 
-@synthesize active=_active; 
 
 #pragma mark - read settings from plist file 
 +(void) loadSettings
@@ -96,6 +95,8 @@ static NSString* st_TOKEN_SECRET;
 
 
 #pragma mark - general methods 
+
+
 - (id)init
 {
     self = [super init];
@@ -106,14 +107,10 @@ static NSString* st_TOKEN_SECRET;
         id aa = [ud valueForKey:@"YelpAccountUsername"]; 
         if (aa)
         {
-            _active = YES; 
             self.dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:aa] autorelease];
             self.dataProvider.delegate = self; 
         }
-        else
-            _active = NO; 
     }
-    
     return self;
 }
 
@@ -136,43 +133,44 @@ static NSString* st_TOKEN_SECRET;
 }
 
 
--(BOOL) isActive
+-(BOOL) active
 {
-    return _active; 
+    return self.dataProvider.userData.active;     
 }
 
--(void) deactivateAccount
+-(void) setActive:(BOOL) active
 {
-    _active = NO; 
-    
-    //replace the value in the userdefaults
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
-    
-    [ud setValue:nil forKey:@"YelpAccountUsername"]; 
-    
-    [_dataProvider release]; 
+    if (active)
+    {
+        //replace the value in the userdefaults
+        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
+        
+        [ud setValue:@"alidoon" forKey:@"YelpAccountUsername"]; 
+        
+        self.dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:@"alidoon"] autorelease];
+        self.dataProvider.delegate = self; 
+        
+        self.dataProvider.userData.active = YES; 
+            
+        [self.dataProvider save]; 
+    }else 
+    {
+        self.dataProvider.userData.active = NO; 
+        
+        //replace the value in the userdefaults
+        NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
+        
+        [ud setValue:nil forKey:@"YelpAccountUsername"]; 
+        
+        [self.dataProvider save]; 
+        [_dataProvider release]; 
+    }
 }
 
--(void) activateAccount:(NSString *)username
-{
-    if ([self isActive])    //TODO: what about if we want to change the username? 
-        return; 
-    
-    //replace the value in the userdefaults
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
-    
-    [ud setValue:username forKey:@"YelpAccountUsername"]; 
-
-    self.dataProvider = [[[YelpRestaurantDataProvider alloc] initWithUserid:username] autorelease];
-    self.dataProvider.delegate = self; 
-    
-    
-    _active = YES;  
-}
 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion)region zoomLevel:(int)zoomLevel
 {
-    if (![self isActive])
+    if (!self.active)
         return; 
     
     if (! self.dataProvider)
@@ -194,7 +192,6 @@ static NSString* st_TOKEN_SECRET;
     }
 
     [self.delegate restaudantDataDidBecomeAvailable:result forRegion:region fromProvider:self]; 
-
 }
 
 -(void) syncFinished:(id) provider

@@ -9,13 +9,11 @@
 #import "FNAccount.h"
 
 @implementation FNAccount
-@synthesize active=_active; 
 - (id)init
 {
     self = [super init];
     if (self) 
     {
-        //read user defaults for the frobKey
         NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
         id aa = [ud valueForKey:@"FNAccountActive"]; 
         if (aa)
@@ -42,13 +40,16 @@
 }
 
 
--(BOOL) isActive
+-(BOOL) active
 {
     return _active; 
 }
 
 -(void) setActive:(BOOL)active
 {
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
+    [ud setValue:[NSNumber numberWithBool:active] forKey:@"FNAccountActive"]; 
+
     if (active) 
     {
         if (!dataProvider)
@@ -57,14 +58,10 @@
             dataProvider.delegate = self; 
         }
     }else
+    {
         [dataProvider release]; 
-    
-    
-        //replace the value in the userdefaults
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
-    
-        [ud setValue:[NSNumber numberWithBool:active] forKey:@"FNAccountActive"]; 
-    
+        dataProvider = nil; 
+    }
     _active = active; 
 }
 

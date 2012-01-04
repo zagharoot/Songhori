@@ -7,11 +7,14 @@
 //
 
 #import "AccountManager.h"
-
+#import "GoogleMapList.h"
+#import "GoogleMapAccount.h"
 
 static AccountManager* theAccountManager;
 
 @implementation AccountManager
+@synthesize coreModel=model; 
+@synthesize coreContext = context; 
 
 @synthesize accounts = _accounts; 
 @synthesize delegate=_delegate; 
@@ -20,35 +23,20 @@ static AccountManager* theAccountManager;
 +(AccountManager*) standardAccountManager
 {
     if (theAccountManager == nil)
+    {
         theAccountManager = [[AccountManager alloc] init]; 
+        [theAccountManager setupAccounts]; 
+    }
 
     return theAccountManager;     
 }
 
 
-+(Account*) getAccountFromRestaurant:(Restaurant *)restaurant
-{
-    NSString* className = [[restaurant class] description]; 
-    
-    
-    if ([className isEqualToString:@"FNRestaurant"])   //picture is from flickr
-    {
-        return [[AccountManager standardAccountManager] fnAccount]; 
-    }
-
-    
-    if ([className isEqualToString:@"YelpRestaurant"]) 
-        return [[AccountManager standardAccountManager] yelpAccount]; 
-    
-    //WEBSITE: handle other websites here 
-    return nil; //couldn't find the downloader 
-}
-
 
 -(void) save
 {
     for (Account* a in self.accounts) {
-        if ([a isActive])
+        if (a.active)
             [a save]; 
     }
 }
@@ -59,7 +47,7 @@ static AccountManager* theAccountManager;
     BOOL result = NO; 
     for (Account* a in self.accounts) {
         [syncProgress setValue:@"NO" forKey:a.accountName]; 
-        if ([a isActive])
+        if (a.active)
             if ([a syncData])
             {
                 result = YES; 
@@ -73,36 +61,80 @@ static AccountManager* theAccountManager;
 
 
 -(int) NUMBER_OF_ACCOUNTS
-{
-    return 2; //there are two accounts
-    
-    //todo: can we extract the number of available accounts from the enum? 
+{    
+    return self.accounts.count; 
 }
+
+-(void) setupAccounts
+{
+    //load the fixed accounts 
+    _accounts = [[NSMutableArray alloc] initWithCapacity:5]; 
+    accountRequestProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
+    syncProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
+    
+    //add food network account 
+    FNAccount* fni = [[[FNAccount alloc] init] autorelease]; 
+    fni.delegate = self; 
+    [_accounts addObject:fni]; 
+    [accountRequestProgress setValue:@"NO" forKey:fni.accountName]; 
+    [syncProgress setValue:@"NO" forKey:fni.accountName]; 
+    
+    
+    YelpAccount* yi = [[[YelpAccount alloc] init] autorelease]; 
+    [accountRequestProgress setValue:@"NO" forKey:yi.accountName]; 
+    [syncProgress setValue:@"NO" forKey:yi.accountName]; 
+    yi.delegate = self; 
+    [_accounts addObject:yi]; 
+    //WEBSITE: 
+    
+    
+    //load dynamic accounts 
+    NSFetchRequest* fetchRequest = [[[NSFetchRequest alloc] init] autorelease]; 
+    NSEntityDescription* e = [[model entitiesByName] objectForKey:@"GoogleMapList"]; 
+    fetchRequest.entity = e; 
+    
+    NSArray* gl =  [NSMutableArray arrayWithArray:[context executeFetchRequest:fetchRequest error:nil]];
+    
+    for (GoogleMapList* ga in gl) {
+        GoogleMapAccount* ac = [[GoogleMapAccount alloc] initWithGoogleMapList:ga]; 
+        [_accounts addObject:ac]; 
+        ac.delegate = self; 
+        [accountRequestProgress setValue:@"NO" forKey:ga.url]; 
+        [syncProgress setValue:@"NO"  forKey:ga.url]; 
+        [ac release]; 
+    }
+    
+}
+
 
 - (id)init
 {
     self = [super init];
     if (self) 
     {
-        _accounts = [[NSMutableArray alloc] initWithCapacity:self.NUMBER_OF_ACCOUNTS]; 
-        accountRequestProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
-        syncProgress = [[NSMutableDictionary alloc] initWithCapacity:2]; 
-        
-        //add food network account 
-        FNAccount* fni = [[[FNAccount alloc] init] autorelease]; 
-        fni.delegate = self; 
-        [_accounts addObject:fni]; 
-        [accountRequestProgress setValue:@"NO" forKey:fni.accountName]; 
-        [syncProgress setValue:@"NO" forKey:fni.accountName]; 
+        //load the yelp user object from database
+        model = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];         
+        NSPersistentStoreCoordinator* prs = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model]; 
         
         
-        YelpAccount* yi = [[[YelpAccount alloc] init] autorelease]; 
-        [accountRequestProgress setValue:@"NO" forKey:yi.accountName]; 
-        [syncProgress setValue:@"NO" forKey:yi.accountName]; 
-        yi.delegate = self; 
-        [_accounts addObject:yi]; 
-        //WEBSITE: 
+        //get the path to the document folder 
+        NSArray* documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* documentRootPath = [documentPaths objectAtIndex:0];
         
+        NSString* path = [NSString stringWithFormat:@"%@/yelp.data", documentRootPath]; 
+        NSURL* curl = [NSURL fileURLWithPath:path]; 
+        NSError* error = nil; 
+        
+        if (![prs addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:curl options:nil error:&error])
+        {
+            [prs release]; 
+            return nil; 
+        }
+        
+        context = [[NSManagedObjectContext alloc] init]; 
+        context.persistentStoreCoordinator = prs; 
+        [prs release]; 
+        context.undoManager = nil; 
     }
     
     return self;
@@ -110,8 +142,11 @@ static AccountManager* theAccountManager;
 
 -(BOOL) hasAnyActiveAccount
 {
+    if (!_accounts)
+        [self setupAccounts]; 
+
     for (Account* a in self.accounts) {
-        if ( [a isActive])
+        if ( a.active)
             return YES; 
     }
     
@@ -123,13 +158,13 @@ static AccountManager* theAccountManager;
 {
     for (Account* a in self.accounts) {
         [accountRequestProgress setValue:@"NO" forKey:a.accountName]; 
-        if ([a isActive])
+        if (a.active)
             [accountRequestProgress setValue:@"YES" forKey:a.accountName]; 
     }
     
     for (Account* a in self.accounts) 
     {
-        if ([a isActive])
+        if (a.active)
         {
             [a sendRestaurantsInRegion:region zoomLevel:zoomLevel]; 
         }
@@ -145,6 +180,7 @@ static AccountManager* theAccountManager;
     [syncProgress release]; 
     [_accounts release]; 
     
+    [super dealloc]; 
 }
 
 -(Account*) getAccountAtIndex:(int)index
@@ -153,23 +189,6 @@ static AccountManager* theAccountManager;
     return [self.accounts objectAtIndex:index]; 
 }
 
--(FNAccount*) fnAccount
-{
-    if ([self.accounts count] > FN_INDEX)
-        return [self.accounts objectAtIndex:FN_INDEX]; 
-    else
-        return nil; 
-}
-
--(YelpAccount*) yelpAccount
-{
-    if ([self.accounts count] > YELP_INDEX)
-        return  [self.accounts objectAtIndex:YELP_INDEX]; 
-    else
-        return nil; 
-    
-}
-//WEBSITE: 
 
 
 #pragma mark - delegate methods 

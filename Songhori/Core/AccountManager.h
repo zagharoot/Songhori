@@ -20,11 +20,13 @@
     NSMutableDictionary* syncProgress;             //tracks what accounts are pending sync 
     
     id<RestaurantDataDelegate> _delegate; 
+    
+    NSManagedObjectContext* context; 
+    NSManagedObjectModel* model; 
 }
 
 -(id) init; 
--(FNAccount*) fnAccount;                //WEBSITE: 
--(YelpAccount*) yelpAccount;        
+-(void) setupAccounts; 
 
 -(void) save;                           //sends save command to each individual account 
 -(BOOL) syncData;                     //sends updateData to each individual account (returns NO if we don't need)
@@ -34,7 +36,6 @@
 -(Account*) getAccountAtIndex:(int) index; 
 
 +(AccountManager*) standardAccountManager;      //the singleton pattern: we only have one instance of the manager
-+(Account*) getAccountFromRestaurant:(Restaurant*) restaurant;       //retrieves the corresponding account for a pictureInfo
 
 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region zoomLevel:(int) zoomLevel;  //array of annotations
@@ -45,4 +46,7 @@
 @property (readonly, nonatomic) NSArray* accounts; 
 @property (readonly) int NUMBER_OF_ACCOUNTS; 
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate; // we return array of Restaurant
+
+@property (nonatomic, readonly) NSManagedObjectContext* coreContext;
+@property (nonatomic, readonly) NSManagedObjectModel* coreModel; 
 @end

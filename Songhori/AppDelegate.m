@@ -36,6 +36,7 @@
     
     self.window.rootViewController = unc;
     [self.window makeKeyAndVisible];
+    [unc release]; 
     return YES;
 }
 

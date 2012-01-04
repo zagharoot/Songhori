@@ -13,6 +13,17 @@
 @synthesize delegate=_delegate; 
 
 
+-(void) setActive:(BOOL)active
+{
+    
+}
+
+-(BOOL) active
+{
+    return NO; 
+}
+
+
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
     //each account should implement their own 

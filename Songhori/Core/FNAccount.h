@@ -18,6 +18,5 @@
 }
 
 
-@property (nonatomic) BOOL active; 
 
 @end

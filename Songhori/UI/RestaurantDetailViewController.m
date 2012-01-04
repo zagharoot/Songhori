@@ -46,6 +46,10 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO]; 
+    self.navigationController.title = self.restaurant.name;
+    
+    
+    
     [super viewWillAppear:animated]; 
 }
 

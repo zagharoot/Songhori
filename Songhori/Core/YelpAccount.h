@@ -9,13 +9,14 @@
 #import "Account.h"
 #import "YelpRestaurantDataProvider.h"
 
+@class AccountManager;
 @interface YelpAccount : Account 
 {
     YelpRestaurantDataProvider* _dataProvider; 
-    BOOL _active; 
 }
 
--(void) activateAccount:(NSString*) username; 
+-(id) init; 
+
 
 +(NSString*) YWSID;
 +(NSString*) CONSUMER_KEY; 
@@ -24,7 +25,6 @@
 +(NSString*) TOKEN_SECRET; 
 +(void)      loadSettings; 
 
-@property (nonatomic, readonly) BOOL active; 
 @property (nonatomic, retain) YelpRestaurantDataProvider* dataProvider; 
 
 @end

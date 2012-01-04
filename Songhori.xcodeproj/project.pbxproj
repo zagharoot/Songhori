@@ -32,6 +32,12 @@
 		0815A2621494E24B00593ABC /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A2501494E24B00593ABC /* OATokenManager.m */; };
 		0839DBB1149B92DC00043178 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */; };
 		0839DBB2149B92DC00043178 /* RestaurantDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */; };
+		087E597614B2410F006120DB /* AccountsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597214B2410F006120DB /* AccountsUIViewController.m */; };
+		087E597714B2410F006120DB /* AccountsUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087E597314B2410F006120DB /* AccountsUIViewController.xib */; };
+		087E597814B2410F006120DB /* AccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597514B2410F006120DB /* AccountTableViewCell.m */; };
+		087E597C14B251C7006120DB /* GoogleMapList.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597B14B251C7006120DB /* GoogleMapList.m */; };
+		087E597F14B251E9006120DB /* GoogleMapRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597E14B251E9006120DB /* GoogleMapRestaurant.m */; };
+		087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E598114B2520E006120DB /* GoogleMapAccount.m */; };
 		089ED000149678D500BA8306 /* YelpCheckin.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ECFFF149678D500BA8306 /* YelpCheckin.m */; };
 		089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ED0031496896700BA8306 /* YelpRestaurant.m */; };
 		08B8E0FF1495290E00331505 /* locateMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FA1495290E00331505 /* locateMeButton.png */; };
@@ -39,6 +45,12 @@
 		08B8E1011495290E00331505 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FC1495290E00331505 /* settingsButton.png */; };
 		08B8E1021495290E00331505 /* settingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FD1495290E00331505 /* settingsButton@2x.png */; };
 		08B8E1031495290E00331505 /* yelpLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FE1495290E00331505 /* yelpLogo@2x.png */; };
+		08BC7BB014B4006B00CCF427 /* FNAccountTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAA14B4006B00CCF427 /* FNAccountTableCell.png */; };
+		08BC7BB114B4006B00CCF427 /* FNAccountTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAB14B4006B00CCF427 /* FNAccountTableCell@2x.png */; };
+		08BC7BB214B4006B00CCF427 /* GoogleMapListTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAC14B4006B00CCF427 /* GoogleMapListTableCell.png */; };
+		08BC7BB314B4006B00CCF427 /* GoogleMapListTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAD14B4006B00CCF427 /* GoogleMapListTableCell@2x.png */; };
+		08BC7BB414B4006B00CCF427 /* YelpAccountTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAE14B4006B00CCF427 /* YelpAccountTableCell.png */; };
+		08BC7BB514B4006B00CCF427 /* YelpAccountTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAF14B4006B00CCF427 /* YelpAccountTableCell@2x.png */; };
 		08BF547A149A4F7100F23A4E /* AccountSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08BF5479149A4F7100F23A4E /* AccountSettings.plist */; };
 		08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726214894BAC00D4A103 /* UIKit.framework */; };
 		08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726414894BAD00D4A103 /* Foundation.framework */; };
@@ -133,6 +145,17 @@
 		0839DBAE149B92DC00043178 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
 		0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailViewController.xib; sourceTree = "<group>"; };
+		087E597114B2410F006120DB /* AccountsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsUIViewController.h; sourceTree = "<group>"; };
+		087E597214B2410F006120DB /* AccountsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsUIViewController.m; sourceTree = "<group>"; };
+		087E597314B2410F006120DB /* AccountsUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsUIViewController.xib; sourceTree = "<group>"; };
+		087E597414B2410F006120DB /* AccountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewCell.h; sourceTree = "<group>"; };
+		087E597514B2410F006120DB /* AccountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewCell.m; sourceTree = "<group>"; };
+		087E597A14B251C7006120DB /* GoogleMapList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapList.h; sourceTree = "<group>"; };
+		087E597B14B251C7006120DB /* GoogleMapList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapList.m; sourceTree = "<group>"; };
+		087E597D14B251E9006120DB /* GoogleMapRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapRestaurant.h; sourceTree = "<group>"; };
+		087E597E14B251E9006120DB /* GoogleMapRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapRestaurant.m; sourceTree = "<group>"; };
+		087E598014B2520E006120DB /* GoogleMapAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapAccount.h; sourceTree = "<group>"; };
+		087E598114B2520E006120DB /* GoogleMapAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapAccount.m; sourceTree = "<group>"; };
 		089ECFFE149678D500BA8306 /* YelpCheckin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpCheckin.h; sourceTree = "<group>"; };
 		089ECFFF149678D500BA8306 /* YelpCheckin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpCheckin.m; sourceTree = "<group>"; };
 		089ED0021496896700BA8306 /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
@@ -142,6 +165,12 @@
 		08B8E0FC1495290E00331505 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
 		08B8E0FD1495290E00331505 /* settingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsButton@2x.png"; sourceTree = "<group>"; };
 		08B8E0FE1495290E00331505 /* yelpLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yelpLogo@2x.png"; sourceTree = "<group>"; };
+		08BC7BAA14B4006B00CCF427 /* FNAccountTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FNAccountTableCell.png; sourceTree = "<group>"; };
+		08BC7BAB14B4006B00CCF427 /* FNAccountTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FNAccountTableCell@2x.png"; sourceTree = "<group>"; };
+		08BC7BAC14B4006B00CCF427 /* GoogleMapListTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleMapListTableCell.png; sourceTree = "<group>"; };
+		08BC7BAD14B4006B00CCF427 /* GoogleMapListTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoogleMapListTableCell@2x.png"; sourceTree = "<group>"; };
+		08BC7BAE14B4006B00CCF427 /* YelpAccountTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YelpAccountTableCell.png; sourceTree = "<group>"; };
+		08BC7BAF14B4006B00CCF427 /* YelpAccountTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YelpAccountTableCell@2x.png"; sourceTree = "<group>"; };
 		08BF5479149A4F7100F23A4E /* AccountSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountSettings.plist; sourceTree = "<group>"; };
 		08D2725E14894BAC00D4A103 /* Songhori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songhori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D2726214894BAC00D4A103 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -303,6 +332,18 @@
 			path = Crytpo;
 			sourceTree = "<group>";
 		};
+		087E597014B2410F006120DB /* Account Management */ = {
+			isa = PBXGroup;
+			children = (
+				087E597114B2410F006120DB /* AccountsUIViewController.h */,
+				087E597214B2410F006120DB /* AccountsUIViewController.m */,
+				087E597314B2410F006120DB /* AccountsUIViewController.xib */,
+				087E597414B2410F006120DB /* AccountTableViewCell.h */,
+				087E597514B2410F006120DB /* AccountTableViewCell.m */,
+			);
+			path = "Account Management";
+			sourceTree = "<group>";
+		};
 		08D2725314894BAC00D4A103 = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +464,12 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08BC7BAA14B4006B00CCF427 /* FNAccountTableCell.png */,
+				08BC7BAB14B4006B00CCF427 /* FNAccountTableCell@2x.png */,
+				08BC7BAC14B4006B00CCF427 /* GoogleMapListTableCell.png */,
+				08BC7BAD14B4006B00CCF427 /* GoogleMapListTableCell@2x.png */,
+				08BC7BAE14B4006B00CCF427 /* YelpAccountTableCell.png */,
+				08BC7BAF14B4006B00CCF427 /* YelpAccountTableCell@2x.png */,
 				08B8E0FA1495290E00331505 /* locateMeButton.png */,
 				08B8E0FB1495290E00331505 /* locateMeButton@2x.png */,
 				08B8E0FC1495290E00331505 /* settingsButton.png */,
@@ -440,6 +487,7 @@
 		08D272BD14894C7D00D4A103 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				087E597014B2410F006120DB /* Account Management */,
 				080B8DE014992D7100162DDE /* general */,
 				0815A1DD149108D700593ABC /* MKMapView+ZoomLevel.h */,
 				0815A1DE149108D700593ABC /* MKMapView+ZoomLevel.m */,
@@ -468,9 +516,15 @@
 				08F5B570148AA76200671969 /* FNAccount.m */,
 				08F5B580148AD31600671969 /* YelpAccount.h */,
 				08F5B581148AD31700671969 /* YelpAccount.m */,
+				087E598014B2520E006120DB /* GoogleMapAccount.h */,
+				087E598114B2520E006120DB /* GoogleMapAccount.m */,
 				08D272C514894CAE00D4A103 /* Restaurant.h */,
 				08D272C614894CAE00D4A103 /* Restaurant.m */,
 				08D272C714894CAE00D4A103 /* RestaurantCluster.m */,
+				087E597A14B251C7006120DB /* GoogleMapList.h */,
+				087E597B14B251C7006120DB /* GoogleMapList.m */,
+				087E597D14B251E9006120DB /* GoogleMapRestaurant.h */,
+				087E597E14B251E9006120DB /* GoogleMapRestaurant.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -558,6 +612,13 @@
 				08B8E1031495290E00331505 /* yelpLogo@2x.png in Resources */,
 				08BF547A149A4F7100F23A4E /* AccountSettings.plist in Resources */,
 				0839DBB2149B92DC00043178 /* RestaurantDetailViewController.xib in Resources */,
+				087E597714B2410F006120DB /* AccountsUIViewController.xib in Resources */,
+				08BC7BB014B4006B00CCF427 /* FNAccountTableCell.png in Resources */,
+				08BC7BB114B4006B00CCF427 /* FNAccountTableCell@2x.png in Resources */,
+				08BC7BB214B4006B00CCF427 /* GoogleMapListTableCell.png in Resources */,
+				08BC7BB314B4006B00CCF427 /* GoogleMapListTableCell@2x.png in Resources */,
+				08BC7BB414B4006B00CCF427 /* YelpAccountTableCell.png in Resources */,
+				08BC7BB514B4006B00CCF427 /* YelpAccountTableCell@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +683,11 @@
 				089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */,
 				080B8DE314992D7100162DDE /* GCDiscreetNotificationView.m in Sources */,
 				0839DBB1149B92DC00043178 /* RestaurantDetailViewController.m in Sources */,
+				087E597614B2410F006120DB /* AccountsUIViewController.m in Sources */,
+				087E597814B2410F006120DB /* AccountTableViewCell.m in Sources */,
+				087E597C14B251C7006120DB /* GoogleMapList.m in Sources */,
+				087E597F14B251E9006120DB /* GoogleMapRestaurant.m in Sources */,
+				087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
