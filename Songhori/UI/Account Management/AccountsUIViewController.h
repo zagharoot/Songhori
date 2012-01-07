@@ -19,6 +19,7 @@
 
 -(void) closePage:(id) sender; 
 
+- (IBAction)addAccount:(id)sender;
 
 @property (nonatomic, retain) UIBarButtonItem* closeBtn; 
 @end

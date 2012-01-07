@@ -86,9 +86,27 @@
     return NO; 
 }
 
+-(BOOL) isDeletable
+{
+    return NO; 
+}
+
 @end
 
 
+@implementation DynamicAccount
+
+-(BOOL) isDeletable
+{
+    return YES; 
+}
+
+-(void) deleteAccount
+{
+}
+
+
+@end
 
 
 

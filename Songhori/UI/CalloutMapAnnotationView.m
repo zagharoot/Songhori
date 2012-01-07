@@ -142,7 +142,7 @@
     CGRect rect = self.bounds; 
     
     CGRect nameRect = CGRectMake(rect.origin.x+10, rect.origin.y, rect.size.width-20, 25); 
-    CGRect detailRect = CGRectMake(rect.origin.x+10, rect.origin.y+17, rect.size.width-20, rect.size.height-30); 
+    CGRect detailRect = CGRectMake(rect.origin.x+10, rect.origin.y+17, rect.size.width-40, rect.size.height-30); 
     CGRect logoRect = CGRectMake(rect.origin.x+rect.size.width-30, rect.origin.y, 23, 23); 
     CGRect detailBtnRect = CGRectMake(rect.origin.x+rect.size.width-35, rect.origin.y + 23+  (rect.size.height -23)/2-15  , 30, 30 ) ; 
     

@@ -9,6 +9,8 @@
 #import "AccountsUIViewController.h"
 #import "AccountManager.h"
 #import "AccountTableViewCell.h"
+#import "GoogleMapAccount.h"
+#import "NewAccountViewControllerViewController.h"
 
 @implementation AccountsUIViewController
 @synthesize closeBtn=_closeBtn; 
@@ -28,6 +30,20 @@
 -(void) closePage:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES]; 
+}
+
+- (IBAction)addAccount:(id)sender 
+{
+    NewAccountViewControllerViewController* ncv = [[NewAccountViewControllerViewController alloc] initWithSourceURL:@"http://maps.google.com/maps/ms?authuser=0&vps=3&ie=UTF8&msa=0&output=kml&msid=211222265741387435446.000455b6b5ca8e9986c8b"]; 
+
+    [self presentModalViewController:ncv animated:YES]; 
+
+
+//    GoogleMapAccount* ga = [[GoogleMapAccount alloc] initWithURL:@"http://maps.google.com/maps/ms?authuser=0&vps=3&ie=UTF8&msa=0&output=kml&msid=211222265741387435446.000455b6b5ca8e9986c8b"]; 
+//    ga.delegate = self; 
+
+
+//    [[AccountManager standardAccountManager] addAccount:ga]; 
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,7 +71,8 @@
     [self.navigationController setNavigationBarHidden:NO]; 
     self.navigationItem.title = @"Settings"; 
     self.navigationItem.rightBarButtonItem = self.closeBtn; 
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque; 
+    [self.navigationItem setHidesBackButton:YES]; 
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault; 
 }
 
 - (void)viewDidLoad
@@ -99,7 +116,7 @@
 {
     switch (section ) {
         case 0:
-            return [AccountManager standardAccountManager].NUMBER_OF_ACCOUNTS; 
+            return [AccountManager standardAccountManager].NUMBER_OF_ACCOUNTS+1; 
             break;
         case 1:         //ui section 
             return 0; 
@@ -112,22 +129,38 @@
 {
     if (indexPath.section==0)   //this is the account section 
     {
-        static NSString *CellIdentifier = @"Cell";
-        Account* account = [[AccountManager standardAccountManager] getAccountAtIndex:indexPath.row]; 
-        CGRect frame = CGRectMake(0, 0, 320, 60); 
-    
-        AccountTableViewCell *cell = (AccountTableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[[AccountTableViewCell alloc] initWithFrame:frame andAccount:account andTableController:self] autorelease]; 
-        }
-    
-        // Configure the cell...
-        cell.theAccount = account; 
-   
-        // add the cell to the account cell dictionary 
-        [accountCells setValue:cell forKey:[NSString stringWithFormat:@"%d", indexPath.row]]; 
         
-        return cell;
+        if (indexPath.row < [AccountManager standardAccountManager].NUMBER_OF_ACCOUNTS)
+        {
+            static NSString *CellIdentifier = @"Cell";
+            Account* account = [[AccountManager standardAccountManager] getAccountAtIndex:indexPath.row]; 
+            CGRect frame = CGRectMake(0, 0, 320, 60); 
+            
+            AccountTableViewCell *cell = (AccountTableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[[AccountTableViewCell alloc] initWithFrame:frame andAccount:account andTableController:self] autorelease]; 
+            }
+            
+            // Configure the cell...
+            cell.theAccount = account; 
+            
+            // add the cell to the account cell dictionary 
+            [accountCells setValue:cell forKey:[NSString stringWithFormat:@"%d", indexPath.row]]; 
+            
+            return cell;
+            
+        } else              //a cell for adding an account
+        {
+            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"add others"]; 
+            if (cell == nil) 
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"add others"]; 
+            
+            cell.textLabel.text = @"Add Others"; 
+            
+            return cell; 
+            
+        }
+        
     } else if (indexPath.section==1) //this is the UI config section 
     {
         return nil; 
@@ -137,28 +170,62 @@
     return nil; 
 }
 
-/*
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0 && indexPath.row == [AccountManager standardAccountManager].NUMBER_OF_ACCOUNTS)
+    {
+        NewAccountViewControllerViewController* na = [[NewAccountViewControllerViewController alloc] init]; 
+        [self presentModalViewController:na animated:YES]; 
+        [na release]; 
+    }
+}
+
+
+-(void) tableView:(UITableView *)tv willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    AccountTableViewCell* cell = (AccountTableViewCell*) [tv cellForRowAtIndexPath:indexPath]; 
+    
+    [cell.deactivateSwitch setHidden:YES]; 
+    
+}
+
+
+-(void) tableView:(UITableView *)tv didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AccountTableViewCell* cell = (AccountTableViewCell*) [tv cellForRowAtIndexPath:indexPath]; 
+    
+    [cell.deactivateSwitch setHidden:NO]; 
+}
+
+
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
- // Return NO if you do not want the specified item to be editable.
- return YES;
+     AccountManager* am = [AccountManager standardAccountManager]; 
+     
+     if (indexPath.section==0 &&  indexPath.row < am.NUMBER_OF_ACCOUNTS)
+         return [[[AccountManager standardAccountManager].accounts objectAtIndex:indexPath.row] isDeletable]; 
+     else 
+         return NO; 
  }
- */
 
-/*
+
+
  // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ - (void)tableView:(UITableView *)tv commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     [[AccountManager standardAccountManager] deleteAccountAtIndex:indexPath.row]; 
+     [tv deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
  }   
  else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
  }   
  }
- */
+ 
 
 /*
  // Override to support rearranging the table view.
@@ -184,7 +251,7 @@
 {
     switch (section) {
         case 0:
-            return @"Accounts"; 
+            return @"Restaurant Sources"; 
         case 1:
             return @"User Interface"; 
             

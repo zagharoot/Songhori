@@ -19,6 +19,7 @@
 }
 
 @property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSString* name; 
 @property (nonatomic, retain) NSSet *restaurants;
 @property (nonatomic) NSTimeInterval lastSyncDate;          //when was the last time we synced with the website
 @property (nonatomic) BOOL active; 

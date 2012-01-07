@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MapViewController.h"
 #import "AccountManager.h"
+#import "NewAccountViewControllerViewController.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,24 @@
     [_window release];
     [_viewController release];
     [super dealloc];
+}
+
+-(BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NewAccountViewControllerViewController* ncv = [[NewAccountViewControllerViewController alloc] initWithSourceURL:url.absoluteString]; 
+    
+    if (!ncv)
+        return NO; 
+    
+    [[self.window rootViewController] presentModalViewController:ncv animated:NO]; 
+    return YES; 
+}
+
+
+-(BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [self application:application handleOpenURL:url]; 
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

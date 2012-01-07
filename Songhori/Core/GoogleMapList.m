@@ -14,6 +14,7 @@
 
 
 @dynamic url;
+@dynamic name; 
 @dynamic restaurants;
 @dynamic lastSyncDate; 
 @dynamic active; 

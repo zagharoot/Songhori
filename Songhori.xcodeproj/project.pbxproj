@@ -32,6 +32,8 @@
 		0815A2621494E24B00593ABC /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815A2501494E24B00593ABC /* OATokenManager.m */; };
 		0839DBB1149B92DC00043178 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */; };
 		0839DBB2149B92DC00043178 /* RestaurantDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */; };
+		0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */; };
+		0875CBFE14B790B4009F16DE /* NewAccountViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */; };
 		087E597614B2410F006120DB /* AccountsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597214B2410F006120DB /* AccountsUIViewController.m */; };
 		087E597714B2410F006120DB /* AccountsUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 087E597314B2410F006120DB /* AccountsUIViewController.xib */; };
 		087E597814B2410F006120DB /* AccountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597514B2410F006120DB /* AccountTableViewCell.m */; };
@@ -145,6 +147,9 @@
 		0839DBAE149B92DC00043178 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
 		0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailViewController.xib; sourceTree = "<group>"; };
+		0875CBFA14B790B4009F16DE /* NewAccountViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAccountViewControllerViewController.h; sourceTree = "<group>"; };
+		0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAccountViewControllerViewController.m; sourceTree = "<group>"; };
+		0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewAccountViewControllerViewController.xib; sourceTree = "<group>"; };
 		087E597114B2410F006120DB /* AccountsUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsUIViewController.h; sourceTree = "<group>"; };
 		087E597214B2410F006120DB /* AccountsUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsUIViewController.m; sourceTree = "<group>"; };
 		087E597314B2410F006120DB /* AccountsUIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsUIViewController.xib; sourceTree = "<group>"; };
@@ -340,6 +345,9 @@
 				087E597314B2410F006120DB /* AccountsUIViewController.xib */,
 				087E597414B2410F006120DB /* AccountTableViewCell.h */,
 				087E597514B2410F006120DB /* AccountTableViewCell.m */,
+				0875CBFA14B790B4009F16DE /* NewAccountViewControllerViewController.h */,
+				0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */,
+				0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */,
 			);
 			path = "Account Management";
 			sourceTree = "<group>";
@@ -619,6 +627,7 @@
 				08BC7BB314B4006B00CCF427 /* GoogleMapListTableCell@2x.png in Resources */,
 				08BC7BB414B4006B00CCF427 /* YelpAccountTableCell.png in Resources */,
 				08BC7BB514B4006B00CCF427 /* YelpAccountTableCell@2x.png in Resources */,
+				0875CBFE14B790B4009F16DE /* NewAccountViewControllerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +697,7 @@
 				087E597C14B251C7006120DB /* GoogleMapList.m in Sources */,
 				087E597F14B251E9006120DB /* GoogleMapRestaurant.m in Sources */,
 				087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */,
+				0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

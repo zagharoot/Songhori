@@ -15,6 +15,7 @@
 #import "ClusterAnnotationView.h"
 #import <MapKit/MapKit.h>
 #import "AccountsUIViewController.h" 
+#import "GoogleMapRestaurant.h"
 
 #import "RestaurantDetailViewController.h"      //TODO: remove this 
 
@@ -79,9 +80,7 @@
 }
 
 
-- (IBAction)reloadData:(id)sender {
-
-    
+- (IBAction)reloadData:(id)sender {    
     [self.myMapView removeAnnotations:restaurants]; 
     [self.searchActivityIndicator startAnimating]; 
     
@@ -160,6 +159,20 @@
 {
     [self.navigationController setNavigationBarHidden:YES];         //we don't show the navigation in this view
     [super viewWillAppear:animated];
+    
+    //set the text of search button accordingly
+    
+    if ([accountManager hasAnyActiveAccount])
+    {
+        [self.redoSearchBtn setEnabled:YES]; 
+        [self.redoSearchBtn setTitle:@"Redo the Search" forState:UIControlStateNormal];
+        self.redoSearchBtn.alpha = 1.0; 
+    }else {
+        [self.redoSearchBtn setEnabled:NO]; 
+        [self.redoSearchBtn setTitle:@"No Restaurant Source" forState:UIControlStateNormal]; 
+        self.redoSearchBtn.alpha = 0.6; 
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -185,7 +198,6 @@
 }
 
 
-//load the data for the current view 
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
 //    MKCoordinateRegion r =  mapView.region; 
@@ -258,14 +270,22 @@
 		annotationView.canShowCallout = NO;
 		annotationView.pinColor = MKPinAnnotationColorPurple; 
 		return annotationView;
-    }else if ([annotation isKindOfClass:[YelpRestaurant class]])
+    }else if ([annotation isKindOfClass:[YelpRestaurantAnnotation class]])
     {
 		MKPinAnnotationView *annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation 
 																			   reuseIdentifier:@"YelpRestaurant"] autorelease];
 		annotationView.canShowCallout = NO;
-		annotationView.pinColor = MKPinAnnotationColorGreen;
+		annotationView.pinColor = MKPinAnnotationColorRed;
+		return annotationView;
+    }else if ([annotation isKindOfClass:[GoogleMapRestaurantAnnotation class]])
+    {
+		MKPinAnnotationView *annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation 
+																			   reuseIdentifier:@"GoogleMapRestaurant"] autorelease];
+		annotationView.canShowCallout = NO;
+		annotationView.pinColor = MKPinAnnotationColorGreen; 
 		return annotationView;
     }
+
     
     return nil; 
 }

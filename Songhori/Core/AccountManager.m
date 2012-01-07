@@ -35,6 +35,9 @@ static AccountManager* theAccountManager;
 
 -(void) save
 {
+    if ([context hasChanges])
+        [context save:nil]; 
+
     for (Account* a in self.accounts) {
         if (a.active)
             [a save]; 
@@ -107,6 +110,7 @@ static AccountManager* theAccountManager;
 }
 
 
+
 - (id)init
 {
     self = [super init];
@@ -125,7 +129,12 @@ static AccountManager* theAccountManager;
         NSURL* curl = [NSURL fileURLWithPath:path]; 
         NSError* error = nil; 
         
-        if (![prs addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:curl options:nil error:&error])
+        NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil]; 
+        
+        
+        
+        
+        if (![prs addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:curl options:options error:&error])
         {
             [prs release]; 
             return nil; 
@@ -151,6 +160,31 @@ static AccountManager* theAccountManager;
     }
     
     return NO; 
+}
+
+
+-(void) addAccount:(Account *)account
+{
+    [_accounts addObject:account]; 
+    account.delegate = self; 
+}
+
+
+-(void) deleteAccountAtIndex:(int)index
+{
+    if (index<0 || index >= [self NUMBER_OF_ACCOUNTS])
+        return; 
+    
+    Account* a = [self.accounts objectAtIndex:index]; 
+    
+    if (! a.isDeletable)
+        return; 
+    
+    DynamicAccount* da = (DynamicAccount*) a; 
+    
+    [da deleteAccount]; 
+    [_accounts removeObjectAtIndex:index]; 
+    
 }
 
 

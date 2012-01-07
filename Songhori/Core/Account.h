@@ -27,12 +27,19 @@
 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region zoomLevel:(int) zoomLevel; //array of annotations
 
+-(BOOL) isDeletable; 
 
 @property (readonly, nonatomic) UIImage* logoImage; 
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate; //we return array of Restaurant
 @property (nonatomic) BOOL active; 
 @end
 
+
+//these are accounts that don't belong to fixed items (such as yelp,...)
+@interface DynamicAccount : Account
+
+-(void) deleteAccount; 
+@end
 
 
 

@@ -163,7 +163,7 @@ static NSString* st_TOKEN_SECRET;
         [ud setValue:nil forKey:@"YelpAccountUsername"]; 
         
         [self.dataProvider save]; 
-        [_dataProvider release]; 
+        self.dataProvider = nil; 
     }
 }
 

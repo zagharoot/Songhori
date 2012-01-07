@@ -3,6 +3,7 @@
     <entity name="GoogleMapList" representedClassName="GoogleMapList" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastSyncDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="restaurants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GoogleMapRestaurant" inverseName="account" inverseEntity="GoogleMapRestaurant" syncable="YES"/>
     </entity>
@@ -38,10 +39,10 @@
         <relationship name="checkins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YelpRestaurant" inverseName="user" inverseEntity="YelpRestaurant" syncable="YES"/>
     </entity>
     <elements>
+        <element name="GoogleMapList" positionX="-146" positionY="-162" width="128" height="120"/>
+        <element name="GoogleMapRestaurant" positionX="-281" positionY="99" width="128" height="120"/>
         <element name="YelpCheckin" positionX="160" positionY="192" width="128" height="105"/>
         <element name="YelpRestaurant" positionX="160" positionY="192" width="128" height="180"/>
         <element name="YelpUser" positionX="-144" positionY="-3" width="144" height="90"/>
-        <element name="GoogleMapList" positionX="-146" positionY="-162" width="128" height="105"/>
-        <element name="GoogleMapRestaurant" positionX="-281" positionY="99" width="128" height="120"/>
     </elements>
 </model>

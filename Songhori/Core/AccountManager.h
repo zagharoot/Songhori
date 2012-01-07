@@ -40,8 +40,8 @@
 
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region zoomLevel:(int) zoomLevel;  //array of annotations
 
-
-
+-(void) addAccount:(Account*) account; 
+-(void) deleteAccountAtIndex:(int) index; 
 
 @property (readonly, nonatomic) NSArray* accounts; 
 @property (readonly) int NUMBER_OF_ACCOUNTS; 
