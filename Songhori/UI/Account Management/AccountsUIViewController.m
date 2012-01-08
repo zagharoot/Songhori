@@ -155,7 +155,8 @@
             if (cell == nil) 
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"add others"]; 
             
-            cell.textLabel.text = @"Add Others"; 
+            cell.textLabel.text = @"Add More"; 
+            cell.textLabel.textAlignment = UITextAlignmentCenter; 
             
             return cell; 
             
@@ -171,12 +172,15 @@
 }
 
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) tableView:(UITableView *)tv didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0 && indexPath.row == [AccountManager standardAccountManager].NUMBER_OF_ACCOUNTS)
     {
         NewAccountViewControllerViewController* na = [[NewAccountViewControllerViewController alloc] init]; 
-        [self presentModalViewController:na animated:YES]; 
+        [self presentViewController:na animated:YES completion:^{
+            [tableView reloadData]; 
+        }];
+        
         [na release]; 
     }
 }

@@ -14,6 +14,7 @@
 @synthesize logoImageView=_img; 
 @synthesize theAccount = _account; 
 @synthesize deactivateSwitch=_deactivateSwitch; 
+@synthesize detailLabel=_detailLabel;  
 
 //this is a retain property
 -(void) setTheAccount:(Account *)theAccount
@@ -21,10 +22,27 @@
     [_account release]; 
     _account = [theAccount retain]; 
     
+    self.detailLabel.text = theAccount.info;  
+    
     [self setNeedsDisplay]; 
 }
 
 
+-(UILabel*) detailLabel
+{
+    if (!_detailLabel)
+    {
+        _detailLabel = [[UILabel alloc] initWithFrame:self.bounds]; 
+        _detailLabel.text = @""; 
+        _detailLabel.textAlignment = UITextAlignmentRight; 
+        _detailLabel.backgroundColor = [UIColor clearColor]; 
+        _detailLabel.font = [UIFont systemFontOfSize:10]; 
+        _detailLabel.textColor = [UIColor grayColor]; 
+    }
+    
+    return _detailLabel; 
+    
+}
 
 -(UISwitch*) deactivateSwitch
 {
@@ -81,6 +99,7 @@
         
         [self.contentView addSubview:self.logoImageView]; 
         [self.contentView addSubview:self.deactivateSwitch]; 
+        [self.contentView addSubview:self.detailLabel]; 
         
         self.clipsToBounds = YES; 
         self.selectionStyle = UITableViewCellSelectionStyleNone; 
@@ -117,6 +136,17 @@
     b.size.width = 195; 
     
     self.logoImageView.frame = b; 
+    
+    
+    
+    b = self.bounds; 
+    
+    b.origin.x = 50; 
+    b.origin.y = b.size.height - 22; 
+    b.size.width = b.size.width - 50 - 110; 
+    b.size.height = 22; 
+    
+    self.detailLabel.frame = b; 
     
 }
 

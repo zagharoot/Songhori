@@ -20,6 +20,13 @@ static NSString* st_TOKEN_SECRET;
 @implementation YelpAccount
 @synthesize dataProvider=_dataProvider; 
 
+
+-(NSString*) info
+{
+    return [NSString stringWithFormat:@"%d Checkins", self.dataProvider.userData.checkins.count]; 
+}
+
+
 #pragma mark - read settings from plist file 
 +(void) loadSettings
 {

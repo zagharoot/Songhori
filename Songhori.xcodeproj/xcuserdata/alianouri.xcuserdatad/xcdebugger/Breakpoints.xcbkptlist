@@ -37,13 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "347512699.61372"
+         timestampString = "347747374.371124"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "213"
-         endingLineNumber = "213"
-         landmarkName = "-mapView:didUpdateUserLocation:"
-         landmarkType = "5">
+         startingLineNumber = "214"
+         endingLineNumber = "214">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -79,13 +77,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "347512699.61372"
+         timestampString = "347750079.582764"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
-         landmarkName = "-restaudantDataDidBecomeAvailable:forRegion:fromProvider:"
-         landmarkType = "5">
+         startingLineNumber = "334"
+         endingLineNumber = "334">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -135,13 +131,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "347512699.61372"
+         timestampString = "347747374.371124"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "155"
-         endingLineNumber = "155"
-         landmarkName = "-viewDidUnload"
-         landmarkType = "5">
+         startingLineNumber = "156"
+         endingLineNumber = "156">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -177,13 +171,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "347512699.61372"
+         timestampString = "347747374.371124"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
+         startingLineNumber = "131"
+         endingLineNumber = "131">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -191,11 +183,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/Core/YelpAccount.m"
-         timestampString = "347246009.847099"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
          landmarkName = "+loadSettings"
          landmarkType = "5">
       </FileBreakpoint>
@@ -260,13 +252,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "347512699.61372"
+         timestampString = "347750079.582764"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "300"
-         endingLineNumber = "300"
-         landmarkName = "-restaudantDataDidBecomeAvailable:forRegion:fromProvider:"
-         landmarkType = "5">
+         startingLineNumber = "340"
+         endingLineNumber = "340">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -299,11 +289,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/YelpAccount.m"
-         timestampString = "347339245.840493"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "171"
-         endingLineNumber = "171"
+         startingLineNumber = "178"
+         endingLineNumber = "178"
          landmarkName = "-sendRestaurantsInRegion:zoomLevel:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -377,11 +367,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
-         timestampString = "347476269.67239"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
          landmarkName = "-initWithURL:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -390,11 +380,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
-         timestampString = "347476549.412299"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-initWithURL:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -403,11 +393,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
-         timestampString = "347667265.757408"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "190"
-         endingLineNumber = "190"
+         startingLineNumber = "195"
+         endingLineNumber = "195"
          landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -416,11 +406,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
-         timestampString = "347667265.757408"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "252"
-         endingLineNumber = "252"
+         startingLineNumber = "257"
+         endingLineNumber = "257"
          landmarkName = "-connection:didFailWithError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -429,11 +419,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
-         timestampString = "347667265.757408"
+         timestampString = "347675160.838746"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
          landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -462,6 +452,54 @@
          endingLineNumber = "175"
          landmarkName = "-deleteAccountAtIndex:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/Data/YelpRestaurantDataProvider.m"
+         timestampString = "347745643.606324"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "200"
+         endingLineNumber = "200"
+         landmarkName = "-loadCheckins:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/Data/YelpRestaurantDataProvider.m"
+         timestampString = "347745775.779376"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
+         landmarkName = "-loadCheckins:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/MapViewController.m"
+         timestampString = "347750079.582764"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "321"
+         endingLineNumber = "321">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/MapViewController.m"
+         timestampString = "347747830.096444"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "255"
+         endingLineNumber = "255">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

@@ -41,6 +41,11 @@ static UIImage* FNLogo;
 @synthesize specialty=_specialty; 
 
 
+-(UIColor*) pinColor
+{
+    return [UIColor redColor]; 
+}
+
 -(UIImage*) logo
 {
     if (!FNLogo)

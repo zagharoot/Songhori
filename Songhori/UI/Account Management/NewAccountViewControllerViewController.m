@@ -15,6 +15,7 @@
 @end
 
 @implementation NewAccountViewControllerViewController
+@synthesize activityIndicator;
 @synthesize urlTextbox;
 @synthesize initialURL;
 @synthesize theAccount=_theAccount; 
@@ -25,6 +26,7 @@
     if (self) 
     {
         self.initialURL = url; 
+
     }
     
     return self; 
@@ -44,11 +46,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.activityIndicator stopAnimating]; 
     
     if (self.initialURL)
     {
         //TODO: copy to text edit and call submit
-        
+        self.urlTextbox.text = self.initialURL; 
+        [self processNewAccount]; 
         
     }
     
@@ -57,11 +61,13 @@
 - (void)viewDidUnload
 {
     [self setUrlTextbox:nil];
+    [self setActivityIndicator:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
     self.initialURL = nil; 
+    self.theAccount = nil; 
     
 }
 
@@ -70,16 +76,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) syncFinished:(id)provider
-{
-    //data download complete. now we can populate the table 
-}
 
 //use the url to construct the account and download detail data 
 -(IBAction)processNewAccount
 {
-        GoogleMapAccount* ga = [[GoogleMapAccount alloc] initWithURL:self.urlTextbox.text]; 
-        ga.delegate = self; 
+    
+        self.theAccount = [[[GoogleMapAccount alloc] initWithURL:self.urlTextbox.text] autorelease]; 
+        self.theAccount.delegate = self; 
+    
+    [self.activityIndicator startAnimating]; 
+}
+
+- (IBAction)cancelPage:(id)sender {
+    [self dismissModalViewControllerAnimated:YES]; 
 }
 
 
@@ -96,6 +105,20 @@
 
 - (void)dealloc {
     [urlTextbox release];
+    [activityIndicator release];
     [super dealloc];
 }
+
+#pragma mark- delegate methods 
+
+-(void) syncFinished:(id)provider
+{
+    //data download complete. now we can populate the table 
+    [self.activityIndicator stopAnimating]; 
+    [self addAcountAndExit]; 
+    
+}
+
+
+
 @end

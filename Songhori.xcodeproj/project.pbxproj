@@ -42,6 +42,8 @@
 		087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E598114B2520E006120DB /* GoogleMapAccount.m */; };
 		089ED000149678D500BA8306 /* YelpCheckin.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ECFFF149678D500BA8306 /* YelpCheckin.m */; };
 		089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ED0031496896700BA8306 /* YelpRestaurant.m */; };
+		08A0DB1614B923C700A91C07 /* GoogleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A0DB1414B923C700A91C07 /* GoogleLogo.png */; };
+		08A0DB1714B923C700A91C07 /* GoogleLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A0DB1514B923C700A91C07 /* GoogleLogo@2x.png */; };
 		08B8E0FF1495290E00331505 /* locateMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FA1495290E00331505 /* locateMeButton.png */; };
 		08B8E1001495290E00331505 /* locateMeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FB1495290E00331505 /* locateMeButton@2x.png */; };
 		08B8E1011495290E00331505 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FC1495290E00331505 /* settingsButton.png */; };
@@ -54,6 +56,13 @@
 		08BC7BB414B4006B00CCF427 /* YelpAccountTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAE14B4006B00CCF427 /* YelpAccountTableCell.png */; };
 		08BC7BB514B4006B00CCF427 /* YelpAccountTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC7BAF14B4006B00CCF427 /* YelpAccountTableCell@2x.png */; };
 		08BF547A149A4F7100F23A4E /* AccountSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08BF5479149A4F7100F23A4E /* AccountSettings.plist */; };
+		08D0A53114BA331100C30CBC /* ZSPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D0A53014BA331100C30CBC /* ZSPinAnnotation.m */; };
+		08D0A53914BA332900C30CBC /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D0A53314BA332900C30CBC /* color.png */; };
+		08D0A53A14BA332900C30CBC /* color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D0A53414BA332900C30CBC /* color@2x.png */; };
+		08D0A53B14BA332900C30CBC /* shading.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D0A53514BA332900C30CBC /* shading.png */; };
+		08D0A53C14BA332900C30CBC /* shading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D0A53614BA332900C30CBC /* shading@2x.png */; };
+		08D0A53D14BA332900C30CBC /* stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D0A53714BA332900C30CBC /* stick.png */; };
+		08D0A53E14BA332900C30CBC /* stick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08D0A53814BA332900C30CBC /* stick@2x.png */; };
 		08D2726314894BAD00D4A103 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726214894BAC00D4A103 /* UIKit.framework */; };
 		08D2726514894BAD00D4A103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726414894BAD00D4A103 /* Foundation.framework */; };
 		08D2726714894BAD00D4A103 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D2726614894BAD00D4A103 /* CoreGraphics.framework */; };
@@ -165,6 +174,8 @@
 		089ECFFF149678D500BA8306 /* YelpCheckin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpCheckin.m; sourceTree = "<group>"; };
 		089ED0021496896700BA8306 /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
 		089ED0031496896700BA8306 /* YelpRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurant.m; sourceTree = "<group>"; };
+		08A0DB1414B923C700A91C07 /* GoogleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogo.png; sourceTree = "<group>"; };
+		08A0DB1514B923C700A91C07 /* GoogleLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoogleLogo@2x.png"; sourceTree = "<group>"; };
 		08B8E0FA1495290E00331505 /* locateMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButton.png; sourceTree = "<group>"; };
 		08B8E0FB1495290E00331505 /* locateMeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButton@2x.png"; sourceTree = "<group>"; };
 		08B8E0FC1495290E00331505 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
@@ -177,6 +188,14 @@
 		08BC7BAE14B4006B00CCF427 /* YelpAccountTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YelpAccountTableCell.png; sourceTree = "<group>"; };
 		08BC7BAF14B4006B00CCF427 /* YelpAccountTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "YelpAccountTableCell@2x.png"; sourceTree = "<group>"; };
 		08BF5479149A4F7100F23A4E /* AccountSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AccountSettings.plist; sourceTree = "<group>"; };
+		08D0A52F14BA331100C30CBC /* ZSPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSPinAnnotation.h; sourceTree = "<group>"; };
+		08D0A53014BA331100C30CBC /* ZSPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSPinAnnotation.m; sourceTree = "<group>"; };
+		08D0A53314BA332900C30CBC /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
+		08D0A53414BA332900C30CBC /* color@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color@2x.png"; sourceTree = "<group>"; };
+		08D0A53514BA332900C30CBC /* shading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shading.png; sourceTree = "<group>"; };
+		08D0A53614BA332900C30CBC /* shading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shading@2x.png"; sourceTree = "<group>"; };
+		08D0A53714BA332900C30CBC /* stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stick.png; sourceTree = "<group>"; };
+		08D0A53814BA332900C30CBC /* stick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stick@2x.png"; sourceTree = "<group>"; };
 		08D2725E14894BAC00D4A103 /* Songhori.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Songhori.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D2726214894BAC00D4A103 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		08D2726414894BAD00D4A103 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -272,6 +291,8 @@
 		080B8DE014992D7100162DDE /* general */ = {
 			isa = PBXGroup;
 			children = (
+				08D0A52F14BA331100C30CBC /* ZSPinAnnotation.h */,
+				08D0A53014BA331100C30CBC /* ZSPinAnnotation.m */,
 				080B8DE114992D7100162DDE /* GCDiscreetNotificationView.h */,
 				080B8DE214992D7100162DDE /* GCDiscreetNotificationView.m */,
 			);
@@ -472,6 +493,14 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08D0A53314BA332900C30CBC /* color.png */,
+				08D0A53414BA332900C30CBC /* color@2x.png */,
+				08D0A53514BA332900C30CBC /* shading.png */,
+				08D0A53614BA332900C30CBC /* shading@2x.png */,
+				08D0A53714BA332900C30CBC /* stick.png */,
+				08D0A53814BA332900C30CBC /* stick@2x.png */,
+				08A0DB1414B923C700A91C07 /* GoogleLogo.png */,
+				08A0DB1514B923C700A91C07 /* GoogleLogo@2x.png */,
 				08BC7BAA14B4006B00CCF427 /* FNAccountTableCell.png */,
 				08BC7BAB14B4006B00CCF427 /* FNAccountTableCell@2x.png */,
 				08BC7BAC14B4006B00CCF427 /* GoogleMapListTableCell.png */,
@@ -628,6 +657,14 @@
 				08BC7BB414B4006B00CCF427 /* YelpAccountTableCell.png in Resources */,
 				08BC7BB514B4006B00CCF427 /* YelpAccountTableCell@2x.png in Resources */,
 				0875CBFE14B790B4009F16DE /* NewAccountViewControllerViewController.xib in Resources */,
+				08A0DB1614B923C700A91C07 /* GoogleLogo.png in Resources */,
+				08A0DB1714B923C700A91C07 /* GoogleLogo@2x.png in Resources */,
+				08D0A53914BA332900C30CBC /* color.png in Resources */,
+				08D0A53A14BA332900C30CBC /* color@2x.png in Resources */,
+				08D0A53B14BA332900C30CBC /* shading.png in Resources */,
+				08D0A53C14BA332900C30CBC /* shading@2x.png in Resources */,
+				08D0A53D14BA332900C30CBC /* stick.png in Resources */,
+				08D0A53E14BA332900C30CBC /* stick@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +735,7 @@
 				087E597F14B251E9006120DB /* GoogleMapRestaurant.m in Sources */,
 				087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */,
 				0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */,
+				08D0A53114BA331100C30CBC /* ZSPinAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

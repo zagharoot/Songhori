@@ -11,7 +11,7 @@
 @implementation Account
 
 @synthesize delegate=_delegate; 
-
+@synthesize info=_info; 
 
 -(void) setActive:(BOOL)active
 {

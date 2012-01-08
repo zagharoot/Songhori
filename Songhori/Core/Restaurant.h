@@ -28,7 +28,8 @@
     NSString* _name; 
     NSString* _detail; 
     NSString* _url;                         //this url will open more info about the restaurant
-    
+    UIColor* _pinColor;     
+
     CLLocationCoordinate2D __coordinate; 
     
 }
@@ -38,6 +39,7 @@
 @property (nonatomic, copy) NSString* name; 
 @property (nonatomic, copy) NSString* detail; 
 @property (nonatomic, copy) NSString* url; 
+@property (nonatomic ,retain) UIColor* pinColor; 
 @end
 
 
@@ -50,9 +52,7 @@
     //ivars necessary for retrieving and managing the detail data 
     NSMutableURLRequest* request; 
     NSMutableData* _incomingData; 
-    NSURLConnection* _urlConnection; 
-    
-    
+    NSURLConnection* _urlConnection;     
 }
 
 -(id) initWithJSONData:(id) json; 

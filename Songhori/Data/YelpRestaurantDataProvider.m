@@ -186,7 +186,7 @@
 
              BOOL nextPageFlag= YES;        //should we automatically load the next page as well? 
              
-             if (items.count < 20)
+             if (items.count < 20 || pageNumber>=8)
                  nextPageFlag = NO; 
              
              for (id item in items) 

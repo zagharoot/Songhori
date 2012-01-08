@@ -33,6 +33,11 @@
     return self;
 }
 
+-(NSString*) info
+{
+    return @"Best thing I ever ate"; 
+}
+
 
 -(NSString*) accountName
 {

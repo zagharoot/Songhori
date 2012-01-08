@@ -16,6 +16,7 @@
 #import <MapKit/MapKit.h>
 #import "AccountsUIViewController.h" 
 #import "GoogleMapRestaurant.h"
+#import "ZSPinAnnotation.h"
 
 #import "RestaurantDetailViewController.h"      //TODO: remove this 
 
@@ -99,7 +100,8 @@
     
     
     [self.myMapView setShowsUserLocation:YES]; 
-    if (!self.myMapView.userLocationVisible && self.myMapView.userLocation)
+//    if (!self.myMapView.userLocationVisible && self.myMapView.userLocation)
+    if (self.myMapView.userLocation) 
     {
         [self.myMapView setCenterCoordinate:self.myMapView.userLocation.coordinate zoomLevel:15 animated:YES];         
     }
@@ -198,6 +200,8 @@
 }
 
 
+#pragma mark- mapview delegate methods 
+
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
 //    MKCoordinateRegion r =  mapView.region; 
@@ -228,8 +232,6 @@
 	}
 */    
     
-    
-
     if( [annotation isKindOfClass:[RestaurantCluster class]])
     {
         MKAnnotationView *annView;
@@ -250,7 +252,7 @@
     } else if ([annotation isKindOfClass:[CalloutMapAnnotation class]])
     {        
             //if the selected item is not restaurant, just return 
-            if (![self.selectedAnnotationView isKindOfClass:[MKPinAnnotationView class]])
+            if (![self.selectedAnnotationView isKindOfClass:[MKAnnotationView class]])
                 return nil;  
             CalloutMapAnnotationView *calloutMapAnnotationView = (CalloutMapAnnotationView *)[self.myMapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutAnnotation"];
             if (!calloutMapAnnotationView) 
@@ -263,7 +265,28 @@
             calloutMapAnnotationView.parentAnnotationView = self.selectedAnnotationView;
             calloutMapAnnotationView.mapView = self.myMapView;
             return calloutMapAnnotationView;
-    }else if ([annotation isKindOfClass:[FNRestaurant class]])
+    }
+//    else if ([annotation isKindOfClass:[Restaurant class]])
+//    {
+//        static NSString *defaultPinID = @"StandardIdentifier";
+//        MKAnnotationView *pinView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+//        if (pinView == nil){
+//            pinView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
+//            //pinView.animatesDrop = YES;
+//        }
+//
+//		Restaurant *a = (Restaurant *)annotation;
+//		pinView.image = [ZSPinAnnotation pinAnnotationWithColor:a.pinColor];// ZSPinAnnotation Being Used
+//		pinView.annotation = a;
+//		pinView.enabled = YES;
+//		pinView.calloutOffset = CGPointMake(-11,0);
+//        pinView.canShowCallout = NO; 
+//        
+//        return pinView; 
+//    }
+    
+    
+    else if ([annotation isKindOfClass:[FNRestaurant class]])
     {
 		MKPinAnnotationView *annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation 
 																			   reuseIdentifier:@"FNRestaurant"] autorelease];
@@ -291,8 +314,28 @@
 }
 
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    
+NSLog(@" selected frame (%f,%f,%f,%f)\n", view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height); 
 
+    if (self.calloutAnnotation == nil) 
+        self.calloutAnnotation = [[[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
+                                                                    andLongitude:view.annotation.coordinate.longitude] autorelease];
+    else
+    {
+        self.calloutAnnotation.latitude = view.annotation.coordinate.latitude; 
+        self.calloutAnnotation.longitude = view.annotation.coordinate.longitude; 
+    }
+    
+    [self.myMapView addAnnotation:self.calloutAnnotation];
+    self.selectedAnnotationView = view;
+}
 
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    [self.myMapView removeAnnotation: self.calloutAnnotation];
+}
+
+#pragma mark- restaurandt delegate methods 
 
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)items forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
@@ -325,24 +368,6 @@
 }
 
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    
-    if (self.calloutAnnotation == nil) 
-			self.calloutAnnotation = [[[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
-																	   andLongitude:view.annotation.coordinate.longitude] autorelease];
-    else
-    {
-        self.calloutAnnotation.latitude = view.annotation.coordinate.latitude; 
-        self.calloutAnnotation.longitude = view.annotation.coordinate.longitude; 
-    }
-    
-    [self.myMapView addAnnotation:self.calloutAnnotation];
-    self.selectedAnnotationView = view;
-}
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-		[self.myMapView removeAnnotation: self.calloutAnnotation];
-}
 
 
 @end

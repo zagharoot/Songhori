@@ -191,6 +191,11 @@ static UIImage* YelpLogo;
 }
 
 
+-(UIColor*) pinColor
+{
+    return [UIColor orangeColor]; 
+}
+
 
 -(id) initWithYelpRestaurant:(YelpRestaurant *)r
 {

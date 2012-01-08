@@ -12,14 +12,16 @@
 
 @interface NewAccountViewControllerViewController : UIViewController <RestaurantDataDelegate>
 {
-    Account* _theAccount; 
+    DynamicAccount* _theAccount; 
 }
 
+@property (retain, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (retain, nonatomic) IBOutlet UITextField *urlTextbox;
 
 -(id) initWithSourceURL:(NSString*) url; 
 - (IBAction)processNewAccount;
+- (IBAction)cancelPage:(id)sender;
 
-@property (nonatomic, retain) Account* theAccount; 
+@property (nonatomic, retain) DynamicAccount* theAccount; 
 @property (nonatomic, retain) NSString* initialURL;         //if present, we fill the text edit with it and automatically call submit
 @end

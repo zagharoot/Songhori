@@ -32,6 +32,7 @@
 @property (readonly, nonatomic) UIImage* logoImage; 
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate; //we return array of Restaurant
 @property (nonatomic) BOOL active; 
+@property (nonatomic, retain) NSString* info; 
 @end
 
 

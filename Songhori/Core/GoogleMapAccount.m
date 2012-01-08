@@ -29,6 +29,11 @@
     return self; 
 }
 
+-(NSString*) info
+{
+    return self.list.name; 
+}
+
 
 -(id) initWithURL:(NSString *)url
 {

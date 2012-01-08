@@ -40,6 +40,12 @@ static UIImage* GoogleLogo;
 @synthesize restaurant=_restaurant; 
 
 
+-(UIColor*) pinColor
+{
+    return [UIColor greenColor]; 
+}
+
+
 -(id) initWithGoogleMapRestaurant:(GoogleMapRestaurant *)r
 {
 self = [super init]; 
@@ -65,7 +71,7 @@ if (self)
 {
     if (!GoogleLogo)
 {
-    GoogleLogo = [[UIImage imageNamed:@"googleLogo.png"] retain]; 
+    GoogleLogo = [[UIImage imageNamed:@"GoogleLogo.png"] retain]; 
 }
 
 return GoogleLogo; 

@@ -24,6 +24,7 @@
 @property (nonatomic, retain) Account* theAccount; 
 
 @property (nonatomic, retain) UISwitch* deactivateSwitch; 
+@property (nonatomic, retain) UILabel* detailLabel; 
 
 - (id) initWithFrame:(CGRect)frame andAccount:(Account*) a andTableController:(AccountsUIViewController*) p; 
 
