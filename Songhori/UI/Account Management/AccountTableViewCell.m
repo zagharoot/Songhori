@@ -112,6 +112,7 @@
 -(void) deactivateAccount:(id)sender
 {
     self.theAccount.active  = [self.deactivateSwitch isOn]; 
+    self.detailLabel.text = self.theAccount.info;  
 }
 
 

@@ -23,7 +23,7 @@ static NSString* st_TOKEN_SECRET;
 
 -(NSString*) info
 {
-    return [NSString stringWithFormat:@"%d Checkins", self.dataProvider.userData.checkins.count]; 
+    return [NSString stringWithFormat:@"%d Checkins", [self totalNumberOfCheckins]]; 
 }
 
 
@@ -127,6 +127,21 @@ static NSString* st_TOKEN_SECRET;
 }
 
 
+-(int) totalNumberOfCheckins
+{
+    if (!self.active)
+        return 0; 
+    
+    YelpUser* user = self.dataProvider.userData; 
+    int result =0; 
+    for (YelpRestaurant* restaurant in user.checkins) {
+        result += restaurant.checkinCount; 
+    }
+    
+    
+    
+    return result; 
+}
 
 -(void) save
 {

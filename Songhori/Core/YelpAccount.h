@@ -16,7 +16,7 @@
 }
 
 -(id) init; 
-
+-(int) totalNumberOfCheckins; 
 
 +(NSString*) YWSID;
 +(NSString*) CONSUMER_KEY; 
