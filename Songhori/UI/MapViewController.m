@@ -96,7 +96,10 @@
     if (! self.myMapView.showsUserLocation || ! self.myMapView.userLocation)
     {
         [locateMeActivityIndicator startAnimating]; 
-        locateMeBtn.imageView.image = [UIImage imageNamed:@"locateMeButtonBusy.png"]; 
+        [self.locateMeBtn setImage:[UIImage imageNamed:@"locateMeButtonBusy.png"] forState:UIControlStateNormal]; 
+    }else {
+        [self.locateMeBtn setImage:[UIImage imageNamed:@"locateMeButton.png"] forState:UIControlStateNormal]; 
+        [self.locateMeBtn setNeedsDisplay]; 
     }
     
     
@@ -215,8 +218,8 @@
 
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    [locateMeActivityIndicator stopAnimating]; 
-    locateMeBtn.imageView.image = [UIImage imageNamed:@"locateMeButton.png"]; 
+    [self.locateMeActivityIndicator stopAnimating]; 
+    [self.locateMeBtn setImage:[UIImage imageNamed:@"locateMeButton.png"] forState:UIControlStateNormal]; 
     
     if (centerOnUserFlag) 
     {

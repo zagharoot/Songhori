@@ -21,10 +21,14 @@
 
 -(id) initWithDelegate:(id<RestaurantDataDelegate>) delegate;
 
+
 @property (nonatomic, retain) NSString* name; 
 @property (nonatomic, retain) NSString* searchTerm; 
 @property (nonatomic, retain) FNRestaurantDataProvider* dataProvider; 
 @property (nonatomic) BOOL active; 
+
+-(void) setActiveNoSave:(BOOL) active; 
+
 @end
 
 

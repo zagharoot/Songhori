@@ -120,7 +120,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="265049120"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">locateMeButton.png</string>
+							<string key="NSResourceName">locateMeButtonBusy.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="63554327">
 							<int key="type">2</int>
@@ -545,12 +545,12 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>locateMeButton.png</string>
+				<string>locateMeButtonBusy.png</string>
 				<string>settingsButton.png</string>
 			</object>
 			<object class="NSArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{36, 36}</string>
+				<string>{72, 72}</string>
 				<string>{36, 36}</string>
 			</object>
 		</object>

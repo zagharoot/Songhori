@@ -32,6 +32,36 @@
     [super dealloc]; 
 }
                         
+-(void) setActiveNoSave:(BOOL)active
+{
+    _active = active; 
+}
+
+
+-(void) setActive:(BOOL)active
+{
+    _active = active; 
+    
+    
+    //save to nsuserdefault
+    
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
+    NSDictionary* ss = [ud valueForKey:@"FoodNetwork"]; 
+    NSMutableDictionary* showStatus; 
+
+    if (! ss)
+        showStatus = [NSMutableDictionary dictionaryWithCapacity:1]; 
+    else 
+        showStatus = [NSMutableDictionary dictionaryWithDictionary:ss]; 
+        
+    [showStatus setValue:[NSNumber numberWithBool:active] forKey:self.name]; 
+    
+    //save it back 
+    [ud setValue:showStatus forKey:@"FoodNetwork"]; 
+    
+}
+
+
                         
 @end
 
@@ -58,25 +88,46 @@
     _shows = [[NSMutableArray alloc] initWithCapacity:10]; 
     showRequestProgress = [[NSMutableDictionary alloc] initWithCapacity:10] ;
     
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"AccountSettings" ofType:@"plist"]; 
+    NSData* data = [NSData dataWithContentsOfFile:path]; 
     
-    FoodNetworkShow* sh = [[FoodNetworkShow alloc] initWithDelegate:self]; 
-    sh.name = @"Best thing I ever ate"; 
-    sh.searchTerm = @"The+Best+Thing+I+Ever+Ate"; 
-    sh.active = YES; 
-    [showRequestProgress setValue:@"NO" forKey:sh.name]; 
+    NSString* error; 
+    NSPropertyListFormat format; 
+    NSDictionary* plist; 
     
-    [_shows addObject:sh]; 
-    [sh release]; 
+    plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:NSPropertyListImmutable format:&format errorDescription:&error]; 
+    
+    if (!plist) 
+    {
+        NSLog(@"%@", error); 
+        [error release]; 
+        return; 
+    }
+    
+    NSArray* fn = [plist objectForKey:@"FoodNetwork"]; 
+    
+
+    //load active status from nsdefault
+    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults]; 
+    NSDictionary* showStatus = [ud valueForKey:@"FoodNetwork"]; 
     
     
-    sh = [[FoodNetworkShow alloc] initWithDelegate:self]; 
-    sh.name = @"Diners, Drive-Ins and Dives"; 
-    sh.searchTerm = @"Diners%2C+Drive-ins+and+Dives"; 
-    sh.active = YES; 
-    [showRequestProgress setValue:@"NO" forKey:sh.name]; 
-    
-    [_shows addObject:sh]; 
-    [sh release]; 
+    for (NSDictionary* show in fn) 
+    {
+        FoodNetworkShow* sh = [[FoodNetworkShow alloc] initWithDelegate:self]; 
+        sh.name = [show valueForKey:@"name"]; 
+        sh.searchTerm = [show valueForKey:@"searchTerm"]; 
+        [showRequestProgress setValue:@"NO" forKey:sh.name]; 
+
+        if ([showStatus objectForKey:sh.name] != nil)
+            [sh setActiveNoSave:[[showStatus objectForKey:sh.name] boolValue]];
+        else 
+            [sh setActiveNoSave:NO]; 
+        
+        [_shows addObject:sh]; 
+        [sh release]; 
+        
+    }
     
 }
 
