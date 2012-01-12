@@ -204,6 +204,11 @@ static NSString* st_TOKEN_SECRET;
 
 #pragma mark - delegate methods 
 
+-(void) allDataForRequestSent:(id)provider
+{
+    [self.delegate allDataForRequestSent:self];     //because we only have one provider 
+}
+
 -(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
 {
     //the array we get is of YelpRestaurant, but we need to change it to YelpRestaurantAnnotation

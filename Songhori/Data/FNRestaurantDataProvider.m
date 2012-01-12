@@ -8,6 +8,7 @@
 
 #import "FNRestaurantDataProvider.h"
 #import "JSON.h"
+#import "FNAccount.h" 
 
 
 #define BASE_URL @"http://www.foodnetwork.com/local/search/cxfDispatcher/foodLocalMapSearch?"
@@ -20,6 +21,19 @@
 @synthesize urlConnection=_urlConnection; 
 @synthesize incomingData=_incomingData; 
 @synthesize request=_request; 
+@synthesize networkShow=_networkShow; 
+
+-(id) initWithShow:(FoodNetworkShow*)show andDelegate:(id<RestaurantDataDelegate>)delegate
+{
+    self = [super init]; 
+    if (self) 
+    {
+        self.delegate = delegate; 
+        self.networkShow = show; 
+    }
+    
+    return self; 
+}
 
 -(id) init
 {
@@ -40,9 +54,23 @@
     self.urlConnection = nil; 
     self.incomingData = nil; 
     self.request = nil; 
-    
+    self.networkShow = nil; 
     [super dealloc]; 
 }
+
+
+//+(NSString*) searchTermForShow:(FoodNetworkShow)show
+//{
+//    switch (show) {
+//        case FN_BEST_THING_I_EVER_AGE:
+//            return @"The+Best+Thing+I+Ever+Ate"; 
+//        case FN_DIVES_IN:
+//            return @""; 
+//        default:
+//            return @""; 
+//    }
+//}
+
 
 
 -(NSURL*) urlForRegion:(MKCoordinateRegion)region zoomLevel:(int)zoom
@@ -53,7 +81,7 @@
         CLLocationDegrees rightlon = region.center.longitude + region.span.longitudeDelta/2.0; 
         
         
-        NSString* str = [NSString stringWithFormat:@"%@uplat=%lf&leftlon=%lf&downlat=%lf&rightlon=%lf&level=%d&show=The+Best+Thing+I+Ever+Ate&_1316992333468=", BASE_URL, uplat, leftlon, downlat, rightlon, zoom]; 
+        NSString* str = [NSString stringWithFormat:@"%@uplat=%lf&leftlon=%lf&downlat=%lf&rightlon=%lf&level=%d&show=%@&_1316992333468=", BASE_URL, uplat, leftlon, downlat, rightlon, zoom,self.networkShow.searchTerm ]; 
         
         NSURL* result = [NSURL URLWithString:str]; 
         
@@ -108,7 +136,9 @@
     
     NSDictionary* d1 = [parser objectWithData:self.incomingData]; 
     
-    if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", datastr); [parser release];   return; }
+    if (d1 == nil) { NSLog(@"the data from webservice was not formatted correctly: %@\n", datastr); [parser release]; 
+        [self.delegate allDataForRequestSent:self]; 
+        return; }
     
     
 
@@ -153,13 +183,18 @@
 
     [parser release]; 
     [self.delegate restaudantDataDidBecomeAvailable:result forRegion:selectedRegion fromProvider:self]; 
+    [self.delegate allDataForRequestSent:self]; 
     self.incomingData = nil; 
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     self.incomingData = nil; 
-    //TODO: send the error up the ladder
+    
+    if ([self.delegate respondsToSelector:@selector(restaurantDataFailedToLoadForProvider:withError:)])
+        [self.delegate restaurantDataFailedToLoadForProvider:self withError:error]; 
+    
+    [self.delegate allDataForRequestSent:self]; 
     
 }
 

@@ -96,6 +96,7 @@
     if (! self.myMapView.showsUserLocation || ! self.myMapView.userLocation)
     {
         [locateMeActivityIndicator startAnimating]; 
+        locateMeBtn.imageView.image = [UIImage imageNamed:@"locateMeButtonBusy.png"]; 
     }
     
     
@@ -204,7 +205,8 @@
 
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-//    MKCoordinateRegion r =  mapView.region; 
+    MKCoordinateRegion r =  mapView.region; 
+    NSLog(@"new region %f,%f,%f,%f\n", r.center.latitude, r.center.longitude, r.span.latitudeDelta, r.span.longitudeDelta ); 
     self.redoSearchBtn.hidden = NO; 
     [self.redoSearchBtn setNeedsDisplay]; 
     
@@ -214,6 +216,7 @@
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     [locateMeActivityIndicator stopAnimating]; 
+    locateMeBtn.imageView.image = [UIImage imageNamed:@"locateMeButton.png"]; 
     
     if (centerOnUserFlag) 
     {
@@ -318,6 +321,7 @@
     
 NSLog(@" selected frame (%f,%f,%f,%f)\n", view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height); 
 
+    
     if (self.calloutAnnotation == nil) 
         self.calloutAnnotation = [[[CalloutMapAnnotation alloc] initWithLatitude:view.annotation.coordinate.latitude
                                                                     andLongitude:view.annotation.coordinate.longitude] autorelease];
@@ -345,8 +349,8 @@ NSLog(@" selected frame (%f,%f,%f,%f)\n", view.frame.origin.x, view.frame.origin
     }    
 }
 
-
--(void) allDataForRequestSent
+//at this point, the provider is always the account manager
+-(void) allDataForRequestSent:(id) provider 
 {
     self.redoSearchBtn.hidden = YES; 
     [self.searchActivityIndicator stopAnimating]; 

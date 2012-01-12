@@ -98,11 +98,18 @@
         self.logoImageView.image = a.logoImage; 
         
         [self.contentView addSubview:self.logoImageView]; 
-        [self.contentView addSubview:self.deactivateSwitch]; 
         [self.contentView addSubview:self.detailLabel]; 
-        
+
         self.clipsToBounds = YES; 
-        self.selectionStyle = UITableViewCellSelectionStyleNone; 
+        
+        if (! [self.theAccount isCompound])
+        {
+            [self.contentView addSubview:self.deactivateSwitch]; 
+            self.selectionStyle = UITableViewCellSelectionStyleNone; 
+            self.accessoryType = UITableViewCellAccessoryNone; 
+        }else {
+            self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 
+        }
     }
     
     return self; 
@@ -126,7 +133,8 @@
     b.origin.x = b.size.width - 110; 
     b.origin.y = b.size.height/2 - 15; 
     
-    self.deactivateSwitch.frame = b; 
+    if (![self.theAccount isCompound])
+        self.deactivateSwitch.frame = b; 
     
     
     b = self.bounds; 

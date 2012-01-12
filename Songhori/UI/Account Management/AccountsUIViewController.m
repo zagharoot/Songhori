@@ -11,6 +11,8 @@
 #import "AccountTableViewCell.h"
 #import "GoogleMapAccount.h"
 #import "NewAccountViewControllerViewController.h"
+#import "FNSelectShowsViewController.h"
+
 
 @implementation AccountsUIViewController
 @synthesize closeBtn=_closeBtn; 
@@ -73,6 +75,9 @@
     self.navigationItem.rightBarButtonItem = self.closeBtn; 
     [self.navigationItem setHidesBackButton:YES]; 
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault; 
+
+
+    [tableView reloadData]; 
 }
 
 - (void)viewDidLoad
@@ -137,18 +142,18 @@
             Account* account = [[AccountManager standardAccountManager] getAccountAtIndex:indexPath.row]; 
             CGRect frame = CGRectMake(0, 0, 320, 60); 
             
-            AccountTableViewCell *cell = (AccountTableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            if (cell == nil) {
-                cell = [[[AccountTableViewCell alloc] initWithFrame:frame andAccount:account andTableController:self] autorelease]; 
-            }
-            
-            // Configure the cell...
-            cell.theAccount = account; 
-            
-            // add the cell to the account cell dictionary 
-            [accountCells setValue:cell forKey:[NSString stringWithFormat:@"%d", indexPath.row]]; 
-            
-            return cell;
+                AccountTableViewCell *cell = (AccountTableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                if (cell == nil) {
+                    cell = [[[AccountTableViewCell alloc] initWithFrame:frame andAccount:account andTableController:self] autorelease]; 
+                }
+                
+                // Configure the cell...
+                cell.theAccount = account; 
+                
+                // add the cell to the account cell dictionary 
+                [accountCells setValue:cell forKey:[NSString stringWithFormat:@"%d", indexPath.row]]; 
+                
+                return cell;
             
         } else              //a cell for adding an account
         {
@@ -183,7 +188,28 @@
         }];
         
         [na release]; 
+        return; 
     }
+    
+    
+    if (indexPath.section==0)
+    {
+        //see  if it is food network 
+        Account* acc = [[AccountManager standardAccountManager].accounts objectAtIndex:indexPath.row]; 
+        
+        if ([acc isKindOfClass:[FNAccount class]])
+        {
+            FNSelectShowsViewController* ctrl = [[FNSelectShowsViewController alloc] initWithAccount:(FNAccount*) acc]; 
+            
+            [self.navigationController pushViewController:ctrl animated:YES]; 
+            [ctrl release]; 
+            
+            [tv deselectRowAtIndexPath:indexPath animated:NO]; 
+        }
+    }
+    
+    
+    
 }
 
 

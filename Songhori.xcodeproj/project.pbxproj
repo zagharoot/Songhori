@@ -95,6 +95,10 @@
 		08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272CC14894DB500D4A103 /* libxml2.dylib */; };
 		08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272D214894E8C00D4A103 /* MapKit.framework */; };
 		08D272D614894F4200D4A103 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D272D414894F4200D4A103 /* MapViewController.xib */; };
+		08E5163B14BF2345005E44DE /* locateMeButtonBusy.png in Resources */ = {isa = PBXBuildFile; fileRef = 08E5163914BF2345005E44DE /* locateMeButtonBusy.png */; };
+		08E5163C14BF2345005E44DE /* locateMeButtonBusy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */; };
+		08EF1A3614BD23B7007A898B /* FNSelectShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EF1A3414BD23B6007A898B /* FNSelectShowsViewController.m */; };
+		08EF1A3714BD23B7007A898B /* FNSelectShowsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08EF1A3514BD23B7007A898B /* FNSelectShowsViewController.xib */; };
 		08F5B5611489633000671969 /* CalloutMapAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */; };
 		08F5B565148A5BC800671969 /* FNLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B563148A5BC800671969 /* FNLogo.png */; };
 		08F5B566148A5BC800671969 /* FNLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08F5B564148A5BC800671969 /* FNLogo@2x.png */; };
@@ -254,6 +258,11 @@
 		08D272CC14894DB500D4A103 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		08D272D214894E8C00D4A103 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		08D272D514894F4200D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Songhori/en.lproj/MapViewController.xib; sourceTree = SOURCE_ROOT; };
+		08E5163914BF2345005E44DE /* locateMeButtonBusy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButtonBusy.png; sourceTree = "<group>"; };
+		08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButtonBusy@2x.png"; sourceTree = "<group>"; };
+		08EF1A3314BD23B6007A898B /* FNSelectShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNSelectShowsViewController.h; sourceTree = "<group>"; };
+		08EF1A3414BD23B6007A898B /* FNSelectShowsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNSelectShowsViewController.m; sourceTree = "<group>"; };
+		08EF1A3514BD23B7007A898B /* FNSelectShowsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FNSelectShowsViewController.xib; sourceTree = "<group>"; };
 		08F5B55E1489633000671969 /* CalloutMapAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutMapAnnotationView.h; sourceTree = "<group>"; };
 		08F5B55F1489633000671969 /* CalloutMapAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutMapAnnotationView.m; sourceTree = "<group>"; };
 		08F5B563148A5BC800671969 /* FNLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FNLogo.png; sourceTree = "<group>"; };
@@ -369,6 +378,9 @@
 				0875CBFA14B790B4009F16DE /* NewAccountViewControllerViewController.h */,
 				0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */,
 				0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */,
+				08EF1A3314BD23B6007A898B /* FNSelectShowsViewController.h */,
+				08EF1A3414BD23B6007A898B /* FNSelectShowsViewController.m */,
+				08EF1A3514BD23B7007A898B /* FNSelectShowsViewController.xib */,
 			);
 			path = "Account Management";
 			sourceTree = "<group>";
@@ -493,6 +505,8 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08E5163914BF2345005E44DE /* locateMeButtonBusy.png */,
+				08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */,
 				08D0A53314BA332900C30CBC /* color.png */,
 				08D0A53414BA332900C30CBC /* color@2x.png */,
 				08D0A53514BA332900C30CBC /* shading.png */,
@@ -665,6 +679,9 @@
 				08D0A53C14BA332900C30CBC /* shading@2x.png in Resources */,
 				08D0A53D14BA332900C30CBC /* stick.png in Resources */,
 				08D0A53E14BA332900C30CBC /* stick@2x.png in Resources */,
+				08EF1A3714BD23B7007A898B /* FNSelectShowsViewController.xib in Resources */,
+				08E5163B14BF2345005E44DE /* locateMeButtonBusy.png in Resources */,
+				08E5163C14BF2345005E44DE /* locateMeButtonBusy@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +753,7 @@
 				087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */,
 				0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */,
 				08D0A53114BA331100C30CBC /* ZSPinAnnotation.m in Sources */,
+				08EF1A3614BD23B7007A898B /* FNSelectShowsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

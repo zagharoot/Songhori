@@ -316,7 +316,11 @@
 
     //this is because we respond in blocking fashion because we read from offline database 
     if (self.delegate) 
+    {
         [self.delegate restaudantDataDidBecomeAvailable:result2 forRegion:region fromProvider:self]; 
+        [self.delegate allDataForRequestSent:self]; 
+    }
+        
 }
 
 

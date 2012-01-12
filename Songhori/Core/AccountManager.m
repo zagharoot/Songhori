@@ -131,9 +131,6 @@ static AccountManager* theAccountManager;
         
         NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil]; 
         
-        
-        
-        
         if (![prs addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:curl options:options error:&error])
         {
             [prs release]; 
@@ -244,22 +241,25 @@ static AccountManager* theAccountManager;
         [self.delegate syncFinished:self]; 
 }
 
-
--(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
+-(void) allDataForRequestSent:(id)provider
 {
     [accountRequestProgress setValue:@"NO" forKey:[provider accountName]]; 
-    [self.delegate restaudantDataDidBecomeAvailable:restaurants forRegion:region fromProvider:self]; 
-    
+
     for (Account* a in self.accounts) {
         NSString* str = @"YES"; 
         
         if ([str compare:[accountRequestProgress valueForKey:a.accountName]]== NSOrderedSame)
             return; 
     }
-    
     //all accounts are done. notify delegat if it reacts to it 
-    if (self.delegate && [self.delegate respondsToSelector:@selector(allDataForRequestSent)])
-        [self.delegate performSelector:@selector(allDataForRequestSent)]; 
+    if (self.delegate && [self.delegate respondsToSelector:@selector(allDataForRequestSent:)])
+        [self.delegate performSelector:@selector(allDataForRequestSent:) withObject:self]; 
+    
+}
+
+-(void) restaudantDataDidBecomeAvailable:(NSArray *)restaurants forRegion:(MKCoordinateRegion)region fromProvider:(id)provider
+{
+    [self.delegate restaudantDataDidBecomeAvailable:restaurants forRegion:region fromProvider:self]; 
 }
 
 

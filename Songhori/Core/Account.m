@@ -86,6 +86,11 @@
     return NO; 
 }
 
+-(BOOL) isCompound
+{
+    return NO; 
+}
+
 -(BOOL) isDeletable
 {
     return NO; 

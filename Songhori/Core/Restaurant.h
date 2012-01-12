@@ -16,8 +16,10 @@
 -(void) restaudantDataDidBecomeAvailable:(NSArray*) restaurants forRegion:(MKCoordinateRegion) region fromProvider:(id) provider; 
 
 @optional
--(void) allDataForRequestSent;      //this is called when all the data for a particular request has been sent (useful when the source is collecting data from multiple places) 
+-(void) restaurantDataFailedToLoadForProvider:(id) provider withError:(NSError*) err; 
+-(void) allDataForRequestSent:(id) provider;      //this is called when all the data for a particular request has been sent (useful when the source is collecting data from multiple places) 
 -(void) syncFinished:(id) provider;               //this is called when all the sync activity is finished. 
+-(void) syncFailedToFinishForProvider:(id) provider withError:(NSError*) err; 
 @end
 
 

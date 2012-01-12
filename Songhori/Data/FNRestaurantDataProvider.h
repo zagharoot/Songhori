@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Restaurant.h" 
 
+@class FoodNetworkShow; 
 
 @interface FNRestaurantDataProvider : NSObject
 {
     id<RestaurantDataDelegate> _delegate; 
     MKCoordinateRegion selectedRegion; 
+    FoodNetworkShow* _networkShow; 
     
         NSMutableURLRequest* _request; 
         NSMutableData* _incomingData; 
@@ -22,10 +24,12 @@
     
 }
 
+-(id) initWithShow:(FoodNetworkShow*) show andDelegate:(id <RestaurantDataDelegate>) delegate; 
+
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region zoomLevel:(int) zoomLevel; 
 -(NSURL*) urlForRegion:(MKCoordinateRegion) region zoomLevel:(int) zoom; 
 
-
+@property (nonatomic, assign) FoodNetworkShow* networkShow; 
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate; //we send array of FNRestaurant which is good for annotation  
 
 @property (nonatomic, retain) NSURLConnection* urlConnection; 

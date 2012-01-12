@@ -137,7 +137,8 @@
         for (GoogleMapRestaurant* a in res) {
             [result addObject:a.annotation]; 
         }
-    [self.delegate restaudantDataDidBecomeAvailable: result forRegion:region fromProvider:self];     
+    [self.delegate restaudantDataDidBecomeAvailable: result forRegion:region fromProvider:self];  
+    [self.delegate allDataForRequestSent:self]; 
 }
 
 

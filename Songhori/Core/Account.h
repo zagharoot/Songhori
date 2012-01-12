@@ -28,6 +28,8 @@
 -(void) sendRestaurantsInRegion:(MKCoordinateRegion) region zoomLevel:(int) zoomLevel; //array of annotations
 
 -(BOOL) isDeletable; 
+-(BOOL) isCompound;         //returns true if the account consists of several configurable stuff in it (like food network)
+
 
 @property (readonly, nonatomic) UIImage* logoImage; 
 @property (nonatomic, assign) id<RestaurantDataDelegate> delegate; //we return array of Restaurant
