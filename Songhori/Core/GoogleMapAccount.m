@@ -10,6 +10,8 @@
 #import "AccountManager.h"
 #import "TFHpple.h" 
 #import "KMLParser.h" 
+#import "NSString+HTML.h"
+
 
 
 @implementation GoogleMapAccount
@@ -134,7 +136,8 @@
     NSMutableArray* result = [NSMutableArray arrayWithCapacity:100]; 
     
     
-        NSArray* res = [self.list restaurantsInRegion:region zoomLevel:zoomLevel]; 
+//        NSArray* res = [self.list restaurantsInRegion:region zoomLevel:zoomLevel]; 
+    NSSet* res = self.list.restaurants;  
         
         for (GoogleMapRestaurant* a in res) {
             [result addObject:a.annotation]; 
@@ -273,7 +276,7 @@
         gr.name = p.name; 
         gr.latitude = [p point].coordinate.latitude;  
         gr.longitude = p.point.coordinate.longitude; 
-        gr.desc = p.placemarkDescription; 
+        gr.desc = [p.placemarkDescription stringByConvertingHTMLToPlainText]; 
         
         if (p.style.iconURL)
             gr.iconImageData = [NSData dataWithContentsOfURL:p.style.iconURL]; 

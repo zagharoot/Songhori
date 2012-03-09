@@ -43,6 +43,8 @@
 		089899B6150A4652007C0992 /* KMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 089899B5150A4652007C0992 /* KMLParser.m */; };
 		089899B9150A50F5007C0992 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089899B8150A50F5007C0992 /* CoreLocation.framework */; };
 		089899BC150A5D3B007C0992 /* IconizedAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 089899BB150A5D3B007C0992 /* IconizedAnnotationView.m */; };
+		089899C0150A9817007C0992 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 089899BF150A9817007C0992 /* NSString+HTML.m */; };
+		089899C3150A991C007C0992 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 089899C2150A991C007C0992 /* GTMNSString+HTML.m */; };
 		089ED000149678D500BA8306 /* YelpCheckin.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ECFFF149678D500BA8306 /* YelpCheckin.m */; };
 		089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ED0031496896700BA8306 /* YelpRestaurant.m */; };
 		08A0DB1614B923C700A91C07 /* GoogleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A0DB1414B923C700A91C07 /* GoogleLogo.png */; };
@@ -182,6 +184,10 @@
 		089899B8150A50F5007C0992 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		089899BA150A5D3A007C0992 /* IconizedAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconizedAnnotationView.h; sourceTree = "<group>"; };
 		089899BB150A5D3B007C0992 /* IconizedAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconizedAnnotationView.m; sourceTree = "<group>"; };
+		089899BE150A9817007C0992 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		089899BF150A9817007C0992 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		089899C1150A98D6007C0992 /* GTMNSString+html.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+html.h"; sourceTree = "<group>"; };
+		089899C2150A991C007C0992 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		089ECFFE149678D500BA8306 /* YelpCheckin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpCheckin.h; sourceTree = "<group>"; };
 		089ECFFF149678D500BA8306 /* YelpCheckin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpCheckin.m; sourceTree = "<group>"; };
 		089ED0021496896700BA8306 /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
@@ -460,6 +466,10 @@
 				0815A22B1494E24B00593ABC /* OAuthConsumer */,
 				08D2727A14894C5500D4A103 /* hpple */,
 				08D2728114894C5500D4A103 /* JSON */,
+				089899BE150A9817007C0992 /* NSString+HTML.h */,
+				089899BF150A9817007C0992 /* NSString+HTML.m */,
+				089899C1150A98D6007C0992 /* GTMNSString+html.h */,
+				089899C2150A991C007C0992 /* GTMNSString+HTML.m */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -770,6 +780,8 @@
 				08EF1A3614BD23B7007A898B /* FNSelectShowsViewController.m in Sources */,
 				089899B6150A4652007C0992 /* KMLParser.m in Sources */,
 				089899BC150A5D3B007C0992 /* IconizedAnnotationView.m in Sources */,
+				089899C0150A9817007C0992 /* NSString+HTML.m in Sources */,
+				089899C3150A991C007C0992 /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
