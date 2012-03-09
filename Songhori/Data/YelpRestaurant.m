@@ -160,9 +160,12 @@ return;}
 {
     [super awakeFromFetch]; 
 
-//    if (!self.isDetailDataAvailable)
-//        [self loadDetailsFromWebsite]; 
-    
+    if (!self.isDetailDataAvailable)
+    {
+        NSLog(@"data not available on db, reloading from yelp\n"); 
+        [self loadDetailsFromWebsite]; 
+        
+    }
 }
 
 

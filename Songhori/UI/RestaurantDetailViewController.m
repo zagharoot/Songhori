@@ -33,6 +33,13 @@
     return self; 
 }
 
+- (IBAction)openGoogleMap 
+{
+    NSString* str = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%f,%f", self.restaurant.coordinate.latitude, self.restaurant.coordinate.longitude]; 
+
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]]; 
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

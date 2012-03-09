@@ -17,6 +17,7 @@
 
 -(id) initWithRestaurant:(Restaurant*) r; 
 
+- (IBAction)openGoogleMap;
 
 
 @property (nonatomic, retain) Restaurant* restaurant; 

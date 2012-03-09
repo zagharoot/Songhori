@@ -243,6 +243,8 @@
 						self.offsetFromParent.y + 
 						CalloutMapAnnotationViewBottomShadowBufferSize;
 	
+//    yOffset += 15; //ALI: this is because we're using the customized pin and not the default pin that comes with google 
+//    xOffset -= 7; 
 	self.centerOffset = CGPointMake(xOffset, yOffset);
 }
 

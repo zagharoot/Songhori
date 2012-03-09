@@ -93,7 +93,7 @@
 - (IBAction)locateMe:(id)sender {
     centerOnUserFlag = YES;   
     
-    if (! self.myMapView.showsUserLocation || ! self.myMapView.userLocation)
+    if (! self.myMapView.userLocation)
     {
         [locateMeActivityIndicator startAnimating]; 
         [self.locateMeBtn setImage:[UIImage imageNamed:@"locateMeButtonBusy.png"] forState:UIControlStateNormal]; 
@@ -103,7 +103,6 @@
     }
     
     
-    [self.myMapView setShowsUserLocation:YES]; 
 //    if (!self.myMapView.userLocationVisible && self.myMapView.userLocation)
     if (self.myMapView.userLocation) 
     {
@@ -139,6 +138,8 @@
         [self.notificationView setShowActivity:YES animated:YES]; 
         [self.notificationView show:YES]; 
     }
+
+
 }
 
 - (void)viewDidUnload
@@ -217,7 +218,7 @@
 
 
 -(void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
+{    
     [self.locateMeActivityIndicator stopAnimating]; 
     [self.locateMeBtn setImage:[UIImage imageNamed:@"locateMeButton.png"] forState:UIControlStateNormal]; 
     
