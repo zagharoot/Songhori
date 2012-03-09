@@ -17,6 +17,7 @@
 #import "AccountsUIViewController.h" 
 #import "GoogleMapRestaurant.h"
 #import "ZSPinAnnotation.h"
+#import "IconizedAnnotationView.h"
 
 #import "RestaurantDetailViewController.h"      //TODO: remove this 
 
@@ -210,7 +211,7 @@
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     MKCoordinateRegion r =  mapView.region; 
-    NSLog(@"new region %f,%f,%f,%f\n", r.center.latitude, r.center.longitude, r.span.latitudeDelta, r.span.longitudeDelta ); 
+//    NSLog(@"new region %f,%f,%f,%f\n", r.center.latitude, r.center.longitude, r.span.latitudeDelta, r.span.longitudeDelta ); 
     self.redoSearchBtn.hidden = NO; 
     [self.redoSearchBtn setNeedsDisplay]; 
     
@@ -294,11 +295,14 @@
 //        return pinView; 
 //    }
     
+    
+    // it has the icon 
     else if ([annotation isKindOfClass:[Restaurant class]] && res.iconImage)
     {
         MKAnnotationView* annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"nothing"] autorelease]; 
         
-        annotationView.image = res.iconImage; 
+//        annotationView.image = res.iconImage; 
+        annotationView.image = [IconizedAnnotationView pinAnnotationWithIcon:res.iconImage]; 
         return annotationView; 
     }
     else if ([annotation isKindOfClass:[FNRestaurant class]])

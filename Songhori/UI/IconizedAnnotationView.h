@@ -1,19 +1,16 @@
 //
-//  IconizedAnnotationView.h
-//  Songhori
+//  ZSPinAnnotation.h
+//  ZSPinAnnotation
 //
-//  Created by Ali Nouri on 3/9/12.
-//  Copyright (c) 2012 Rutgers. All rights reserved.
+//  Created by Nicholas Hubbard on 12/6/11.
+//  Copyright (c) 2011 Zed Said Studio. All rights reserved.
 //
 
-#import <MapKit/MapKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface IconizedAnnotationView : MKAnnotationView  <MKAnnotation> 
-{
-    
-    
-}
+@interface IconizedAnnotationView : NSObject
 
-@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
++ (UIImage *)pinAnnotationWithIcon:(UIImage*) img; 
 
 @end
