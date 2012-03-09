@@ -127,6 +127,16 @@ static NSString* st_TOKEN_SECRET;
 }
 
 
+-(void) syncDataForced
+{
+    [self.dataProvider syncDataForced]; 
+}
+
+-(BOOL) isSyncable
+{
+    return YES; 
+}
+
 -(int) totalNumberOfCheckins
 {
     if (!self.active)

@@ -97,15 +97,26 @@
         if (diff > 86400)       //it's been more than one day 
         {
             result = YES; 
-
-            self.request = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:self.list.url] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:60] autorelease]; 
-            
-            //set parameters of the request except for the body: 
-            [self.request setHTTPMethod:@"GET"]; 
-            
-            self.urlConnection = [NSURLConnection connectionWithRequest:self.request delegate:self]; 
+            [self syncDataForced]; 
         }
     return result; 
+}
+
+
+-(void) syncDataForced
+{
+    self.request = [[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:self.list.url] cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:60] autorelease]; 
+    
+    //set parameters of the request except for the body: 
+    [self.request setHTTPMethod:@"GET"]; 
+    
+    self.urlConnection = [NSURLConnection connectionWithRequest:self.request delegate:self]; 
+    
+}
+
+-(BOOL) isSyncable
+{
+    return YES; 
 }
 
 -(void) deleteAccount
@@ -269,6 +280,12 @@
     [parser parseKML]; 
     NSArray* placemarks = parser.placemarks; 
     
+    //remove old data
+    NSLog(@"currently we have %d restaurants\n", [self.list.restaurants count]); 
+    [self.list removeRestaurants:self.list.restaurants]; 
+    self.list.name = @""; 
+    
+    
     for (KMLPlacemark* p in placemarks) 
     {
         GoogleMapRestaurant* gr =  [NSEntityDescription insertNewObjectForEntityForName:@"GoogleMapRestaurant" inManagedObjectContext:context]; 
@@ -297,6 +314,9 @@
     
     if ([self.delegate respondsToSelector:@selector(syncFinished:)])
         [self.delegate performSelector:@selector(syncFinished:) withObject:self]; 
+    
+    
+    NSLog(@"now we have %d restaurants\n", [self.list.restaurants count]); 
     
 }
 

@@ -21,6 +21,9 @@
 
 -(void) save; 
 -(BOOL) syncData;       //try to sync any data we have offline. Return NO if we don't need syncing
+-(void) syncDataForced; //sync data ignoring any preference
+-(BOOL) isSyncable;     //does this account support syncing 
+
 
 -(NSString*) accountName; 
 -(void) didReceiveMemoryWarning; 

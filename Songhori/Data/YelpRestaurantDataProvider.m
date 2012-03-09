@@ -59,25 +59,32 @@
     //TODO: remove the comment
     if (diff > 86400)       //it's been more than one day 
     {
-        [self incrementActivity]; 
-        [self loadCheckins:1]; 
         result = YES; 
+        [self syncDataForced]; 
     }
+    
+    return result; 
+}
+
+
+-(void) syncDataForced
+{
+    [self incrementActivity]; 
+    [self loadCheckins:1]; 
+    
     
     //
     for (YelpRestaurant* r in self.userData.checkins) {
         if (! [ r isDetailDataAvailable] && ![r hasError])
         {
-            result = YES; 
             [self incrementActivity]; 
             r.delegate = self; 
             [r loadDetailsFromWebsite]; 
         }
     }
     
-    return result; 
+    
 }
-
 
 -(void) save
 {

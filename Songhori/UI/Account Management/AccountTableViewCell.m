@@ -57,6 +57,20 @@
     return _deactivateSwitch; 
 }
 
+
+-(UIButton*) refreshBtn
+{
+    if (!_refreshBtn)
+    {
+        _refreshBtn = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
+        [_refreshBtn addTarget:self action:@selector(refreshAccount:) forControlEvents:UIControlEventTouchUpInside]; 
+    }
+    
+    return _refreshBtn; 
+}
+
+
+
 //create the image view lazily
 -(UIImageView*) logoImageView
 {
@@ -110,6 +124,9 @@
         }else {
             self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 
         }
+        
+        if ([self.theAccount isSyncable])
+            [self.contentView addSubview:self.refreshBtn]; 
     }
     
     return self; 
@@ -122,6 +139,11 @@
     self.detailLabel.text = self.theAccount.info;  
 }
 
+
+-(void) refreshAccount:(id)sender
+{
+    [self.theAccount syncDataForced]; 
+}
 
 //define how the contents are displayed in the bounding box
 -(void) layoutSubviews
@@ -137,9 +159,20 @@
         self.deactivateSwitch.frame = b; 
     
     
+    b = self.bounds;     
+    //the refresh button 
+    b.origin.x = 5; 
+    b.origin.y = (b.size.height - 30)/2; 
+    b.size.height = 30; 
+    b.size.width = 30; 
+    
+    if ([self.theAccount isSyncable])
+        self.refreshBtn.frame = b; 
+    
+    
     b = self.bounds; 
     
-    b.origin.x = 5; 
+    b.origin.x = 50; // 5; 
     b.origin.y = (b.size.height- 40)/2; //40 is the height of the logo image
     b.size.height = 40; 
     b.size.width = 195; 
@@ -165,6 +198,7 @@
     self.logoImageView = nil; 
     self.theAccount = nil; 
     self.deactivateSwitch = nil; 
+    self.refreshBtn = nil; 
     
     [super dealloc]; 
 }

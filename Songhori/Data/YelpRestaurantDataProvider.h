@@ -43,6 +43,7 @@
 -(NSURL*) urlForPage:(int) pageNumber; 
 -(void) save; 
 -(BOOL) syncData; 
+-(void) syncDataForced; 
 -(void) incrementActivity; 
 -(void) decrementActivity; 
 

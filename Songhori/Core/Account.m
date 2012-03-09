@@ -45,6 +45,15 @@
     return NO; 
 }
 
+-(void) syncDataForced
+{
+}
+
+-(BOOL) isSyncable
+{
+    return NO; 
+}
+
 -(UIImage*) logoImage
 {
     if (_logoImage != nil)
