@@ -40,6 +40,8 @@
 		087E597C14B251C7006120DB /* GoogleMapList.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597B14B251C7006120DB /* GoogleMapList.m */; };
 		087E597F14B251E9006120DB /* GoogleMapRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597E14B251E9006120DB /* GoogleMapRestaurant.m */; };
 		087E598214B2520E006120DB /* GoogleMapAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E598114B2520E006120DB /* GoogleMapAccount.m */; };
+		089899B6150A4652007C0992 /* KMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 089899B5150A4652007C0992 /* KMLParser.m */; };
+		089899B9150A50F5007C0992 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089899B8150A50F5007C0992 /* CoreLocation.framework */; };
 		089ED000149678D500BA8306 /* YelpCheckin.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ECFFF149678D500BA8306 /* YelpCheckin.m */; };
 		089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ED0031496896700BA8306 /* YelpRestaurant.m */; };
 		08A0DB1614B923C700A91C07 /* GoogleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A0DB1414B923C700A91C07 /* GoogleLogo.png */; };
@@ -174,6 +176,9 @@
 		087E597E14B251E9006120DB /* GoogleMapRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapRestaurant.m; sourceTree = "<group>"; };
 		087E598014B2520E006120DB /* GoogleMapAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapAccount.h; sourceTree = "<group>"; };
 		087E598114B2520E006120DB /* GoogleMapAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapAccount.m; sourceTree = "<group>"; };
+		089899B4150A4652007C0992 /* KMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLParser.h; sourceTree = "<group>"; };
+		089899B5150A4652007C0992 /* KMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLParser.m; sourceTree = "<group>"; };
+		089899B8150A50F5007C0992 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		089ECFFE149678D500BA8306 /* YelpCheckin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpCheckin.h; sourceTree = "<group>"; };
 		089ECFFF149678D500BA8306 /* YelpCheckin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpCheckin.m; sourceTree = "<group>"; };
 		089ED0021496896700BA8306 /* YelpRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpRestaurant.h; sourceTree = "<group>"; };
@@ -285,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				089899B9150A50F5007C0992 /* CoreLocation.framework in Frameworks */,
 				0815A1C5148EB0BD00593ABC /* CoreData.framework in Frameworks */,
 				08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */,
 				08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */,
@@ -407,6 +413,7 @@
 		08D2726114894BAC00D4A103 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				089899B8150A50F5007C0992 /* CoreLocation.framework */,
 				0815A1C4148EB0BD00593ABC /* CoreData.framework */,
 				08D272D214894E8C00D4A103 /* MapKit.framework */,
 				08D272CC14894DB500D4A103 /* libxml2.dylib */,
@@ -445,6 +452,8 @@
 		08D2727914894C5500D4A103 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				089899B4150A4652007C0992 /* KMLParser.h */,
+				089899B5150A4652007C0992 /* KMLParser.m */,
 				0815A22B1494E24B00593ABC /* OAuthConsumer */,
 				08D2727A14894C5500D4A103 /* hpple */,
 				08D2728114894C5500D4A103 /* JSON */,
@@ -754,6 +763,7 @@
 				0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */,
 				08D0A53114BA331100C30CBC /* ZSPinAnnotation.m in Sources */,
 				08EF1A3614BD23B7007A898B /* FNSelectShowsViewController.m in Sources */,
+				089899B6150A4652007C0992 /* KMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -786,7 +796,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -810,7 +820,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

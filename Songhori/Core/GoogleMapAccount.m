@@ -9,6 +9,8 @@
 #import "GoogleMapAccount.h"
 #import "AccountManager.h"
 #import "TFHpple.h" 
+#import "KMLParser.h" 
+
 
 @implementation GoogleMapAccount
 @synthesize active=_active; 
@@ -169,73 +171,111 @@
     [self.incomingData appendData:data]; 
 }
 
+//-(void) connectionDidFinishLoading:(NSURLConnection *)connection
+//{
+//    
+//    //    
+//    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
+//   // NSLog(@"received data as %@\n", datastr); 
+//    
+//    //TODO: make this process more efficient/stable?
+//    datastr =  [datastr stringByReplacingOccurrencesOfString:@"<kml xmlns=\"http://earth.google.com/kml/2.2\">" withString:@""]; 
+//    datastr = [datastr stringByReplacingOccurrencesOfString:@"</kml>" withString:@""]; 
+//    
+//
+//    NSData* newData = [datastr dataUsingEncoding:NSUTF8StringEncoding]; 
+//    
+//    TFHpple* parser = [[TFHpple alloc] initWithXMLData:newData]; 
+//    
+//    NSArray* narray = [parser searchWithXPathQuery:@"/Document/name"]; 
+//    
+//    if (narray.count>0)
+//    {
+//        TFHppleElement* nameElem = [narray objectAtIndex:0]; 
+//        self.list.name = nameElem.content; 
+//    }
+//    
+//    NSArray* restaurants = [parser searchWithXPathQuery:@"/Document/Placemark"]; 
+//
+//    
+//    
+//    for (TFHppleElement* r in restaurants) 
+//    {
+//        NSString* name = nil; 
+//        double latitude = 1000; 
+//        double longitude = 1000; 
+//        
+//        for (TFHppleElement* rchild in r.children) 
+//        {
+//            if ([rchild.tagName compare: @"name"]== NSOrderedSame)
+//            {
+//                name = rchild.content; 
+//            }else if ([rchild.tagName compare: @"Point"] == NSOrderedSame)
+//            {
+//                TFHppleElement* coordinate = rchild.firstChild; 
+//                NSString* coordStr = coordinate.content; 
+//                if (!coordStr)
+//                    continue; 
+//                
+//                NSArray* numbers = [coordStr componentsSeparatedByString:@","]; 
+//                if (numbers.count <2)
+//                    continue; 
+//                
+//                [[NSScanner scannerWithString:[numbers objectAtIndex:1]] scanDouble:&latitude]; 
+//                [[NSScanner scannerWithString:[numbers objectAtIndex:0]] scanDouble:&longitude]; 
+//                
+//            }
+//        }
+//
+//        if (!name || latitude==1000 || longitude==1000)
+//            continue; 
+//        
+//        
+//        GoogleMapRestaurant* gr =  [NSEntityDescription insertNewObjectForEntityForName:@"GoogleMapRestaurant" inManagedObjectContext:context]; 
+//        
+//        gr.name = name; 
+//        gr.latitude = latitude; 
+//        gr.longitude = longitude; 
+//        
+//        [self.list addRestaurantsObject:gr]; 
+//    }
+//    
+//    
+//    self.list.lastSyncDate = [NSDate timeIntervalSinceReferenceDate]; 
+//    
+//    
+//    [self save]; 
+//    
+//    [parser release]; 
+//    
+//    self.incomingData = nil; 
+//
+//    if ([self.delegate respondsToSelector:@selector(syncFinished:)])
+//        [self.delegate performSelector:@selector(syncFinished:) withObject:self]; 
+//
+//}
+
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
     //    
-    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
-   // NSLog(@"received data as %@\n", datastr); 
+//    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
+    // NSLog(@"received data as %@\n", datastr); 
     
-    //TODO: make this process more efficient/stable?
-    datastr =  [datastr stringByReplacingOccurrencesOfString:@"<kml xmlns=\"http://earth.google.com/kml/2.2\">" withString:@""]; 
-    datastr = [datastr stringByReplacingOccurrencesOfString:@"</kml>" withString:@""]; 
+    KMLParser* parser = [[KMLParser alloc] initWithData:self.incomingData]; 
+    [parser parseKML]; 
+    NSArray* placemarks = parser.placemarks; 
     
-
-    NSData* newData = [datastr dataUsingEncoding:NSUTF8StringEncoding]; 
-    
-    TFHpple* parser = [[TFHpple alloc] initWithXMLData:newData]; 
-    
-    NSArray* narray = [parser searchWithXPathQuery:@"/Document/name"]; 
-    
-    if (narray.count>0)
+    for (KMLPlacemark* p in placemarks) 
     {
-        TFHppleElement* nameElem = [narray objectAtIndex:0]; 
-        self.list.name = nameElem.content; 
-    }
-    
-    NSArray* restaurants = [parser searchWithXPathQuery:@"/Document/Placemark"]; 
-
-    
-    
-    for (TFHppleElement* r in restaurants) 
-    {
-        NSString* name = nil; 
-        double latitude = 1000; 
-        double longitude = 1000; 
-        
-        for (TFHppleElement* rchild in r.children) 
-        {
-            if ([rchild.tagName compare: @"name"]== NSOrderedSame)
-            {
-                name = rchild.content; 
-            }else if ([rchild.tagName compare: @"Point"] == NSOrderedSame)
-            {
-                TFHppleElement* coordinate = rchild.firstChild; 
-                NSString* coordStr = coordinate.content; 
-                if (!coordStr)
-                    continue; 
-                
-                NSArray* numbers = [coordStr componentsSeparatedByString:@","]; 
-                if (numbers.count <2)
-                    continue; 
-                
-                [[NSScanner scannerWithString:[numbers objectAtIndex:1]] scanDouble:&latitude]; 
-                [[NSScanner scannerWithString:[numbers objectAtIndex:0]] scanDouble:&longitude]; 
-                
-            }
-        }
-
-        if (!name || latitude==1000 || longitude==1000)
-            continue; 
-        
-        
         GoogleMapRestaurant* gr =  [NSEntityDescription insertNewObjectForEntityForName:@"GoogleMapRestaurant" inManagedObjectContext:context]; 
         
-        gr.name = name; 
-        gr.latitude = latitude; 
-        gr.longitude = longitude; 
+        gr.name = p.name; 
+        gr.latitude = [p point].coordinate.latitude;  
+        gr.longitude = p.point.coordinate.longitude; 
+        gr.desc = p.placemarkDescription; 
         
-        [self.list addRestaurantsObject:gr]; 
+        [self.list addRestaurantsObject:gr];
     }
     
     
@@ -247,11 +287,13 @@
     [parser release]; 
     
     self.incomingData = nil; 
-
+    
     if ([self.delegate respondsToSelector:@selector(syncFinished:)])
         [self.delegate performSelector:@selector(syncFinished:) withObject:self]; 
-
+    
 }
+
+
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
