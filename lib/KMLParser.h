@@ -59,6 +59,7 @@
 @class KMLPlacemark;
 @class KMLStyle;
 @class GoogleMapRestaurant; 
+@class KMLDocName; 
 
 
 @interface KMLParser : NSObject <NSXMLParserDelegate> {
@@ -67,6 +68,9 @@
     
     KMLPlacemark *_placemark;
     KMLStyle *_style;
+    
+    KMLDocName* _docElement; 
+    NSString* _docName; 
     
     NSXMLParser *_xmlParser;
 }
@@ -78,6 +82,7 @@
 @property (nonatomic, readonly) NSArray *overlays;
 @property (nonatomic, readonly) NSArray *points;
 @property (nonatomic, readonly) NSArray* placemarks; 
+@property (nonatomic, readonly) NSString* docName;                  //name of the document in the kml
 
 - (MKAnnotationView *)viewForAnnotation:(id <MKAnnotation>)point;
 - (MKOverlayView *)viewForOverlay:(id <MKOverlay>)overlay;
@@ -182,6 +187,19 @@
 @property (nonatomic, retain) NSURL* iconURL; 
 
 @end
+
+
+@interface KMLDocName : KMLElement
+{
+    NSString* _name; 
+}
+
+-(void) endName; 
+
+@property (nonatomic, copy) NSString* name; 
+
+@end
+
 
 @interface KMLGeometry : KMLElement {
     struct {

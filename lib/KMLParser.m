@@ -120,6 +120,12 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
 }
 
 
+
+-(NSString*) docName
+{
+    return _docName; 
+}
+
 - (id)initWithData:(NSData *)data
 {
     if (self = [super init]) {
@@ -149,6 +155,8 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
     [_styles release];
     [_placemarks release];
     [_xmlParser release];
+    [_docElement release]; 
+    [_docName release]; 
     
     [super dealloc];
 }
@@ -228,6 +236,13 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
     
     KMLStyle *style = [_placemark style] ? [_placemark style] : _style;
     
+    
+    //document name 
+    if (ELTYPE(NAME) && !_placemark)
+    {
+        _docElement = [[KMLDocName alloc] initWithIdentifier:ident]; 
+    }
+    
     // Style and sub-elements
     if (ELTYPE(Style)) {
         if (_placemark) {
@@ -288,6 +303,17 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
                                      qualifiedName:(NSString *)qName
 {
     KMLStyle *style = [_placemark style] ? [_placemark style] : _style;
+    
+    
+    //doc name 
+    if (ELTYPE(Name) && !_placemark && _docElement)
+    {
+        [_docElement endName]; 
+        _docName = [_docElement.name copy]; 
+        [_docElement release]; 
+        _docElement = nil; 
+    }
+    
     
     // Style and sub-elements
     if (ELTYPE(Style)) {
@@ -353,7 +379,15 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
-    KMLElement *element = _placemark ? (KMLElement *)_placemark : (KMLElement *)_style;
+    KMLElement *element; 
+    
+    if ( _placemark )
+        element = (KMLElement *)_placemark; 
+    else if (_style) 
+        element = (KMLElement *)_style;
+    else 
+        element = _docElement; 
+    
     [element addString:string];
 }
 
@@ -527,6 +561,26 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
 }
 
 @end
+
+
+@implementation KMLDocName
+@synthesize name=_name; 
+
+
+-(BOOL) canAddString
+{
+    return YES; 
+}
+
+
+-(void) endName 
+{
+    _name = accum; 
+}
+
+
+@end
+
 
 @implementation KMLGeometry
 

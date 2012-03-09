@@ -281,6 +281,7 @@
         [self.list addRestaurantsObject:gr];
     }
     
+    self.list.name = parser.docName; 
     
     self.list.lastSyncDate = [NSDate timeIntervalSinceReferenceDate]; 
     
