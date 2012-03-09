@@ -19,6 +19,7 @@
 @dynamic latitude;
 @dynamic desc;
 @dynamic account;
+@dynamic iconImageData; 
 
 
 -(GoogleMapRestaurantAnnotation*) annotation
@@ -55,6 +56,14 @@ if (self)
     
     __coordinate.latitude = r.latitude; 
     __coordinate.longitude = r.longitude; 
+    
+    if (r.iconImageData){
+        UIImage* tmp = [UIImage imageWithData:r.iconImageData]; 
+        if ([UIScreen mainScreen].scale == 2.0)
+            self.iconImage = [UIImage imageWithCGImage:tmp.CGImage scale:2 orientation:tmp.imageOrientation];   
+        else
+            self.iconImage = tmp; 
+    }
 }
     return self; 
 }

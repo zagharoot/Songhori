@@ -247,6 +247,12 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
         [style beginFill];
     } else if (ELTYPE(outline)) {
         [style beginOutline];
+    } else if (ELTYPE(IconStyle)) { 
+        [style beginIconStyle]; 
+    } else if (ELTYPE(Icon)) {
+        [style beginIcon]; 
+    } else if (ELTYPE(href)) { 
+        [style beginHref]; 
     }
     
     
@@ -304,7 +310,16 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
         [style endFill];
     } else if (ELTYPE(outline)) {
         [style endOutline];
-    }
+    } else if (ELTYPE(IconStyle)){ 
+        [style endIconStyle]; 
+    } else if (ELTYPE(Icon)) { 
+        [style endIcon]; 
+    } else if (ELTYPE(href)) { 
+        [style endHref]; 
+    } 
+    
+    
+    
     // Placemark and sub-elements
     else if (ELTYPE(Placemark)) {
         if (_placemark) {
@@ -396,7 +411,7 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
 
 - (BOOL)canAddString
 {
-    return flags.inColor || flags.inWidth || flags.inFill || flags.inOutline;
+    return flags.inColor || flags.inWidth || flags.inFill || flags.inOutline || flags.inHref; 
 }
 
 - (void)beginLineStyle
@@ -406,6 +421,16 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
 - (void)endLineStyle
 {
     flags.inLineStyle = NO;
+}
+
+- (void) beginIconStyle
+{
+    flags.inIconStyle = YES; 
+}
+
+-(void) endIconStyle
+{
+    flags.inIconStyle = NO; 
 }
 
 - (void)beginPolyStyle
@@ -434,6 +459,32 @@ static void strToCoords(NSString *str, CLLocationCoordinate2D **coordsOut, NSUIn
     }
     
     [self clearString];
+}
+
+
+-(void) beginIcon
+{
+    flags.inIcon = YES; 
+}
+
+-(void) endIcon
+{
+    flags.inIcon = NO;     
+}
+
+-(void) beginHref
+{
+    flags.inHref = YES; 
+}
+
+-(void) endHref 
+{
+    flags.inHref = NO; 
+    
+    if (flags.inIcon && flags.inIconStyle)
+    {
+        self.iconURL = [NSURL URLWithString:accum];         
+    }
 }
 
 - (void)beginWidth

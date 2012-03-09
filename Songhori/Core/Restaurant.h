@@ -34,6 +34,7 @@
 
     CLLocationCoordinate2D __coordinate; 
     
+    UIImage* _iconImage; 
 }
 
 -(UIImage*) logo; 
@@ -42,6 +43,7 @@
 @property (nonatomic, copy) NSString* detail; 
 @property (nonatomic, copy) NSString* url; 
 @property (nonatomic ,retain) UIColor* pinColor; 
+@property (nonatomic, retain) UIImage* iconImage; 
 @end
 
 

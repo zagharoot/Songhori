@@ -239,6 +239,8 @@
 	}
 */    
     
+    Restaurant* res = (Restaurant*) annotation; 
+    
     if( [annotation isKindOfClass:[RestaurantCluster class]])
     {
         MKAnnotationView *annView;
@@ -292,7 +294,13 @@
 //        return pinView; 
 //    }
     
-    
+    else if ([annotation isKindOfClass:[Restaurant class]] && res.iconImage)
+    {
+        MKAnnotationView* annotationView = [[[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"nothing"] autorelease]; 
+        
+        annotationView.image = res.iconImage; 
+        return annotationView; 
+    }
     else if ([annotation isKindOfClass:[FNRestaurant class]])
     {
 		MKPinAnnotationView *annotationView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation 

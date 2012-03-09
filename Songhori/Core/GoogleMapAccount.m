@@ -275,6 +275,9 @@
         gr.longitude = p.point.coordinate.longitude; 
         gr.desc = p.placemarkDescription; 
         
+        if (p.style.iconURL)
+            gr.iconImageData = [NSData dataWithContentsOfURL:p.style.iconURL]; 
+        
         [self.list addRestaurantsObject:gr];
     }
     

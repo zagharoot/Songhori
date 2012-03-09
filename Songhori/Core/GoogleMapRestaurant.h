@@ -17,7 +17,7 @@
 {
     GoogleMapRestaurantAnnotation* _annotation; 
     
-    
+    NSData* _iconImageData; 
 }
 
 @property (nonatomic, retain) NSString * name;
@@ -25,7 +25,7 @@
 @property (nonatomic) double latitude;
 @property (nonatomic, retain) NSString * desc;
 @property (nonatomic, retain) GoogleMapList *account;
-
+@property (nonatomic, retain) NSData* iconImageData; 
 
 @property (nonatomic, readonly) GoogleMapRestaurantAnnotation* annotation; 
 

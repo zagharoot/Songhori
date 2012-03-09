@@ -79,11 +79,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "350676974.419734"
+         timestampString = "353001447.237005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "345"
-         endingLineNumber = "345"
+         startingLineNumber = "353"
+         endingLineNumber = "353"
          landmarkName = "@implementation MapViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -205,12 +205,12 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/CalloutMapAnnotationView.m"
-         timestampString = "347340922.838163"
+         timestampString = "353000099.223498"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
-         landmarkName = "-openRestaurantURL:"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
+         landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -233,11 +233,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/CalloutMapAnnotationView.m"
-         timestampString = "345757165.715298"
+         timestampString = "353000099.223498"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
          landmarkName = "-openRestaurantDetailPage:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -260,11 +260,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "350676974.419734"
+         timestampString = "353001447.237005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "351"
-         endingLineNumber = "351"
+         startingLineNumber = "359"
+         endingLineNumber = "359"
          landmarkName = "-restaudantDataDidBecomeAvailable:forRegion:fromProvider:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -403,11 +403,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
-         timestampString = "352997947.295345"
+         timestampString = "353000099.223498"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299"
+         startingLineNumber = "302"
+         endingLineNumber = "302"
          landmarkName = "-connection:didFailWithError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -468,11 +468,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "350676974.419734"
+         timestampString = "353001447.237005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "332"
-         endingLineNumber = "332"
+         startingLineNumber = "340"
+         endingLineNumber = "340"
          landmarkName = "-mapView:didSelectAnnotationView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -481,11 +481,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "350676974.419734"
+         timestampString = "353001447.237005"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "265"
-         endingLineNumber = "265"
+         startingLineNumber = "267"
+         endingLineNumber = "267"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -663,12 +663,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/CalloutMapAnnotationView.m"
-         timestampString = "348105673.096015"
+         timestampString = "353000099.223498"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "248"
-         endingLineNumber = "248"
-         landmarkName = "-prepareOffset"
+         startingLineNumber = "253"
+         endingLineNumber = "253"
+         landmarkName = "-adjustMapRegionIfNeeded"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -721,6 +721,97 @@
          startingLineNumber = "40"
          endingLineNumber = "40"
          landmarkName = "-openGoogleMap"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/Core/GoogleMapAccount.m"
+         timestampString = "353000360.731925"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "278"
+         endingLineNumber = "278"
+         landmarkName = "-connectionDidFinishLoading:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/Core/GoogleMapAccount.m"
+         timestampString = "353000405.497259"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "279"
+         endingLineNumber = "279"
+         landmarkName = "-connectionDidFinishLoading:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "lib/KMLParser.m"
+         timestampString = "353000431.022524"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "477"
+         endingLineNumber = "477"
+         landmarkName = "-beginHref"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "lib/KMLParser.m"
+         timestampString = "353000432.878793"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "483"
+         endingLineNumber = "483"
+         landmarkName = "-endHref"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "lib/KMLParser.m"
+         timestampString = "353000433.631997"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "482"
+         endingLineNumber = "482"
+         landmarkName = "-endHref"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "lib/KMLParser.m"
+         timestampString = "353000434.352797"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "484"
+         endingLineNumber = "484"
+         landmarkName = "-endHref"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "lib/KMLParser.m"
+         timestampString = "353000483.310544"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "494"
+         endingLineNumber = "494"
+         landmarkName = "-endWidth"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

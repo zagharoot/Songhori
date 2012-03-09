@@ -17,6 +17,8 @@ static UIImage* FNLogo;
 @synthesize name=_name; 
 @synthesize detail=_detail; 
 @synthesize url=_url; 
+@synthesize iconImage=_iconImage; 
+
 
 -(UIImage*) logo
 {

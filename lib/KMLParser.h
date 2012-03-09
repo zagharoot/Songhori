@@ -143,6 +143,10 @@
         int inWidth:1;
         int inFill:1;
         int inOutline:1;
+        
+        int inIconStyle:1;
+        int inIcon:1;
+        int inHref:1; 
     } flags;
 }
 
@@ -163,6 +167,15 @@
 
 - (void)beginOutline;
 - (void)endOutline;
+
+-(void)beginIconStyle; 
+-(void)endIconStyle; 
+
+-(void)beginIcon; 
+-(void)endIcon; 
+
+-(void)beginHref; 
+-(void)endHref; 
 
 - (void)applyToOverlayPathView:(MKOverlayPathView *)view;
 
