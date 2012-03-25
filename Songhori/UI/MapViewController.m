@@ -261,9 +261,10 @@
         return annView; 
     } else if ([annotation isKindOfClass:[CalloutMapAnnotation class]])
     {        
-            //if the selected item is not restaurant, just return 
-            if (![self.selectedAnnotationView isKindOfClass:[MKAnnotationView class]])
+        //if the selected item is not restaurant, just return 
+            if ([self.selectedAnnotationView.class.description compare:@"MKUserLocationView"] == NSOrderedSame)
                 return nil;  
+                
             CalloutMapAnnotationView *calloutMapAnnotationView = (CalloutMapAnnotationView *)[self.myMapView dequeueReusableAnnotationViewWithIdentifier:@"CalloutAnnotation"];
             if (!calloutMapAnnotationView) 
             {
@@ -347,8 +348,13 @@ NSLog(@" selected frame (%f,%f,%f,%f)\n", view.frame.origin.x, view.frame.origin
         self.calloutAnnotation.longitude = view.annotation.coordinate.longitude; 
     }
     
-    [self.myMapView addAnnotation:self.calloutAnnotation];
     self.selectedAnnotationView = view;
+
+    //add annotation only if the pin is not the current location
+    if ([self.selectedAnnotationView.class.description compare:@"MKUserLocationView"] != NSOrderedSame)
+        [self.myMapView addAnnotation:self.calloutAnnotation];
+    
+    
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
