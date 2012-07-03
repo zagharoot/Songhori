@@ -7,6 +7,8 @@
 //
 
 #import "RestaurantDetailViewController.h"
+#import "RestaurantURLViewController.h" 
+
 
 @implementation RestaurantDetailViewController
 @synthesize tableView = _tableView;
@@ -36,11 +38,21 @@
     return self; 
 }
 
-- (IBAction)openGoogleMap 
+- (void)openGoogleMap 
 {
+
+    
     NSString* str = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%f,%f", self.restaurant.coordinate.latitude, self.restaurant.coordinate.longitude]; 
 
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]]; 
+}
+
+-(void) openRestaurantWebsite
+{
+    RestaurantURLViewController* rvc = [[RestaurantURLViewController alloc] initWithURL:self.restaurant.url]; 
+    
+    [self.navigationController pushViewController:[rvc autorelease] animated:YES]; 
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +78,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
 }
 
 - (void)viewDidUnload
@@ -98,8 +110,26 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section > 0) 
-        return nil; 
+
+    if (indexPath.section == 0 ) 
+    {
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"general"]; 
+        if (!cell)
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"general"] autorelease]; 
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"Open Map"; 
+                break;
+            case 1: 
+                cell.textLabel.text = @"Open Website"; 
+            default:
+                break;
+        }
+        
+        return cell; 
+    }
     
     
     switch (indexPath.row) {
@@ -114,13 +144,55 @@
     }
 }
 
+-(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"More Info"; 
+        case 1:
+            return @"Reviews"; 
+        default:
+            return @""; 
+            break;
+    }
+}
+
+
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+            return 44; 
+        case 1:
+            return 80; 
+            
+        default:
+            return 44; 
+    }
+    
+    
+}
+
 -(int) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    if (section ==0)
-        return 2; 
-    else 
-        return 0; 
+    switch (section) {
+        case 0:
+            return 2; 
+        case 1:
+            return 2;
+            break;
+            
+        default:
+            return 0; 
+            break;
+    }
+    
+}
+
+-(int) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2; 
 }
 
 
@@ -129,9 +201,12 @@
     if (indexPath.section == 0)
     {
         switch (indexPath.row) {
-            case 0:                 //google cell
+            case 0:                 //google 
                 [self openGoogleMap]; 
                 break;
+                
+            case 1: 
+                [self openRestaurantWebsite]; 
                 
             default:
                 break;

@@ -100,6 +100,8 @@
 		08D272CD14894DB500D4A103 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272CC14894DB500D4A103 /* libxml2.dylib */; };
 		08D272D314894E8C00D4A103 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D272D214894E8C00D4A103 /* MapKit.framework */; };
 		08D272D614894F4200D4A103 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D272D414894F4200D4A103 /* MapViewController.xib */; };
+		08E3C43715A33E4500C164F4 /* RestaurantURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E3C43515A33E4500C164F4 /* RestaurantURLViewController.m */; };
+		08E3C43815A33E4500C164F4 /* RestaurantURLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E3C43615A33E4500C164F4 /* RestaurantURLViewController.xib */; };
 		08E5163B14BF2345005E44DE /* locateMeButtonBusy.png in Resources */ = {isa = PBXBuildFile; fileRef = 08E5163914BF2345005E44DE /* locateMeButtonBusy.png */; };
 		08E5163C14BF2345005E44DE /* locateMeButtonBusy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */; };
 		08EF1A3614BD23B7007A898B /* FNSelectShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EF1A3414BD23B6007A898B /* FNSelectShowsViewController.m */; };
@@ -272,6 +274,9 @@
 		08D272CC14894DB500D4A103 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		08D272D214894E8C00D4A103 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		08D272D514894F4200D4A103 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = Songhori/en.lproj/MapViewController.xib; sourceTree = SOURCE_ROOT; };
+		08E3C43415A33E4500C164F4 /* RestaurantURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantURLViewController.h; sourceTree = "<group>"; };
+		08E3C43515A33E4500C164F4 /* RestaurantURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantURLViewController.m; sourceTree = "<group>"; };
+		08E3C43615A33E4500C164F4 /* RestaurantURLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantURLViewController.xib; sourceTree = "<group>"; };
 		08E5163914BF2345005E44DE /* locateMeButtonBusy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButtonBusy.png; sourceTree = "<group>"; };
 		08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButtonBusy@2x.png"; sourceTree = "<group>"; };
 		08EF1A3314BD23B6007A898B /* FNSelectShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNSelectShowsViewController.h; sourceTree = "<group>"; };
@@ -576,6 +581,9 @@
 				08D272C014894C7D00D4A103 /* MapViewController.h */,
 				08D272C114894C7D00D4A103 /* MapViewController.m */,
 				08D272D414894F4200D4A103 /* MapViewController.xib */,
+				08E3C43415A33E4500C164F4 /* RestaurantURLViewController.h */,
+				08E3C43515A33E4500C164F4 /* RestaurantURLViewController.m */,
+				08E3C43615A33E4500C164F4 /* RestaurantURLViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -706,6 +714,7 @@
 				08EF1A3714BD23B7007A898B /* FNSelectShowsViewController.xib in Resources */,
 				08E5163B14BF2345005E44DE /* locateMeButtonBusy.png in Resources */,
 				08E5163C14BF2345005E44DE /* locateMeButtonBusy@2x.png in Resources */,
+				08E3C43815A33E4500C164F4 /* RestaurantURLViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +791,7 @@
 				089899BC150A5D3B007C0992 /* IconizedAnnotationView.m in Sources */,
 				089899C0150A9817007C0992 /* NSString+HTML.m in Sources */,
 				089899C3150A991C007C0992 /* GTMNSString+HTML.m in Sources */,
+				08E3C43715A33E4500C164F4 /* RestaurantURLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -77,6 +77,7 @@ static UIImage* FNLogo;
                 _name = [[data objectAtIndex:3] copy]; 
                 _detail = [[data objectAtIndex:4] copy]; 
                 _specialtyURL = [NSString stringWithFormat:@"http://foodnetwork.com%@", [data objectAtIndex:13]]; 
+                self.url = _specialtyURL; 
                 [self loadSpecialty]; 
             }
 

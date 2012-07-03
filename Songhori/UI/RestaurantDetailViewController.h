@@ -17,7 +17,9 @@
 
 -(id) initWithRestaurant:(Restaurant*) r; 
 
-- (IBAction)openGoogleMap;
+- (void) openGoogleMap;
+
+- (void) openRestaurantWebsite; 
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UITableViewCell *googleTableViewCell;
