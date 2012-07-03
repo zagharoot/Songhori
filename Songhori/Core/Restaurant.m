@@ -102,6 +102,9 @@ static UIImage* FNLogo;
     [request setHTTPMethod:@"GET"]; 
     
     self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self]; 
+    
+    self.detail = @"Loading..."; 
+    self.specialty = @"Loading..."; 
 }
 
 
@@ -141,17 +144,41 @@ static UIImage* FNLogo;
         // Create parser
         TFHpple* xpathParser = [[TFHpple alloc] initWithHTMLData:self.incomingData];
         
-        //Get all the cells of the 2nd row of the 3rd table 
-        NSArray* elements = [xpathParser searchWithXPathQuery:@"//div[@id='fn-w']/div[3]/p[1]"]; 
+//        NSString* newStr = [[[NSString alloc] initWithData:self.incomingData                                                  encoding:NSUTF8StringEncoding] autorelease];    
         
-        if (elements.count>0)
+
+        //this gets the specialty element: 
+        NSArray* selem = [xpathParser searchWithXPathQuery:@"//div[@id='fn-w']/div[2]/div[2]/p[2]/span[1]"]; 
+
+        if (selem.count>0)
         {
             // Access the first cell
-            TFHppleElement *element = [elements objectAtIndex:0];
+            TFHppleElement *element = [selem objectAtIndex:0];
+            
+            // Get the text within the cell tag
+            self.specialty = [element content];
+        }else
+            self.specialty = @"N/A"; 
+        
+        
+        
+        
+        //this gets description of the restaurant
+        NSArray* delem = [xpathParser searchWithXPathQuery:@"//div[@id='fn-w']/div[2]/div[2]/p[1]"]; 
+        
+        if (delem.count>0)
+        {
+            // Access the first cell
+            TFHppleElement *element = [delem objectAtIndex:0];
             
             // Get the text within the cell tag
             self.detail = [element content];
-        }
+        }else
+            self.detail = @"N/A"; 
+        
+
+        
+        
         
         [xpathParser release];    
 
@@ -168,6 +195,9 @@ static UIImage* FNLogo;
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     self.incomingData = nil;     
+    
+    self.detail = @"N/A"; 
+    self.specialty = @"N/A"; 
 }
 
 
