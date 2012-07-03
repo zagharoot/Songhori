@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "353018209.304389"
+         timestampString = "354383924.886098"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "357"
-         endingLineNumber = "357"
+         startingLineNumber = "363"
+         endingLineNumber = "363"
          landmarkName = "@implementation MapViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -219,11 +219,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/RestaurantDetailViewController.m"
-         timestampString = "348195398.693987"
+         timestampString = "354385935.512574"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "56"
-         endingLineNumber = "56"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -232,11 +232,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "353018209.304389"
+         timestampString = "354383924.886098"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "363"
-         endingLineNumber = "363"
+         startingLineNumber = "369"
+         endingLineNumber = "369"
          landmarkName = "-restaudantDataDidBecomeAvailable:forRegion:fromProvider:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -440,11 +440,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "353018209.304389"
+         timestampString = "354383924.886098"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "344"
-         endingLineNumber = "344"
+         startingLineNumber = "345"
+         endingLineNumber = "345"
          landmarkName = "-mapView:didSelectAnnotationView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -453,11 +453,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/MapViewController.m"
-         timestampString = "353018209.304389"
+         timestampString = "354383924.886098"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "268"
-         endingLineNumber = "268"
+         startingLineNumber = "269"
+         endingLineNumber = "269"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -687,11 +687,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/RestaurantDetailViewController.m"
-         timestampString = "348195358.419618"
+         timestampString = "354385935.512574"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
          landmarkName = "-openGoogleMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -878,7 +878,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/Core/GoogleMapAccount.m"
@@ -900,6 +900,58 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "279"
          endingLineNumber = "279"
+         landmarkName = "-connectionDidFinishLoading:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/MapViewController.m"
+         timestampString = "354382355.836262"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "245"
+         endingLineNumber = "245"
+         landmarkName = "-mapView:viewForAnnotation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/MapViewController.m"
+         timestampString = "354383924.886098"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "339"
+         endingLineNumber = "339"
+         landmarkName = "-mapView:didSelectAnnotationView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/Core/Restaurant.m"
+         timestampString = "363019477.247057"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "145"
+         endingLineNumber = "145"
+         landmarkName = "-connectionDidFinishLoading:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/Core/Restaurant.m"
+         timestampString = "363019477.247057"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "169"
+         endingLineNumber = "169"
          landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>

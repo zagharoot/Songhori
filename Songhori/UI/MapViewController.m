@@ -336,7 +336,7 @@
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     
-NSLog(@" selected frame (%f,%f,%f,%f)\n", view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height); 
+//NSLog(@" selected frame (%f,%f,%f,%f)\n", view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height); 
 
     
     if (self.calloutAnnotation == nil) 

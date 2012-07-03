@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 
 
-@interface RestaurantDetailViewController : UIViewController
+@interface RestaurantDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     Restaurant* _restaurant; 
 }
@@ -19,6 +19,9 @@
 
 - (IBAction)openGoogleMap;
 
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UITableViewCell *googleTableViewCell;
+@property (retain, nonatomic) IBOutlet UITableViewCell *yelpTableViewCell;
 
 @property (nonatomic, retain) Restaurant* restaurant; 
 @end

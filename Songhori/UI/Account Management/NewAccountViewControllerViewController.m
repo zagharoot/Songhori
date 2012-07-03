@@ -120,5 +120,16 @@
 }
 
 
+-(void) syncFailedToFinishForProvider:(id) provider withError:(NSError*) err
+{
+    //TODO: show an error dialog box 
+}
+
 
 @end
+
+
+
+
+
+
