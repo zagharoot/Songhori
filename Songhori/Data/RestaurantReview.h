@@ -15,6 +15,7 @@
     Restaurant* _restaurant; 
     
     //info
+    NSString* _ratingImageURL; 
     double _rating; 
     int _numberOfReviews; 
 }
@@ -26,5 +27,6 @@
 @property (nonatomic, assign) Restaurant* restaurant; 
 @property (nonatomic) double rating; 
 @property (nonatomic) int numberOfReviews; 
+@property (nonatomic, copy) NSString* ratingImageURL; 
 
 @end

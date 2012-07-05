@@ -15,6 +15,7 @@
 @synthesize restaurant=_restaurant; 
 @synthesize numberOfReviews=_numberOfReviews; 
 @synthesize rating=_rating; 
+@synthesize ratingImageURL= _ratingImageURL; 
 
 
 -(id) initWithRestaurant:(Restaurant *)r
@@ -29,7 +30,12 @@
 }
 
 
-
+-(void) dealloc
+{
+    self.ratingImageURL = nil; 
+    
+    [super dealloc]; 
+}
 
 
 

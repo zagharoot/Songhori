@@ -14,6 +14,10 @@
 @synthesize tableView = _tableView;
 @synthesize googleTableViewCell = _googleTableViewCell;
 @synthesize yelpTableViewCell = _yelpTableViewCell;
+@synthesize yelpNumberOfReviewsLabel = _yelpNumberOfReviewsLabel;
+@synthesize googleNumberOfReviewsLabel = _googleNumberOfReviewsLabel;
+@synthesize yelpRatingImageView = _yelpRatingImageView;
+@synthesize googleRatingImageView = _googleRatingImageView;
 @synthesize restaurant=_restaurant; 
 
 
@@ -39,7 +43,7 @@
         
         
         [yelpReviewProvider fetchReviewsForRestaurant:r observer:self]; 
-        [googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
+        //[googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
         
     }
     
@@ -96,6 +100,12 @@
     [self setTableView:nil];
     [self setGoogleTableViewCell:nil];
     [self setYelpTableViewCell:nil];
+    [self setYelpNumberOfReviewsLabel:nil];
+    [self setGoogleNumberOfReviewsLabel:nil];
+    [self setYelpRatingImageView:nil];
+    [self setGoogleRatingImageView:nil];
+    [self setYelpNumberOfReviewsLabel:nil];
+    [self setGoogleNumberOfReviewsLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -114,6 +124,12 @@
     [_tableView release];
     [_googleTableViewCell release];
     [_yelpTableViewCell release];
+    [_yelpNumberOfReviewsLabel release];
+    [_googleNumberOfReviewsLabel release];
+    [_yelpRatingImageView release];
+    [_googleRatingImageView release];
+    [_yelpNumberOfReviewsLabel release];
+    [_googleNumberOfReviewsLabel release];
     [super dealloc];
 }
 
@@ -232,7 +248,10 @@
 
 -(void) reviewer:(RestaurantReviewProvider *)provider forRestaurant:(Restaurant *)restaurant reviewDidFinish:(RestaurantReview *)review
 {
-    
+    if ([provider isKindOfClass:[YelpReviewProvider class]])
+    {
+        self.yelpNumberOfReviewsLabel.text = [NSString stringWithFormat:@"%d", review.numberOfReviews]; 
+    }
 }
 
 

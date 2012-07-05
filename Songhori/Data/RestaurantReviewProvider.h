@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RestaurantReview.h"
 #import "Restaurant.h"
+#import "OAuthProvider.h" 
 
 
 @class RestaurantReviewProvider; 
@@ -25,34 +26,47 @@
 /*
         This is an abstract class that is responsible for providing review and rating for restaurants 
  */
-@interface RestaurantReviewProvider : NSObject <NSURLConnectionDelegate> 
+@interface RestaurantReviewProvider : NSObject <NSURLConnectionDelegate,OAuthRequestDelegate> 
 {
     id<RestaurantReviewDelegate> _delegate; 
     Restaurant* _restaurant; 
     
-    NSMutableURLRequest* _request; 
-    NSMutableData* _incomingData; 
-    NSURLConnection* _urlConnection; 
+
+    OAuthProviderContext* _apiContext;     
+    OAuthProviderRequest* _apiRequest; 
+    
+    NSString* _accessToken; 
+    NSString* _accessSecret; 
 }
 
 -(void) fetchReviewsForRestaurant:(Restaurant*) restaurant observer:( id<RestaurantReviewDelegate>) observer; 
+
+//these  methods are written by each provider
 -(NSString*) urlForRestaurant:(Restaurant*) restaurant; 
+-(NSDictionary*) argsForRestaurant:(Restaurant*) restaurant; 
+-(RestaurantReview*) processResult:(NSDictionary*) response; 
 
 @property (nonatomic, assign) id<RestaurantReviewDelegate> delegate; 
 @property (nonatomic, assign) Restaurant* restaurant; 
 
-@property (nonatomic, retain) NSURLConnection* urlConnection; 
-@property (nonatomic, retain) NSMutableData* incomingData; 
-@property (nonatomic, retain) NSMutableURLRequest* request; 
+
+@property (nonatomic, retain) OAuthProviderContext* apiContext; 
+@property (nonatomic, retain) OAuthProviderRequest* apiRequest; 
+
+
+@property (nonatomic, readonly) NSString* apiKey; 
+@property (nonatomic, readonly) NSString* apiSecret; 
+@property (nonatomic, copy) NSString* accessToken; 
+@property (nonatomic, copy) NSString* accessSecret; 
 
 @end
 
 
-
-
 @interface YelpReviewProvider : RestaurantReviewProvider
 {
+
 }
+
 
 @end
 

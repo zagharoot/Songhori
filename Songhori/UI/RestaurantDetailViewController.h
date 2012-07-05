@@ -29,6 +29,10 @@
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 @property (retain, nonatomic) IBOutlet UITableViewCell *googleTableViewCell;
 @property (retain, nonatomic) IBOutlet UITableViewCell *yelpTableViewCell;
+@property (retain, nonatomic) IBOutlet UILabel *yelpNumberOfReviewsLabel;
+@property (retain, nonatomic) IBOutlet UILabel *googleNumberOfReviewsLabel;
 
+@property (retain, nonatomic) IBOutlet UIImageView *yelpRatingImageView;
+@property (retain, nonatomic) IBOutlet UIImageView *googleRatingImageView;
 @property (nonatomic, retain) Restaurant* restaurant; 
 @end
