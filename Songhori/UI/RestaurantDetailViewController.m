@@ -33,6 +33,14 @@
     if (self) 
     {
         self.restaurant = r; 
+        
+        yelpReviewProvider = [[YelpReviewProvider alloc] init]; 
+        googleReviewProvider = [[GoogleReviewProvider alloc] init]; 
+        
+        
+        [yelpReviewProvider fetchReviewsForRestaurant:r observer:self]; 
+        [googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
+        
     }
     
     return self; 
@@ -83,6 +91,8 @@
 
 - (void)viewDidUnload
 {
+    [yelpReviewProvider release]; yelpReviewProvider = nil; 
+    [googleReviewProvider release]; googleReviewProvider = nil; 
     [self setTableView:nil];
     [self setGoogleTableViewCell:nil];
     [self setYelpTableViewCell:nil];
@@ -98,6 +108,9 @@
 }
 
 - (void)dealloc {
+    [yelpReviewProvider release]; yelpReviewProvider = nil; 
+    [googleReviewProvider release]; googleReviewProvider = nil; 
+    
     [_tableView release];
     [_googleTableViewCell release];
     [_yelpTableViewCell release];
@@ -215,8 +228,19 @@
 }
 
 
+#pragma mark- Restaurant review delegate methods 
+
+-(void) reviewer:(RestaurantReviewProvider *)provider forRestaurant:(Restaurant *)restaurant reviewDidFinish:(RestaurantReview *)review
+{
+    
+}
 
 
+
+-(void) reviewer:(RestaurantReviewProvider *)provider forRestaurant:(Restaurant *)restaurant reviewDidFailWithError:(NSError *)err
+{
+    
+}
 
 
 @end

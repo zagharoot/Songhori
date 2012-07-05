@@ -102,6 +102,8 @@
 		08D272D614894F4200D4A103 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08D272D414894F4200D4A103 /* MapViewController.xib */; };
 		08E3C43715A33E4500C164F4 /* RestaurantURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E3C43515A33E4500C164F4 /* RestaurantURLViewController.m */; };
 		08E3C43815A33E4500C164F4 /* RestaurantURLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08E3C43615A33E4500C164F4 /* RestaurantURLViewController.xib */; };
+		08E3C44015A38A0000C164F4 /* RestaurantReviewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E3C43F15A38A0000C164F4 /* RestaurantReviewProvider.m */; };
+		08E3C44315A38FE900C164F4 /* RestaurantReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E3C44215A38FE900C164F4 /* RestaurantReview.m */; };
 		08E5163B14BF2345005E44DE /* locateMeButtonBusy.png in Resources */ = {isa = PBXBuildFile; fileRef = 08E5163914BF2345005E44DE /* locateMeButtonBusy.png */; };
 		08E5163C14BF2345005E44DE /* locateMeButtonBusy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */; };
 		08EF1A3614BD23B7007A898B /* FNSelectShowsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EF1A3414BD23B6007A898B /* FNSelectShowsViewController.m */; };
@@ -277,6 +279,10 @@
 		08E3C43415A33E4500C164F4 /* RestaurantURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantURLViewController.h; sourceTree = "<group>"; };
 		08E3C43515A33E4500C164F4 /* RestaurantURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantURLViewController.m; sourceTree = "<group>"; };
 		08E3C43615A33E4500C164F4 /* RestaurantURLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantURLViewController.xib; sourceTree = "<group>"; };
+		08E3C43E15A38A0000C164F4 /* RestaurantReviewProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantReviewProvider.h; sourceTree = "<group>"; };
+		08E3C43F15A38A0000C164F4 /* RestaurantReviewProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReviewProvider.m; sourceTree = "<group>"; };
+		08E3C44115A38FE800C164F4 /* RestaurantReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantReview.h; sourceTree = "<group>"; };
+		08E3C44215A38FE900C164F4 /* RestaurantReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReview.m; sourceTree = "<group>"; };
 		08E5163914BF2345005E44DE /* locateMeButtonBusy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButtonBusy.png; sourceTree = "<group>"; };
 		08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButtonBusy@2x.png"; sourceTree = "<group>"; };
 		08EF1A3314BD23B6007A898B /* FNSelectShowsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNSelectShowsViewController.h; sourceTree = "<group>"; };
@@ -626,6 +632,10 @@
 				0815A1CB148EB68D00593ABC /* YelpUser.m */,
 				089ED0021496896700BA8306 /* YelpRestaurant.h */,
 				089ED0031496896700BA8306 /* YelpRestaurant.m */,
+				08E3C43E15A38A0000C164F4 /* RestaurantReviewProvider.h */,
+				08E3C43F15A38A0000C164F4 /* RestaurantReviewProvider.m */,
+				08E3C44115A38FE800C164F4 /* RestaurantReview.h */,
+				08E3C44215A38FE900C164F4 /* RestaurantReview.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -792,6 +802,8 @@
 				089899C0150A9817007C0992 /* NSString+HTML.m in Sources */,
 				089899C3150A991C007C0992 /* GTMNSString+HTML.m in Sources */,
 				08E3C43715A33E4500C164F4 /* RestaurantURLViewController.m in Sources */,
+				08E3C44015A38A0000C164F4 /* RestaurantReviewProvider.m in Sources */,
+				08E3C44315A38FE900C164F4 /* RestaurantReview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

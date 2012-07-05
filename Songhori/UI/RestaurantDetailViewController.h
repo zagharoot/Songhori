@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
+#import "RestaurantReviewProvider.h"
 
 
-@interface RestaurantDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@interface RestaurantDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,RestaurantReviewDelegate>
 {
     Restaurant* _restaurant; 
+    
+    YelpReviewProvider* yelpReviewProvider; 
+    GoogleReviewProvider* googleReviewProvider; 
 }
 
 -(id) initWithRestaurant:(Restaurant*) r; 
