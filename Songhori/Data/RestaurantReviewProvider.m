@@ -76,8 +76,14 @@
     
     RestaurantReview* review = [self processResult:inResponseDictionary]; 
     
-    if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFinish:)])
-        [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFinish:review]; 
+    if (review != nil)
+    {
+        if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFinish:)])
+            [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFinish:review]; 
+    }else
+        if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFailWithError:)])
+            [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFailWithError:nil]; 
+    
 }
 
 
@@ -167,23 +173,30 @@
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
-//    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
-//    NSLog(@"received data as %@\n", datastr); 
+    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
+    NSLog(@"received data as %@\n", datastr); 
 
     
     
     SBJsonParser* parser = [[SBJsonParser alloc] init]; 
     
-    parser.maxDepth = 7; 
+    parser.maxDepth = 10; 
     
     NSDictionary* inResponseDictionary = [parser objectWithData:self.incomingData]; 
     
     
     RestaurantReview* review = [self processResult:inResponseDictionary]; 
     
-    if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFinish:)])
-        [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFinish:review]; 
-    
+    if (review != nil)
+    {
+        if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFinish:)])
+            [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFinish:review]; 
+    }else
+        if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFailWithError:)])
+            [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFailWithError:nil]; 
+        
+        
+        
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -295,20 +308,24 @@
 
 -(RestaurantReview*) processResult:(NSDictionary *)response
 {
-    RestaurantReview* result = [[RestaurantReview alloc] initWithRestaurant:self.restaurant]; 
-    result.providerClass = [YelpReviewProvider class]; 
-
     NSDictionary* b;        //this is for the business obj
     
     NSArray* businesses = [response objectForKey:@"businesses"]; 
     
-    if(businesses != nil) 
-        b = [businesses objectAtIndex:0]; 
-    else
+    if(businesses != nil)
+    {
+        if (businesses.count>0)
+            b = [businesses objectAtIndex:0]; 
+    }else
         b = response; 
     
     if (b == nil) 
         return nil; 
+
+    
+    RestaurantReview* result = [[RestaurantReview alloc] initWithRestaurant:self.restaurant]; 
+    result.providerClass = [YelpReviewProvider class]; 
+    
     
     //TODO: make sure the business is the same as we looked for 
     
@@ -346,19 +363,20 @@
 
 -(RestaurantReview*) processResult:(NSDictionary *)response
 {
-    RestaurantReview* review = [[[RestaurantReview alloc] initWithRestaurant:self.restaurant] autorelease]; 
-    review.providerClass = [GoogleReviewProvider class]; 
 
     NSArray* businesses = [response objectForKey:@"results"]; 
     
     NSDictionary* b; 
     
-    if (businesses.count > 0)
+    if (businesses != nil && businesses.count > 0)
         b = [businesses objectAtIndex:0]; 
     
     
     if (b == nil) 
-        return review;
+        return nil;
+
+    RestaurantReview* review = [[[RestaurantReview alloc] initWithRestaurant:self.restaurant] autorelease]; 
+    review.providerClass = [GoogleReviewProvider class]; 
     
     //TODO: make sure this business is the same as we looked for
 
@@ -370,3 +388,57 @@
 
 
 @end
+
+
+
+//------------------------------------Foursquare provider 
+
+@implementation FoursquareReviewProvider
+
+-(NSString*) urlForRestaurant:(Restaurant *)restaurant
+{
+    NSString* key = @"LCDAD15NMDJ4CMWMV2QN1LMHCP4RUOXPYIO5WOMYIPM234AQ"; 
+    NSString* secret = @"RLBPD0MOWSUPYTNL01GHKUNJBTOGTDDW4K4VRCB5WIW15KUN"; 
+    NSString* version = @"20120706"; 
+    NSString* location = [NSString stringWithFormat:@"%lf,%lf", restaurant.coordinate.latitude, restaurant.coordinate.longitude]; 
+    NSString* keyword = restaurant.name; 
+
+    NSString* result = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%@&query=%@&client_id=%@&client_secret=%@&v=%@", location, keyword, key, secret, version]; 
+    
+    return result;     
+}
+
+
+-(RestaurantReview*) processResult:(NSDictionary *)response
+{
+    
+    NSDictionary* resp = [response objectForKey:@"response"]; 
+    
+    NSArray* venues = [resp objectForKey:@"venues"]; 
+    
+    if (venues== nil || venues.count==0)
+        return nil; 
+    
+    NSDictionary* b = [venues objectAtIndex:0]; 
+    
+    if (b==nil)
+        return nil; 
+    
+    RestaurantReview* review = [[[RestaurantReview alloc] initWithRestaurant:self.restaurant] autorelease]; 
+    review.providerClass = [FoursquareReviewProvider class]; 
+    
+
+    NSDictionary* stats = [b objectForKey:@"stats"]; 
+    
+    review.rating = [[stats objectForKey:@"tipCount"] intValue]; 
+    review.numberOfReviews = [[stats objectForKey:@"checkinsCount"] intValue]; 
+    
+    return review; 
+}
+
+
+
+@end
+
+
+

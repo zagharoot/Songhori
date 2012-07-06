@@ -20,6 +20,7 @@
     //These are the review providers. Since there are not a lot of them, I haven't put them in an array etc.
     YelpReviewProvider* _yelpReviewProvider; 
     GoogleReviewProvider* _googleReviewProvider; 
+    FoursquareReviewProvider* _foursquareReviewProvider; 
 }
 
 -(id) initWithRestaurant:(Restaurant*) r; 
@@ -37,11 +38,14 @@
 
 @property (retain, nonatomic) IBOutlet UIImageView *yelpRatingImageView;
 @property (nonatomic, retain) Restaurant* restaurant; 
+@property (retain, nonatomic) IBOutlet UITableViewCell *foursquareTableViewCell;
 
 @property (retain, nonatomic) IBOutlet DYRateView *googleRatingView;
+@property (retain, nonatomic) IBOutlet UILabel *foursquareCheckinsLabel;
 
 @property (nonatomic, retain) YelpReviewProvider* yelpReviewProvider; 
 @property (nonatomic, retain) GoogleReviewProvider* googleReviewProvider; 
-
+@property (nonatomic, retain) FoursquareReviewProvider* foursquareReviewProvider; 
+@property (retain, nonatomic) IBOutlet UILabel *foursquareTipsLabel;
 
 @end

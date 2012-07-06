@@ -18,10 +18,14 @@
 @synthesize googleNumberOfReviewsLabel = _googleNumberOfReviewsLabel;
 @synthesize yelpRatingImageView = _yelpRatingImageView;
 @synthesize restaurant=_restaurant; 
+@synthesize foursquareTableViewCell = _foursquareTableViewCell;
 @synthesize googleRatingView = _googleRatingView;
+@synthesize foursquareCheckinsLabel = _foursquareCheckinsLabel;
 
 @synthesize yelpReviewProvider=_yelpReviewProvider; 
 @synthesize googleReviewProvider=_googleReviewProvider; 
+@synthesize foursquareReviewProvider=_foursquareReviewProvider; 
+@synthesize foursquareTipsLabel = _foursquareTipsLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,10 +47,12 @@
         
         self.yelpReviewProvider = [[[YelpReviewProvider alloc] init] autorelease]; 
         self.googleReviewProvider = [[[GoogleReviewProvider alloc] init] autorelease]; 
+        self.foursquareReviewProvider = [[[FoursquareReviewProvider alloc] init] autorelease]; 
         
         
         [self.yelpReviewProvider fetchReviewsForRestaurant:r observer:self]; 
         [self.googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
+        [self.foursquareReviewProvider fetchReviewsForRestaurant:r observer:self]; 
     }
     
     return self; 
@@ -101,6 +107,7 @@
 {
     self.yelpReviewProvider = nil; 
     self.googleReviewProvider = nil; 
+    self.foursquareReviewProvider = nil; 
     
     [self setTableView:nil];
     [self setGoogleTableViewCell:nil];
@@ -111,6 +118,9 @@
     [self setYelpNumberOfReviewsLabel:nil];
     [self setGoogleNumberOfReviewsLabel:nil];
     [self setGoogleRatingView:nil];
+    [self setFoursquareTipsLabel:nil];
+    [self setFoursquareCheckinsLabel:nil];
+    [self setFoursquareTableViewCell:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -135,6 +145,9 @@
     [_yelpNumberOfReviewsLabel release];
     [_googleNumberOfReviewsLabel release];
     [_googleRatingView release];
+    [_foursquareTipsLabel release];
+    [_foursquareCheckinsLabel release];
+    [_foursquareTableViewCell release];
     [super dealloc];
 }
 
@@ -172,7 +185,8 @@
             break;
         case 1:                     //yelp cell
             return self.yelpTableViewCell; 
-            
+        case 2:                     //foursquare cell
+            return self.foursquareTableViewCell; 
         default:
             return nil; 
     }
@@ -214,7 +228,7 @@
         case 0:
             return 2; 
         case 1:
-            return 2;
+            return 3;
             break;
             
         default:
@@ -269,6 +283,12 @@
         self.googleRatingView.rate = review.rating;
         
         self.googleTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
+    }else if ([provider isKindOfClass:[FoursquareReviewProvider class]])
+    {
+        self.foursquareCheckinsLabel.text = [NSString stringWithFormat:@"%d", (int)review.numberOfReviews]; 
+        self.foursquareTipsLabel.text =     [NSString stringWithFormat:@"%d", (int)review.rating]; 
+
+        self.foursquareTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
     }
     
 }
@@ -284,7 +304,12 @@
     }else if ([provider isKindOfClass:[GoogleReviewProvider class]]) //a google review
     {
         self.googleTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
+    }else if ([provider isKindOfClass:[FoursquareReviewProvider class]])
+    {
+        self.foursquareTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
     }
+    
+
     
 }
 

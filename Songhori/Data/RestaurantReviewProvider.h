@@ -89,7 +89,7 @@
 {
 
 }
-
+  
 
 @end
 
@@ -100,4 +100,14 @@
 }
 
 @end
+
+
+@interface FoursquareReviewProvider : SimpleRestaurantReviewProvider
+{
+    
+}
+
+@end
+
+
 
