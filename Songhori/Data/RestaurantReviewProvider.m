@@ -296,7 +296,7 @@
 -(RestaurantReview*) processResult:(NSDictionary *)response
 {
     RestaurantReview* result = [[RestaurantReview alloc] initWithRestaurant:self.restaurant]; 
-        
+    result.providerClass = [YelpReviewProvider class]; 
 
     NSDictionary* b;        //this is for the business obj
     
@@ -309,6 +309,8 @@
     
     if (b == nil) 
         return nil; 
+    
+    //TODO: make sure the business is the same as we looked for 
     
     result.rating = [[b objectForKey:@"rating"] doubleValue]; 
     result.numberOfReviews = [[b objectForKey:@"review_count"] intValue]; 
@@ -344,9 +346,10 @@
 
 -(RestaurantReview*) processResult:(NSDictionary *)response
 {
+    RestaurantReview* review = [[[RestaurantReview alloc] initWithRestaurant:self.restaurant] autorelease]; 
+    review.providerClass = [GoogleReviewProvider class]; 
+
     NSArray* businesses = [response objectForKey:@"results"]; 
-    
-    RestaurantReview* review; 
     
     NSDictionary* b; 
     
@@ -355,16 +358,11 @@
     
     
     if (b == nil) 
-        return nil; 
+        return review;
     
-    
-    review = [[[RestaurantReview alloc] initWithRestaurant:self.restaurant] autorelease]; 
-    
+    //TODO: make sure this business is the same as we looked for
 
     review.rating = [[b objectForKey:@"rating"] doubleValue]; 
-    
-    
-    
     
     return review; 
 }

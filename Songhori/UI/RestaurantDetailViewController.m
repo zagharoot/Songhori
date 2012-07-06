@@ -47,7 +47,6 @@
         
         [self.yelpReviewProvider fetchReviewsForRestaurant:r observer:self]; 
         [self.googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
-        
     }
     
     return self; 
@@ -55,8 +54,6 @@
 
 - (void)openGoogleMap 
 {
-
-    
     NSString* str = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%f,%f", self.restaurant.coordinate.latitude, self.restaurant.coordinate.longitude]; 
 
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]]; 
@@ -67,7 +64,6 @@
     RestaurantURLViewController* rvc = [[RestaurantURLViewController alloc] initWithURL:self.restaurant.url]; 
     
     [self.navigationController pushViewController:[rvc autorelease] animated:YES]; 
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -158,10 +154,10 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         switch (indexPath.row) {
             case 0:
-                cell.textLabel.text = @"Open Map"; 
+                cell.textLabel.text = @"Open In Map App"; 
                 break;
             case 1: 
-                cell.textLabel.text = @"Open Website"; 
+                cell.textLabel.text = @"Open Restaurant Website"; 
             default:
                 break;
         }
@@ -257,7 +253,7 @@
 
 -(void) reviewer:(RestaurantReviewProvider *)provider forRestaurant:(Restaurant *)restaurant reviewDidFinish:(RestaurantReview *)review
 {
-    if ([provider isKindOfClass:[YelpReviewProvider class]])
+    if ([provider isKindOfClass:[YelpReviewProvider class]])        //a yelp review
     {
         self.yelpNumberOfReviewsLabel.text = [NSString stringWithFormat:@"%d", review.numberOfReviews]; 
         
@@ -267,27 +263,25 @@
         
         self.yelpTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
         
-    }else if ([provider isKindOfClass:[GoogleReviewProvider class]])
+    }else if ([provider isKindOfClass:[GoogleReviewProvider class]])    //a google review
     {
         self.googleRatingView.alpha = 1.0; 
         self.googleRatingView.rate = review.rating;
-        [self.googleRatingView setNeedsDisplay]; 
         
         self.googleTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
     }
     
-    [self.view setNeedsDisplay]; 
 }
 
 
 
 -(void) reviewer:(RestaurantReviewProvider *)provider forRestaurant:(Restaurant *)restaurant reviewDidFailWithError:(NSError *)err
 {
-    if ([provider isKindOfClass:[YelpReviewProvider class]])
+    if ([provider isKindOfClass:[YelpReviewProvider class]])        //a yelp review
     {
         self.yelpTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
         
-    }else if ([provider isKindOfClass:[GoogleReviewProvider class]])
+    }else if ([provider isKindOfClass:[GoogleReviewProvider class]]) //a google review
     {
         self.googleTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
     }

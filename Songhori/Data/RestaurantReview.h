@@ -29,4 +29,6 @@
 @property (nonatomic) int numberOfReviews; 
 @property (nonatomic, copy) NSString* ratingImageURL; 
 
+@property (nonatomic,retain) Class providerClass;               //this says who's providing this review
+
 @end

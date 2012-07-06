@@ -16,7 +16,7 @@
 @synthesize numberOfReviews=_numberOfReviews; 
 @synthesize rating=_rating; 
 @synthesize ratingImageURL= _ratingImageURL; 
-
+@synthesize providerClass; 
 
 -(id) initWithRestaurant:(Restaurant *)r
 {
@@ -27,6 +27,7 @@
     }
     
     return self; 
+    
 }
 
 
