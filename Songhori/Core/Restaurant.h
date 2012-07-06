@@ -38,6 +38,7 @@
 }
 
 -(UIImage*) logo; 
+-(UIImage*) secondaryLogo; 
 
 @property (nonatomic, copy) NSString* name; 
 @property (nonatomic, copy) NSString* detail; 

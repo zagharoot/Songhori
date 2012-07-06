@@ -55,7 +55,7 @@
 @synthesize logoBtn=_logoBtn; 
 @synthesize restaurantDetailBtn=_restaurantDetailBtn; 
 @synthesize parent=_parent; 
-
+@synthesize secondaryLogoImageView=_secondaryLogoImageView; 
 
 -(id) initWithRestaurant:(Restaurant *)r andParent:(CalloutMapAnnotationView*) p
 {
@@ -73,6 +73,13 @@
         [self addSubview:_detailLabel]; 
         [self addSubview:self.logoBtn];
         [self addSubview:self.restaurantDetailBtn]; 
+        
+        
+        if (r.secondaryLogo != nil) 
+        {
+            self.secondaryLogoImageView = [[[UIImageView alloc] initWithImage:r.secondaryLogo] autorelease]; 
+            [self addSubview:self.secondaryLogoImageView]; 
+        }
         
         
         
@@ -112,6 +119,14 @@
     [self.restaurantDetailBtn addTarget:self action:@selector(openRestaurantDetailPage:) forControlEvents:UIControlEventTouchDown]; 
 
     
+    [self.secondaryLogoImageView removeFromSuperview]; 
+    self.secondaryLogoImageView = nil; 
+    if (restaurant.secondaryLogo)
+    {
+        self.secondaryLogoImageView = [[[UIImageView alloc] initWithImage:restaurant.secondaryLogo] autorelease]; 
+        [self addSubview:self.secondaryLogoImageView]; 
+    }
+    
     
     [self setNeedsDisplay]; 
 }
@@ -144,12 +159,17 @@
     CGRect nameRect = CGRectMake(rect.origin.x+10, rect.origin.y, rect.size.width-20, 25); 
     CGRect detailRect = CGRectMake(rect.origin.x+10, rect.origin.y+17, rect.size.width-50, rect.size.height-30); 
     CGRect logoRect = CGRectMake(rect.origin.x+rect.size.width-30, rect.origin.y, 23, 23); 
+    CGRect secondaryLogoRect = CGRectMake(rect.origin.x+rect.size.width-60, rect.origin.y, 23, 23); 
     CGRect detailBtnRect = CGRectMake(rect.origin.x+rect.size.width-35, rect.origin.y + 23+  (rect.size.height -23)/2-15  , 30, 30 ) ; 
     
     
     _nameLabel.frame = nameRect; 
     _detailLabel.frame = detailRect; 
     self.logoBtn.frame = logoRect; 
+    
+    if (self.secondaryLogoImageView)
+        self.secondaryLogoImageView.frame = secondaryLogoRect; 
+    
     self.restaurantDetailBtn.frame = detailBtnRect; 
 }
 
@@ -159,6 +179,7 @@
     [_nameLabel release]; 
     [_detailLabel release]; 
     self.logoBtn = nil;
+    self.secondaryLogoImageView = nil; 
     self.restaurantDetailBtn = nil; 
     [super dealloc]; 
 }

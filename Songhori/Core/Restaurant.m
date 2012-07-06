@@ -25,6 +25,10 @@ static UIImage* FNLogo;
     return nil; //each account should implement their own 
 }
 
+-(UIImage*) secondaryLogo
+{
+    return nil; 
+}
 
 -(void) setCoordinate:(CLLocationCoordinate2D)newCoordinate
 {
@@ -56,6 +60,12 @@ static UIImage* FNLogo;
     }
     
     return FNLogo; 
+}
+
+
+-(UIImage*) secondaryLogo
+{
+    return [self logo]; //TODO: should return the secondary for each show 
 }
 
 -(id) initWithJSONData:(id) json

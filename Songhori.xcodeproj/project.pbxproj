@@ -507,8 +507,6 @@
 		08D2725314894BAC00D4A103 = {
 			isa = PBXGroup;
 			children = (
-				0820148715A5E488000ABB12 /* SystemConfiguration.framework */,
-				0820144D15A5E3F5000ABB12 /* CFNetwork.framework */,
 				08D272B614894C6C00D4A103 /* pics */,
 				08D2727914894C5500D4A103 /* lib */,
 				08D2726814894BAD00D4A103 /* Songhori */,
@@ -528,6 +526,8 @@
 		08D2726114894BAC00D4A103 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0820148715A5E488000ABB12 /* SystemConfiguration.framework */,
+				0820144D15A5E3F5000ABB12 /* CFNetwork.framework */,
 				089899B8150A50F5007C0992 /* CoreLocation.framework */,
 				0815A1C4148EB0BD00593ABC /* CoreData.framework */,
 				08D272D214894E8C00D4A103 /* MapKit.framework */,

@@ -58,6 +58,7 @@
     UILabel* _detailLabel; 
     UIButton* _logoBtn; 
     UIButton* _restaurantDetailBtn; 
+    UIImageView* _secondaryLogoImageView; 
     
     CalloutMapAnnotationView* _parent; 
 }
@@ -70,7 +71,7 @@
 @property (nonatomic, assign) Restaurant* restaurant; 
 @property (nonatomic, retain) UIButton* logoBtn; 
 @property (nonatomic, retain) UIButton* restaurantDetailBtn; 
-
+@property (nonatomic, retain) UIImageView* secondaryLogoImageView; 
 @property (nonatomic, assign) CalloutMapAnnotationView* parent; 
 @end
 
