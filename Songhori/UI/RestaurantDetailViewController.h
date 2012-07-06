@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
 #import "RestaurantReviewProvider.h"
-
+#import "DYRateView.h" 
 
 
 @interface RestaurantDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,RestaurantReviewDelegate>
@@ -33,9 +33,9 @@
 @property (retain, nonatomic) IBOutlet UILabel *googleNumberOfReviewsLabel;
 
 @property (retain, nonatomic) IBOutlet UIImageView *yelpRatingImageView;
-@property (retain, nonatomic) IBOutlet UIImageView *googleRatingImageView;
 @property (nonatomic, retain) Restaurant* restaurant; 
 
+@property (retain, nonatomic) IBOutlet DYRateView *googleRatingView;
 
 @property (nonatomic, retain) YelpReviewProvider* yelpReviewProvider; 
 @property (nonatomic, retain) GoogleReviewProvider* googleReviewProvider; 

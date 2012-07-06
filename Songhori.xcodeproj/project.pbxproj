@@ -58,6 +58,15 @@
 		089ED0041496896700BA8306 /* YelpRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 089ED0031496896700BA8306 /* YelpRestaurant.m */; };
 		08A0DB1614B923C700A91C07 /* GoogleLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A0DB1414B923C700A91C07 /* GoogleLogo.png */; };
 		08A0DB1714B923C700A91C07 /* GoogleLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A0DB1514B923C700A91C07 /* GoogleLogo@2x.png */; };
+		08B76E0B15A7135A00EA915C /* DYRateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B76E0A15A7135A00EA915C /* DYRateView.m */; };
+		08B76E1515A716FD00EA915C /* StarEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E0D15A716FD00EA915C /* StarEmpty.png */; };
+		08B76E1615A716FD00EA915C /* StarEmpty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E0E15A716FD00EA915C /* StarEmpty@2x.png */; };
+		08B76E1715A716FD00EA915C /* StarEmptyLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E0F15A716FD00EA915C /* StarEmptyLarge.png */; };
+		08B76E1815A716FD00EA915C /* StarEmptyLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1015A716FD00EA915C /* StarEmptyLarge@2x.png */; };
+		08B76E1915A716FD00EA915C /* StarFull.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1115A716FD00EA915C /* StarFull.png */; };
+		08B76E1A15A716FD00EA915C /* StarFull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1215A716FD00EA915C /* StarFull@2x.png */; };
+		08B76E1B15A716FD00EA915C /* StarFullLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1315A716FD00EA915C /* StarFullLarge.png */; };
+		08B76E1C15A716FD00EA915C /* StarFullLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1415A716FD00EA915C /* StarFullLarge@2x.png */; };
 		08B8E0FF1495290E00331505 /* locateMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FA1495290E00331505 /* locateMeButton.png */; };
 		08B8E1001495290E00331505 /* locateMeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FB1495290E00331505 /* locateMeButton@2x.png */; };
 		08B8E1011495290E00331505 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FC1495290E00331505 /* settingsButton.png */; };
@@ -223,6 +232,16 @@
 		089ED0031496896700BA8306 /* YelpRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpRestaurant.m; sourceTree = "<group>"; };
 		08A0DB1414B923C700A91C07 /* GoogleLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogo.png; sourceTree = "<group>"; };
 		08A0DB1514B923C700A91C07 /* GoogleLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GoogleLogo@2x.png"; sourceTree = "<group>"; };
+		08B76E0915A7135A00EA915C /* DYRateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYRateView.h; sourceTree = "<group>"; };
+		08B76E0A15A7135A00EA915C /* DYRateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYRateView.m; sourceTree = "<group>"; };
+		08B76E0D15A716FD00EA915C /* StarEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarEmpty.png; sourceTree = "<group>"; };
+		08B76E0E15A716FD00EA915C /* StarEmpty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarEmpty@2x.png"; sourceTree = "<group>"; };
+		08B76E0F15A716FD00EA915C /* StarEmptyLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarEmptyLarge.png; sourceTree = "<group>"; };
+		08B76E1015A716FD00EA915C /* StarEmptyLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarEmptyLarge@2x.png"; sourceTree = "<group>"; };
+		08B76E1115A716FD00EA915C /* StarFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarFull.png; sourceTree = "<group>"; };
+		08B76E1215A716FD00EA915C /* StarFull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarFull@2x.png"; sourceTree = "<group>"; };
+		08B76E1315A716FD00EA915C /* StarFullLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarFullLarge.png; sourceTree = "<group>"; };
+		08B76E1415A716FD00EA915C /* StarFullLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarFullLarge@2x.png"; sourceTree = "<group>"; };
 		08B8E0FA1495290E00331505 /* locateMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButton.png; sourceTree = "<group>"; };
 		08B8E0FB1495290E00331505 /* locateMeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButton@2x.png"; sourceTree = "<group>"; };
 		08B8E0FC1495290E00331505 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
@@ -468,6 +487,23 @@
 			path = "Account Management";
 			sourceTree = "<group>";
 		};
+		08B76E0815A7135A00EA915C /* DYRateView */ = {
+			isa = PBXGroup;
+			children = (
+				08B76E0D15A716FD00EA915C /* StarEmpty.png */,
+				08B76E0E15A716FD00EA915C /* StarEmpty@2x.png */,
+				08B76E0F15A716FD00EA915C /* StarEmptyLarge.png */,
+				08B76E1015A716FD00EA915C /* StarEmptyLarge@2x.png */,
+				08B76E1115A716FD00EA915C /* StarFull.png */,
+				08B76E1215A716FD00EA915C /* StarFull@2x.png */,
+				08B76E1315A716FD00EA915C /* StarFullLarge.png */,
+				08B76E1415A716FD00EA915C /* StarFullLarge@2x.png */,
+				08B76E0915A7135A00EA915C /* DYRateView.h */,
+				08B76E0A15A7135A00EA915C /* DYRateView.m */,
+			);
+			path = DYRateView;
+			sourceTree = "<group>";
+		};
 		08D2725314894BAC00D4A103 = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +567,7 @@
 		08D2727914894C5500D4A103 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				08B76E0815A7135A00EA915C /* DYRateView */,
 				0820144F15A5E426000ABB12 /* OAuthConsumer */,
 				0820143515A5D801000ABB12 /* OAuth */,
 				089899B4150A4652007C0992 /* KMLParser.h */,
@@ -785,6 +822,14 @@
 				08E5163B14BF2345005E44DE /* locateMeButtonBusy.png in Resources */,
 				08E5163C14BF2345005E44DE /* locateMeButtonBusy@2x.png in Resources */,
 				08E3C43815A33E4500C164F4 /* RestaurantURLViewController.xib in Resources */,
+				08B76E1515A716FD00EA915C /* StarEmpty.png in Resources */,
+				08B76E1615A716FD00EA915C /* StarEmpty@2x.png in Resources */,
+				08B76E1715A716FD00EA915C /* StarEmptyLarge.png in Resources */,
+				08B76E1815A716FD00EA915C /* StarEmptyLarge@2x.png in Resources */,
+				08B76E1915A716FD00EA915C /* StarFull.png in Resources */,
+				08B76E1A15A716FD00EA915C /* StarFull@2x.png in Resources */,
+				08B76E1B15A716FD00EA915C /* StarFullLarge.png in Resources */,
+				08B76E1C15A716FD00EA915C /* StarFullLarge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +915,7 @@
 				0820148415A5E426000ABB12 /* OAServiceTicket.m in Sources */,
 				0820148515A5E426000ABB12 /* OAToken.m in Sources */,
 				0820148615A5E426000ABB12 /* OATokenManager.m in Sources */,
+				08B76E0B15A7135A00EA915C /* DYRateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

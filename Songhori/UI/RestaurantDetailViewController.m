@@ -17,8 +17,8 @@
 @synthesize yelpNumberOfReviewsLabel = _yelpNumberOfReviewsLabel;
 @synthesize googleNumberOfReviewsLabel = _googleNumberOfReviewsLabel;
 @synthesize yelpRatingImageView = _yelpRatingImageView;
-@synthesize googleRatingImageView = _googleRatingImageView;
 @synthesize restaurant=_restaurant; 
+@synthesize googleRatingView = _googleRatingView;
 
 @synthesize yelpReviewProvider=_yelpReviewProvider; 
 @synthesize googleReviewProvider=_googleReviewProvider; 
@@ -94,6 +94,11 @@
 {
     [super viewDidLoad];
     
+    self.googleTableViewCell.alpha = 0.00001; 
+    self.googleRatingView.editable = NO; 
+    self.googleRatingView.backgroundColor = [UIColor clearColor]; 
+    self.googleRatingView.opaque = NO; 
+    
 }
 
 - (void)viewDidUnload
@@ -107,9 +112,9 @@
     [self setYelpNumberOfReviewsLabel:nil];
     [self setGoogleNumberOfReviewsLabel:nil];
     [self setYelpRatingImageView:nil];
-    [self setGoogleRatingImageView:nil];
     [self setYelpNumberOfReviewsLabel:nil];
     [self setGoogleNumberOfReviewsLabel:nil];
+    [self setGoogleRatingView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -131,9 +136,9 @@
     [_yelpNumberOfReviewsLabel release];
     [_googleNumberOfReviewsLabel release];
     [_yelpRatingImageView release];
-    [_googleRatingImageView release];
     [_yelpNumberOfReviewsLabel release];
     [_googleNumberOfReviewsLabel release];
+    [_googleRatingView release];
     [super dealloc];
 }
 
@@ -259,16 +264,33 @@
         NSData* idata = [NSData dataWithContentsOfURL:[NSURL URLWithString:review.ratingImageURL]]; 
         UIImage* img = [UIImage imageWithData:idata]; 
         self.yelpRatingImageView.image = img; 
+        
+        self.yelpTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
+        
     }else if ([provider isKindOfClass:[GoogleReviewProvider class]])
     {
-        self.googleNumberOfReviewsLabel.text = [NSString stringWithFormat:@"%lf", review.rating];         
+        self.googleRatingView.alpha = 1.0; 
+        self.googleRatingView.rate = review.rating;
+        [self.googleRatingView setNeedsDisplay]; 
+        
+        self.googleTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
     }
+    
+    [self.view setNeedsDisplay]; 
 }
 
 
 
 -(void) reviewer:(RestaurantReviewProvider *)provider forRestaurant:(Restaurant *)restaurant reviewDidFailWithError:(NSError *)err
 {
+    if ([provider isKindOfClass:[YelpReviewProvider class]])
+    {
+        self.yelpTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
+        
+    }else if ([provider isKindOfClass:[GoogleReviewProvider class]])
+    {
+        self.googleTableViewCell.accessoryType = UITableViewCellAccessoryCheckmark; 
+    }
     
 }
 
