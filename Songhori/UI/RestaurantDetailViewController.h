@@ -16,8 +16,8 @@
 {
     Restaurant* _restaurant; 
     
-    YelpReviewProvider* yelpReviewProvider; 
-    GoogleReviewProvider* googleReviewProvider; 
+    YelpReviewProvider* _yelpReviewProvider; 
+    GoogleReviewProvider* _googleReviewProvider; 
 }
 
 -(id) initWithRestaurant:(Restaurant*) r; 
@@ -35,4 +35,10 @@
 @property (retain, nonatomic) IBOutlet UIImageView *yelpRatingImageView;
 @property (retain, nonatomic) IBOutlet UIImageView *googleRatingImageView;
 @property (nonatomic, retain) Restaurant* restaurant; 
+
+
+@property (nonatomic, retain) YelpReviewProvider* yelpReviewProvider; 
+@property (nonatomic, retain) GoogleReviewProvider* googleReviewProvider; 
+
+
 @end

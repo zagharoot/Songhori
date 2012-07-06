@@ -7,23 +7,17 @@
 //
 
 #import "RestaurantReviewProvider.h"
-
+#import "JSON.h"
 #import "YelpRestaurant.h" 
 
 
-
-@implementation RestaurantReviewProvider
-@synthesize  delegate=_delegate; 
-
-
-@synthesize restaurant=_restaurant; 
+@implementation OAuthRestaurantReviewProvider
 
 @synthesize apiContext=_apiContext; 
 @synthesize apiRequest=_apiRequest; 
 
 @synthesize accessToken=_accessToken; 
 @synthesize accessSecret=_accessSecret; 
-
 
 -(NSString*) apiKey
 {
@@ -35,7 +29,6 @@
     return @""; 
 }
 
-//individual subclasses should implement this 
 -(void) fetchReviewsForRestaurant:(Restaurant *)restaurant observer:(id<RestaurantReviewDelegate>)observer
 {
     self.delegate = observer; 
@@ -43,28 +36,13 @@
     
     NSString* url = [self urlForRestaurant:restaurant]; 
     NSDictionary* args = [self argsForRestaurant:restaurant]; 
-
+    
     self.apiRequest = [[[OAuthProviderRequest alloc] initWithAPIContext:self.apiContext] autorelease];  
     self.apiRequest.delegate = self; 
     
     
     [self.apiRequest callAPIMethodWithGET:url arguments:args]; 
     
-}
-
--(NSString*) urlForRestaurant:(Restaurant *)restaurant
-{
-    return nil; //should be implemented by each provider 
-}
-
--(NSDictionary*) argsForRestaurant:(Restaurant *)restaurant
-{
-    return nil; 
-}
-
--(RestaurantReview*) processResult:(NSDictionary *)response
-{
-    return nil; 
 }
 
 -(id) init
@@ -83,22 +61,18 @@
 
 -(void) dealloc
 {
-
-    self.delegate = nil; 
-    self.restaurant = nil; 
-
     self.apiContext = nil; 
     self.apiRequest = nil; 
     
+
     [super dealloc]; 
 }
-
 
 #pragma mark- objective flickr delegate 
 
 -(void) OAuthRequest:(OAuthProviderRequest *)inRequest didCompleteWithResponse:(NSDictionary *)inResponseDictionary
 {
-    NSLog(@"Got response %@\n", inResponseDictionary); 
+    //  NSLog(@"Got response %@\n", inResponseDictionary); 
     
     RestaurantReview* review = [self processResult:inResponseDictionary]; 
     
@@ -119,7 +93,117 @@
 @end
 
 
+@implementation RestaurantReviewProvider
+@synthesize  delegate=_delegate; 
 
+
+@synthesize restaurant=_restaurant; 
+
+
+-(void) fetchReviewsForRestaurant:(Restaurant *)restaurant observer:(id<RestaurantReviewDelegate>)observer
+{
+}
+
+-(NSString*) urlForRestaurant:(Restaurant *)restaurant
+{
+    return nil; //should be implemented by each provider 
+}
+
+-(NSDictionary*) argsForRestaurant:(Restaurant *)restaurant
+{
+    return nil; 
+}
+
+-(RestaurantReview*) processResult:(NSDictionary *)response
+{
+    return nil; 
+}
+
+
+-(void) dealloc
+{
+
+    self.delegate = nil; 
+    self.restaurant = nil; 
+
+    [super dealloc]; 
+}
+
+
+
+@end
+
+
+@implementation SimpleRestaurantReviewProvider
+@synthesize urlRequest=_urlRequest; 
+@synthesize urlConnection =_urlConnection; 
+@synthesize incomingData=_incomingData; 
+
+-(void) fetchReviewsForRestaurant:(Restaurant *)restaurant observer:(id<RestaurantReviewDelegate>)observer
+{
+    self.delegate = observer; 
+    self.restaurant = restaurant; 
+    
+    NSString* url = [self urlForRestaurant:restaurant]; 
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]; 
+
+    self.urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]]; 
+    
+    self.urlConnection = [NSURLConnection connectionWithRequest:self.urlRequest delegate:self]; 
+}
+
+
+
+-(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    self.incomingData = [[[NSMutableData alloc] init] autorelease]; 
+}
+
+-(void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.incomingData appendData:data]; 
+}
+
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+//    NSString* datastr = [[[NSString alloc] initWithData:self.incomingData encoding:NSUTF8StringEncoding] autorelease]; 
+//    NSLog(@"received data as %@\n", datastr); 
+
+    
+    
+    SBJsonParser* parser = [[SBJsonParser alloc] init]; 
+    
+    parser.maxDepth = 7; 
+    
+    NSDictionary* inResponseDictionary = [parser objectWithData:self.incomingData]; 
+    
+    
+    RestaurantReview* review = [self processResult:inResponseDictionary]; 
+    
+    if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFinish:)])
+        [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFinish:review]; 
+    
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    if ([self.delegate respondsToSelector:@selector(reviewer:forRestaurant:reviewDidFailWithError:)])
+        [self.delegate reviewer:self forRestaurant:self.restaurant reviewDidFailWithError:error]; 
+}
+
+
+-(void) dealloc
+{
+    self.urlRequest = nil; 
+    self.urlConnection = nil; 
+    self.incomingData = nil; 
+    
+    [super dealloc]; 
+}
+
+
+@end
 
 
 
@@ -180,8 +264,7 @@
     NSDictionary* result; 
     if ([restaurant isKindOfClass:[YelpRestaurantAnnotation class]])
     {
-        //TODO: fill this 
-        
+        result = [NSDictionary dictionary]; 
     }else {
         NSString* coord = [NSString stringWithFormat:@"%lf,%lf", restaurant.coordinate.latitude, restaurant.coordinate.longitude]; 
         
@@ -198,7 +281,11 @@
     
     if ([restaurant isKindOfClass:[YelpRestaurantAnnotation class]])            //we already have the id of the restaurant, search using biz endPoint
     {
-        return bizEndPoint; 
+        
+        YelpRestaurantAnnotation* yr = (YelpRestaurantAnnotation*) restaurant; 
+        
+        
+        return [NSString stringWithFormat:@"%@%@", bizEndPoint, yr.restaurant.y_id]; 
     }else {                                                                     //we don't have the id, search using the search (restaurant name/location) 
         return searchEndPoint; 
 
@@ -211,16 +298,22 @@
     RestaurantReview* result = [[RestaurantReview alloc] initWithRestaurant:self.restaurant]; 
         
 
+    NSDictionary* b;        //this is for the business obj
+    
     NSArray* businesses = [response objectForKey:@"businesses"]; 
     
-    for (NSDictionary* b in businesses) 
-    {
-        result.rating = [[b objectForKey:@"rating"] doubleValue]; 
-        result.numberOfReviews = [[b objectForKey:@"review_count"] intValue]; 
-        
-        result.ratingImageURL = [b objectForKey:@"rating_img_url"]; 
-    }
+    if(businesses != nil) 
+        b = [businesses objectAtIndex:0]; 
+    else
+        b = response; 
     
+    if (b == nil) 
+        return nil; 
+    
+    result.rating = [[b objectForKey:@"rating"] doubleValue]; 
+    result.numberOfReviews = [[b objectForKey:@"review_count"] intValue]; 
+        
+    result.ratingImageURL = [b objectForKey:@"rating_img_url_large"]; 
     
     return [result autorelease]; 
 }
@@ -235,6 +328,46 @@
 //------------------------------------Google provider 
 
 @implementation GoogleReviewProvider
+
+-(NSString*) urlForRestaurant:(Restaurant *)restaurant
+{
+    NSString* key = @"AIzaSyDNnpWBiLtqnMo5BDSmvQQwCgTVJune1Ik"; 
+    NSString* location = [NSString stringWithFormat:@"%lf,%lf", restaurant.coordinate.latitude, restaurant.coordinate.longitude]; 
+    NSString* keyword = restaurant.name; 
+    int distance = 1000; 
+    NSString* result = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?key=%@&location=%@&radius=%d&sensor=false&keyword=%@", key, location, distance, keyword]; 
+    
+    
+    return result; 
+}
+
+
+-(RestaurantReview*) processResult:(NSDictionary *)response
+{
+    NSArray* businesses = [response objectForKey:@"results"]; 
+    
+    RestaurantReview* review; 
+    
+    NSDictionary* b; 
+    
+    if (businesses.count > 0)
+        b = [businesses objectAtIndex:0]; 
+    
+    
+    if (b == nil) 
+        return nil; 
+    
+    
+    review = [[[RestaurantReview alloc] initWithRestaurant:self.restaurant] autorelease]; 
+    
+
+    review.rating = [[b objectForKey:@"rating"] doubleValue]; 
+    
+    
+    
+    
+    return review; 
+}
 
 
 

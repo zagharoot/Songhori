@@ -488,8 +488,8 @@ static NSData *NSDataFromOAuthPreferredWebForm(NSDictionary *formDictionary)
             SBJsonParser* parser = [[SBJsonParser alloc] init]; 
             parser.maxDepth = 6; 
             
-            NSString* datastr = [[[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding] autorelease]; 
-            NSLog(@"received data for new user  as %@\n", datastr); 
+ //           NSString* datastr = [[[NSString alloc] initWithData:request.receivedData encoding:NSUTF8StringEncoding] autorelease]; 
+ //           NSLog(@"received data for new user  as %@\n", datastr); 
             
             NSDictionary* responseDic = [parser objectWithData:request.receivedData]; 
             

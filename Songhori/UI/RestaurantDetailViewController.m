@@ -20,6 +20,9 @@
 @synthesize googleRatingImageView = _googleRatingImageView;
 @synthesize restaurant=_restaurant; 
 
+@synthesize yelpReviewProvider=_yelpReviewProvider; 
+@synthesize googleReviewProvider=_googleReviewProvider; 
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,12 +41,12 @@
     {
         self.restaurant = r; 
         
-        yelpReviewProvider = [[YelpReviewProvider alloc] init]; 
-        googleReviewProvider = [[GoogleReviewProvider alloc] init]; 
+        self.yelpReviewProvider = [[[YelpReviewProvider alloc] init] autorelease]; 
+        self.googleReviewProvider = [[[GoogleReviewProvider alloc] init] autorelease]; 
         
         
-        [yelpReviewProvider fetchReviewsForRestaurant:r observer:self]; 
-        //[googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
+        [self.yelpReviewProvider fetchReviewsForRestaurant:r observer:self]; 
+        [self.googleReviewProvider fetchReviewsForRestaurant:r observer:self]; 
         
     }
     
@@ -95,8 +98,9 @@
 
 - (void)viewDidUnload
 {
-    [yelpReviewProvider release]; yelpReviewProvider = nil; 
-    [googleReviewProvider release]; googleReviewProvider = nil; 
+    self.yelpReviewProvider = nil; 
+    self.googleReviewProvider = nil; 
+    
     [self setTableView:nil];
     [self setGoogleTableViewCell:nil];
     [self setYelpTableViewCell:nil];
@@ -118,8 +122,8 @@
 }
 
 - (void)dealloc {
-    [yelpReviewProvider release]; yelpReviewProvider = nil; 
-    [googleReviewProvider release]; googleReviewProvider = nil; 
+//    self.yelpReviewProvider = nil; 
+//    self.googleReviewProvider = nil; 
     
     [_tableView release];
     [_googleTableViewCell release];
@@ -251,6 +255,13 @@
     if ([provider isKindOfClass:[YelpReviewProvider class]])
     {
         self.yelpNumberOfReviewsLabel.text = [NSString stringWithFormat:@"%d", review.numberOfReviews]; 
+        
+        NSData* idata = [NSData dataWithContentsOfURL:[NSURL URLWithString:review.ratingImageURL]]; 
+        UIImage* img = [UIImage imageWithData:idata]; 
+        self.yelpRatingImageView.image = img; 
+    }else if ([provider isKindOfClass:[GoogleReviewProvider class]])
+    {
+        self.googleNumberOfReviewsLabel.text = [NSString stringWithFormat:@"%lf", review.rating];         
     }
 }
 

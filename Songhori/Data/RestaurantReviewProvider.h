@@ -26,17 +26,11 @@
 /*
         This is an abstract class that is responsible for providing review and rating for restaurants 
  */
-@interface RestaurantReviewProvider : NSObject <NSURLConnectionDelegate,OAuthRequestDelegate> 
+@interface RestaurantReviewProvider : NSObject 
 {
     id<RestaurantReviewDelegate> _delegate; 
     Restaurant* _restaurant; 
     
-
-    OAuthProviderContext* _apiContext;     
-    OAuthProviderRequest* _apiRequest; 
-    
-    NSString* _accessToken; 
-    NSString* _accessSecret; 
 }
 
 -(void) fetchReviewsForRestaurant:(Restaurant*) restaurant observer:( id<RestaurantReviewDelegate>) observer; 
@@ -47,7 +41,22 @@
 -(RestaurantReview*) processResult:(NSDictionary*) response; 
 
 @property (nonatomic, assign) id<RestaurantReviewDelegate> delegate; 
-@property (nonatomic, assign) Restaurant* restaurant; 
+@property (nonatomic, retain) Restaurant* restaurant; 
+
+
+@end
+
+
+
+@interface OAuthRestaurantReviewProvider : RestaurantReviewProvider <OAuthRequestDelegate> 
+{
+    
+    OAuthProviderContext* _apiContext;     
+    OAuthProviderRequest* _apiRequest; 
+    
+    NSString* _accessToken; 
+    NSString* _accessSecret; 
+}
 
 
 @property (nonatomic, retain) OAuthProviderContext* apiContext; 
@@ -59,10 +68,24 @@
 @property (nonatomic, copy) NSString* accessToken; 
 @property (nonatomic, copy) NSString* accessSecret; 
 
+
+@end
+
+@interface SimpleRestaurantReviewProvider : RestaurantReviewProvider <NSURLConnectionDataDelegate> 
+{
+    NSURLConnection* _urlConnection; 
+    NSURLRequest* _urlRequest; 
+    NSMutableData* _incomingData; 
+    
+}
+
+@property (nonatomic, retain) NSURLConnection* urlConnection; 
+@property (nonatomic, retain) NSURLRequest* urlRequest; 
+@property (nonatomic, retain) NSMutableData* incomingData; 
 @end
 
 
-@interface YelpReviewProvider : RestaurantReviewProvider
+@interface YelpReviewProvider : OAuthRestaurantReviewProvider
 {
 
 }
@@ -71,7 +94,7 @@
 @end
 
 
-@interface GoogleReviewProvider : RestaurantReviewProvider
+@interface GoogleReviewProvider : SimpleRestaurantReviewProvider
 {
     
 }
