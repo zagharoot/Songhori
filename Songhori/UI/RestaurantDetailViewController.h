@@ -8,17 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Restaurant.h"
+#import "RestaurantReviewProvider.h"
 #import "DYRateView.h" 
-#import "RestaurantReviewTableViewCell.h" 
-
 
 //   This is the page we go to when we click on the restaurant popover view (to view more details/reviews) 
 
-@interface RestaurantDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RestaurantDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,RestaurantReviewDelegate>
 {
     Restaurant* _restaurant; 
     
-    NSMutableArray* reviewCells;  //array of RestaurantReviewTableViewCell
+    //These are the review providers. Since there are not a lot of them, I haven't put them in an array etc.
+    YelpReviewProvider* _yelpReviewProvider; 
+    GoogleReviewProvider* _googleReviewProvider; 
+    FoursquareReviewProvider* _foursquareReviewProvider; 
 }
 
 -(id) initWithRestaurant:(Restaurant*) r; 
@@ -29,8 +31,21 @@
 - (void) openRestaurantWebsite;     //opens up the website for the restaurant (if available) 
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (retain, nonatomic) IBOutlet UITableViewCell *googleTableViewCell;
+@property (retain, nonatomic) IBOutlet UITableViewCell *yelpTableViewCell;
+@property (retain, nonatomic) IBOutlet UILabel *yelpNumberOfReviewsLabel;
+@property (retain, nonatomic) IBOutlet UILabel *googleNumberOfReviewsLabel;
 
+@property (retain, nonatomic) IBOutlet UIImageView *yelpRatingImageView;
 @property (nonatomic, retain) Restaurant* restaurant; 
+@property (retain, nonatomic) IBOutlet UITableViewCell *foursquareTableViewCell;
 
+@property (retain, nonatomic) IBOutlet DYRateView *googleRatingView;
+@property (retain, nonatomic) IBOutlet UILabel *foursquareCheckinsLabel;
+
+@property (nonatomic, retain) YelpReviewProvider* yelpReviewProvider; 
+@property (nonatomic, retain) GoogleReviewProvider* googleReviewProvider; 
+@property (nonatomic, retain) FoursquareReviewProvider* foursquareReviewProvider; 
+@property (retain, nonatomic) IBOutlet UILabel *foursquareTipsLabel;
 
 @end
