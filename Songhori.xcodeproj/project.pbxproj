@@ -39,6 +39,7 @@
 		0820148515A5E426000ABB12 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 0820147215A5E426000ABB12 /* OAToken.m */; };
 		0820148615A5E426000ABB12 /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0820147415A5E426000ABB12 /* OATokenManager.m */; };
 		0820148815A5E488000ABB12 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0820148715A5E488000ABB12 /* SystemConfiguration.framework */; };
+		082CD8B215ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CD8B115ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m */; };
 		0839DBB1149B92DC00043178 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */; };
 		0839DBB2149B92DC00043178 /* RestaurantDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */; };
 		0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */; };
@@ -200,6 +201,8 @@
 		0820147415A5E426000ABB12 /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		0820147515A5E426000ABB12 /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
 		0820148715A5E488000ABB12 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		082CD8B015ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RestaurantReviewTableViewCell.h; sourceTree = "<group>"; };
+		082CD8B115ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReviewTableViewCell.m; sourceTree = "<group>"; };
 		0839DBAE149B92DC00043178 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
 		0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailViewController.xib; sourceTree = "<group>"; };
@@ -687,6 +690,8 @@
 				08E3C43415A33E4500C164F4 /* RestaurantURLViewController.h */,
 				08E3C43515A33E4500C164F4 /* RestaurantURLViewController.m */,
 				08E3C43615A33E4500C164F4 /* RestaurantURLViewController.xib */,
+				082CD8B015ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.h */,
+				082CD8B115ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -916,6 +921,7 @@
 				0820148515A5E426000ABB12 /* OAToken.m in Sources */,
 				0820148615A5E426000ABB12 /* OATokenManager.m in Sources */,
 				08B76E0B15A7135A00EA915C /* DYRateView.m in Sources */,
+				082CD8B215ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -96,7 +96,6 @@
 {
     [super viewDidLoad];
     
-    self.googleTableViewCell.alpha = 0.00001; 
     self.googleRatingView.editable = NO; 
     self.googleRatingView.backgroundColor = [UIColor clearColor]; 
     self.googleRatingView.opaque = NO; 
