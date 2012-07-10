@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Rutgers. All rights reserved.
 //
 
+
+#import "RestaurantReviewProvider.h"
 #import <UIKit/UIKit.h>
 
-@interface RestaurantReviewTableViewCell : UITableViewCell
+@interface RestaurantReviewTableViewCell : UITableViewCell <RestaurantReviewDelegate>
 {
         
     UIImageView* _logoImageView; 
@@ -19,7 +21,7 @@
 
 @property (nonatomic, retain) UIActivityIndicatorView* activityIndicator; 
 @property (nonatomic, retain) UIImageView* logoImageView; 
-
+@property (nonatomic, readonly) RestaurantReviewProvider* provider; 
 
 -(UIImage*) logoImage;      //each provider should have its own
 
@@ -36,6 +38,9 @@
     UIImageView* _ratingImageView; 
     UILabel* _reviewLabel; 
     UILabel* _reviewCntLabel; 
+    
+    
+    YelpReviewProvider* _provider; 
 }
 
 
