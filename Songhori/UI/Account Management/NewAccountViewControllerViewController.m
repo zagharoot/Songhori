@@ -126,6 +126,14 @@
 }
 
 
+#pragma mark- restaurant data delegate 
+
+-(void) restaudantDataDidBecomeAvailable:(NSArray*) restaurants forRegion:(MKCoordinateRegion) region fromProvider:(id) provider
+{
+    
+}
+
+
 @end
 
 

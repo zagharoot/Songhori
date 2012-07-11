@@ -15,6 +15,7 @@
 @synthesize theAccount = _account; 
 @synthesize deactivateSwitch=_deactivateSwitch; 
 @synthesize detailLabel=_detailLabel;  
+@synthesize refreshBtn=_refreshBtn; 
 
 //this is a retain property
 -(void) setTheAccount:(Account *)theAccount

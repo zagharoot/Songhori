@@ -201,7 +201,7 @@
 		0820147415A5E426000ABB12 /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		0820147515A5E426000ABB12 /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
 		0820148715A5E488000ABB12 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		082CD8B015ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RestaurantReviewTableViewCell.h; sourceTree = "<group>"; };
+		082CD8B015ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantReviewTableViewCell.h; sourceTree = "<group>"; };
 		082CD8B115ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantReviewTableViewCell.m; sourceTree = "<group>"; };
 		0839DBAE149B92DC00043178 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
@@ -768,7 +768,7 @@
 		08D2725514894BAC00D4A103 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = Rutgers;
 			};
 			buildConfigurationList = 08D2725814894BAC00D4A103 /* Build configuration list for PBXProject "Songhori" */;

@@ -219,13 +219,13 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Songhori/UI/RestaurantDetailViewController.m"
-         timestampString = "363658597.304333"
+         timestampString = "363287220.781533"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
-         landmarkName = "-viewWillAppear:"
-         landmarkType = "5">
+         startingLineNumber = "88"
+         endingLineNumber = "88"
+         landmarkName = "@implementation RestaurantDetailViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -687,13 +687,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Songhori/UI/RestaurantDetailViewController.m"
-         timestampString = "363658597.304333"
+         timestampString = "363287220.781533"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-openGoogleMap"
-         landmarkType = "5">
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "@implementation RestaurantDetailViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -998,6 +998,17 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/RestaurantDetailViewController.m"
+         timestampString = "363287220.781533"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "281"
+         endingLineNumber = "281">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
          filePath = "Songhori/Data/RestaurantReviewProvider.m"
          timestampString = "363291319.99077"
          startingColumnNumber = "9223372036854775807"
@@ -1089,6 +1100,19 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/RestaurantDetailViewController.m"
+         timestampString = "363287220.781533"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
+         landmarkName = "-initWithRestaurant:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
          filePath = "Songhori/Data/RestaurantReviewProvider.m"
          timestampString = "363291319.99077"
          startingColumnNumber = "9223372036854775807"
@@ -1128,6 +1152,32 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/RestaurantDetailViewController.m"
+         timestampString = "363287220.781533"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-initWithRestaurant:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Songhori/UI/RestaurantDetailViewController.m"
+         timestampString = "363287220.781533"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-initWithRestaurant:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
          filePath = "Songhori/Data/RestaurantReviewProvider.m"
          timestampString = "363291319.99077"
          startingColumnNumber = "9223372036854775807"
@@ -1135,58 +1185,6 @@
          startingLineNumber = "181"
          endingLineNumber = "181"
          landmarkName = "-connectionDidFinishLoading:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Songhori/UI/RestaurantReviewTableViewCell.m"
-         timestampString = "363658442.142202"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
-         landmarkName = "-layoutSubviews"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Songhori/UI/RestaurantReviewTableViewCell.m"
-         timestampString = "363654725.268197"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-layoutSubviews"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Songhori/UI/RestaurantReviewTableViewCell.m"
-         timestampString = "363658442.142202"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "213"
-         endingLineNumber = "213"
-         landmarkName = "-reviewer:forRestaurant:reviewDidFinish:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Songhori/UI/RestaurantReviewTableViewCell.m"
-         timestampString = "363658442.142202"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "173"
-         endingLineNumber = "173"
-         landmarkName = "-layoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

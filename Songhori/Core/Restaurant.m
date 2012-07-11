@@ -18,7 +18,16 @@ static UIImage* FNLogo;
 @synthesize detail=_detail; 
 @synthesize url=_url; 
 @synthesize iconImage=_iconImage; 
+@synthesize pinColor=_pinColor; 
 
+-(UIColor*) pinColor
+{
+    if (_pinColor)
+        return _pinColor; 
+    
+    _pinColor = [UIColor redColor]; 
+    return _pinColor; 
+}
 
 -(UIImage*) logo
 {
@@ -46,11 +55,6 @@ static UIImage* FNLogo;
 @synthesize incomingData=_incomingData; 
 @synthesize specialty=_specialty; 
 
-
--(UIColor*) pinColor
-{
-    return [UIColor redColor]; 
-}
 
 -(UIImage*) logo
 {

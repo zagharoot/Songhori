@@ -210,7 +210,7 @@
 
 -(void) mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    MKCoordinateRegion r =  mapView.region; 
+//    MKCoordinateRegion r =  mapView.region; 
 //    NSLog(@"new region %f,%f,%f,%f\n", r.center.latitude, r.center.longitude, r.span.latitudeDelta, r.span.longitudeDelta ); 
     self.redoSearchBtn.hidden = NO; 
     [self.redoSearchBtn setNeedsDisplay]; 

@@ -35,8 +35,8 @@
 	self = [super init];
     if (self) 
     {
-	self.key = [aKey retain];
-	self.secret = [aSecret retain];
+	self.key = [aKey copy];
+	self.secret = [aSecret copy];
     }
     
     return self;
