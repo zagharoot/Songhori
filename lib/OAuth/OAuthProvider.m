@@ -492,6 +492,7 @@ static NSData *NSDataFromOAuthPreferredWebForm(NSDictionary *formDictionary)
  //           NSLog(@"received data for new user  as %@\n", datastr); 
             
             NSDictionary* responseDic = [parser objectWithData:request.receivedData]; 
+            [parser release]; 
             
             if ([delegate respondsToSelector:@selector(OAuthRequest:didCompleteWithResponse:)])
                 [delegate OAuthRequest:self didCompleteWithResponse:responseDic];

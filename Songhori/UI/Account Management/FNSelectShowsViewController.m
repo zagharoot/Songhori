@@ -81,7 +81,7 @@
     if (indexPath.section==0)   //this is the account section 
     {
      
-        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""]; 
+        UITableViewCell* cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@""] autorelease]; 
         FoodNetworkShow* show = (FoodNetworkShow*)  [self.account.shows objectAtIndex:indexPath.row]; 
 
         cell.textLabel.text =  show.name; 

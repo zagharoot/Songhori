@@ -183,7 +183,7 @@
     parser.maxDepth = 10; 
     
     NSDictionary* inResponseDictionary = [parser objectWithData:self.incomingData]; 
-    
+    [parser release]; 
     
     RestaurantReview* review = [self processResult:inResponseDictionary]; 
     
@@ -308,7 +308,7 @@
 
 -(RestaurantReview*) processResult:(NSDictionary *)response
 {
-    NSDictionary* b;        //this is for the business obj
+    NSDictionary* b=nil;        //this is for the business obj
     
     NSArray* businesses = [response objectForKey:@"businesses"]; 
     
@@ -366,7 +366,7 @@
 
     NSArray* businesses = [response objectForKey:@"results"]; 
     
-    NSDictionary* b; 
+    NSDictionary* b=nil; 
     
     if (businesses != nil && businesses.count > 0)
         b = [businesses objectAtIndex:0]; 

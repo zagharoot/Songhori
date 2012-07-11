@@ -31,6 +31,8 @@
         return NO; 
     
     [[self.window rootViewController] presentModalViewController:ncv animated:NO]; 
+    [ncv release]; 
+    
     return YES; 
 }
 

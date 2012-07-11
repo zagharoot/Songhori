@@ -137,6 +137,9 @@ signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
 	if (nonce) {
 		CFRelease(nonce);
 	}
+    
+    CFRelease(theUUID); 
+    
     nonce = (NSString *)string;
 }
 

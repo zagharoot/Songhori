@@ -40,6 +40,7 @@
 
     [self presentModalViewController:ncv animated:YES]; 
 
+    [ncv release]; 
 
 //    GoogleMapAccount* ga = [[GoogleMapAccount alloc] initWithURL:@"http://maps.google.com/maps/ms?authuser=0&vps=3&ie=UTF8&msa=0&output=kml&msid=211222265741387435446.000455b6b5ca8e9986c8b"]; 
 //    ga.delegate = self; 
@@ -159,7 +160,7 @@
         {
             UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"add others"]; 
             if (cell == nil) 
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"add others"]; 
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"add others"] autorelease]; 
             
             cell.textLabel.text = @"Add More"; 
             cell.textLabel.textAlignment = UITextAlignmentCenter; 
