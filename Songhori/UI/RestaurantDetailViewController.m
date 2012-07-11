@@ -9,6 +9,11 @@
 #import "RestaurantDetailViewController.h"
 #import "RestaurantURLViewController.h" 
 
+//the sections in the table view
+#define MOREINFO_SECTION    1
+#define REVIEW_SECTION      0
+
+
 
 @implementation RestaurantDetailViewController
 @synthesize tableView = _tableView;
@@ -41,8 +46,17 @@
         [reviewCells addObject:ytc]; 
         [ytc release]; 
         
+
+        GoogleReviewTableViewCell* gtc = [[GoogleReviewTableViewCell alloc] init]; 
+        [gtc.provider fetchReviewsForRestaurant:r observer:gtc]; 
+        [reviewCells addObject:gtc]; 
+        [gtc release]; 
         
         
+        FoursquareTableViewCell* ftc = [[FoursquareTableViewCell alloc] init]; 
+        [ftc.provider fetchReviewsForRestaurant:r observer:ftc]; 
+        [reviewCells addObject:ftc]; 
+        [ftc release]; 
         
     }
     
@@ -122,7 +136,7 @@
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    if (indexPath.section == 0 ) 
+    if (indexPath.section == MOREINFO_SECTION ) 
     {
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"general"]; 
         if (!cell)
@@ -153,9 +167,9 @@
 -(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     switch (section) {
-        case 0:
+        case MOREINFO_SECTION:
             return @"More Info"; 
-        case 1:
+        case REVIEW_SECTION:
             return @"Reviews"; 
         default:
             return @""; 
@@ -167,9 +181,9 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
-        case 0:
+        case MOREINFO_SECTION:
             return 44; 
-        case 1:
+        case REVIEW_SECTION:
             return 80; 
             
         default:
@@ -183,9 +197,9 @@
 {
 
     switch (section) {
-        case 0:
+        case MOREINFO_SECTION:
             return 2; 
-        case 1:
+        case REVIEW_SECTION:
             return [reviewCells count];
             break;
             
@@ -204,7 +218,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0)
+    if (indexPath.section == MOREINFO_SECTION)
     {
         switch (indexPath.row) {
             case 0:                 //google 

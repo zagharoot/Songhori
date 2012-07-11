@@ -9,6 +9,7 @@
 
 #import "RestaurantReviewProvider.h"
 #import <UIKit/UIKit.h>
+#import "DYRateView.h" 
 
 @interface RestaurantReviewTableViewCell : UITableViewCell <RestaurantReviewDelegate>
 {
@@ -47,5 +48,50 @@
 @property (nonatomic, retain) UIImageView* ratingImageView; 
 @property (nonatomic, retain) UILabel* reviewLabel; 
 @property (nonatomic, retain) UILabel* reviewCntLabel; 
+
+@end
+
+
+
+
+
+@interface GoogleReviewTableViewCell : RestaurantReviewTableViewCell
+{
+    DYRateView* _ratingView; 
+    
+    GoogleReviewProvider* _provider; 
+}
+
+@property (nonatomic, retain) DYRateView* ratingView; 
+
+@end
+
+
+
+@interface FoursquareTableViewCell : RestaurantReviewTableViewCell
+{
+    UILabel* _checkinLabel; 
+    UILabel* _checkinCntLabel; 
+    
+    UILabel* _tipLabel; 
+    UILabel* _tipCntLabel; 
+    
+    
+    FoursquareReviewProvider* _provider; 
+    
+}
+
+
+
+
+@property (nonatomic, retain) UILabel* checkinLabel; 
+@property (nonatomic, retain) UILabel* checkinCntLabel; 
+
+@property (nonatomic, retain) UILabel* tipLabel; 
+@property (nonatomic, retain) UILabel* tipCntLabel; 
+
+
+
+
 
 @end
