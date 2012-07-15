@@ -122,29 +122,44 @@
     switch (pageNumber) {
         case 1:
         default:
-        str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcB1rfFC7ul9hxM5jXmMca8H8Ne16Uo%2FV6FJPKx5rBesQlRPGoD5%2BIDy4xJWr4u1wUrjR2bsHTW0rOcZ%2FikNPaiO8wg1gQgitzZbNQda7Gg6E&limit=20&time=1323443984&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=0&accuracy=0.006214&signature=iB5BHjs7n8dw6NpwdEtETg%3D%3D&app_version=5.4.4";
-    break;
+        str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHRwov3I8fVKA4%2FP1XL16qfIU6Jvc1gJC9R79%2FC61ClgCydnAa8pM8XWzHVzAaauDTTngocccngSBFtSTGba%2BpHSxvVrZmiLpSENv3eFOTon%2Fq&time=1342384683&ydid_time_created=1339876900&limit=20&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&summary=1&accuracy=0.003107&cc=US&offset=0&lang=en&signature=6aTsLZS5FVy35kavUHFm7g%3D%3D&app_version=5.9.1"; 
+            break;
             
         case 2:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcCVzCfEV2HSixTmktt%2FYVkrFi%2FmaFRYCn3MOgZrf5LsaFkFrdmCE2%2F3GyqGcYCKqA6pv1cAo0q9KBII5b%2F09ypJ47czyfSOzlhM3jklPx7%2B6&limit=20&time=1323444026&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=20&accuracy=0.006214&signature=SBbhws9b4HwgDq0f2RfPbA%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR3%2BkTeF%2FGS%2BIumARg4n%2BZqbrnR76%2BSJio%2B1w0hjVGdmEDDsuIKTMulqYa3XbMtD%2ByoGScthq3js7MiUG%2FJJfd5GQF%2F2LkQWRz24dUE5gXTNc&ydid_time_created=1339876900&limit=20&time=1342385003&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=20&lang=en&signature=D9HEcKf2nGdsRIqGxP%2BSIw%3D%3D&app_version=5.9.1"; 
             break;
         case 3:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcCVzCfEV2HSixTmktt%2FYVkrFi%2FmaFRYCn3MOgZrf5LsaFkFrdmCE2%2F3GyqGcYCKqA6pv1cAo0q9KBII5b%2F09ypJ47czyfSOzlhM3jklPx7%2B6&limit=20&time=1323444066&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=40&accuracy=0.003107&signature=GXEeSYBFq0BGRqj9V1SkTg%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR1zR4fpDZE1dIwZaj%2F7uHeV9Sr4gX%2F5o0SWSa4TcymGHM0yMD3Q%2BsuuqA2oTHldJYEYSYPz3Y%2FwIsxtFZQ6%2B0UP0iI33ysWBLTPayGoy2ibt&ydid_time_created=1339876900&limit=20&time=1342385108&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.003107&offset=40&lang=en&signature=4j5oQ1ld9C9m2XgpgR82Kg%3D%3D&app_version=5.9.1"; 
             break;
         case 4:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcAPTMlR7rQTcV4YPyrHjtJJV9qt791IQ1mPpsuOruIrCYmr74ASLzlEJJHrRJQY%2FYhZvszMY2qpXtydJBjc7mc3BFdSl8DjJu8mYjaetU5Xf&limit=20&time=1323450439&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=60&accuracy=0.003107&signature=Otg2u%2FsgiF%2BHlXXSY2%2BLEA%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHRynHpaKqsWfH62g%2B51N1c3ugluXZqRDcjteLyzBF0%2BtlnvrDitogqzqEBJO3neQ6psJL635rxnppM1QkoTZb5mKLrWo3J3uc2G5zr2sgxb40&ydid_time_created=1339876900&limit=20&time=1342385164&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.003107&offset=60&lang=en&signature=JlrHi7IOo%2F%2BUo4mVtHuq8w%3D%3D&app_version=5.9.1"; 
             break;
         case 5:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcMqItUslgh%2FRy2paHkJVFboks59Al47BBVtgtc3Jn%2BG9p3NRPJBosNOyGh0Dwk49RmzfLKclkVoex1tvPmE6j1YYoYcxOlVtm4lnDhKcnVLm&limit=20&time=1323450483&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=80&accuracy=0.006214&signature=UAxTM8ZftQLRmhsHsXzz%2BQ%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR3Mz5EgMoG0RvG3sWyy1hLSsn54SxpjFUnW8meDb7%2FBtxyFvwemXlXOcgqTjNJXMgGjJiz44s91E7A30Va8CuLy9VDX%2BV4SOTmILFXp7mH9H&ydid_time_created=1339876900&limit=20&time=1342385204&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.003107&offset=80&lang=en&signature=7x6QNwI6Pzk5Ng5V8sItZg%3D%3D&app_version=5.9.1"; 
             break;
         case 6:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcDH3QzrKTDp1TCh3ByObieOCA9adhAF96hm%2Bi6%2Flc%2F0E7FnvRXM3br7gdBF5tyvaH6ma%2Bk46ylze3ctOkETrUNSfiQj9HHIvOU8LKAZH0SAC&limit=20&time=1323450517&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=100&accuracy=0.003107&signature=%2FsyzzN0VJj7%2B0nHCnHuayQ%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR%2BphyEOELj4zqszzbaLKG2A2sknDWFMMB7sX4osAncWyRWNGYHGNCNW9a7BR4jRDOMRhLvjMd66vtvrdo8Trt0eBVZtuLGw4OhpiIOnmOEjA&ydid_time_created=1339876900&limit=20&time=1342385240&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=100&lang=en&signature=y0eJ4BH7F1MdlDoc58M1yA%3D%3D&app_version=5.9.1"; 
             break;
         case 7:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcMn8Umtew4lTtK3H585yb6bWVSxK81HNYH01Pbrt1OtHmFxHbL90hShadR4X0A57paIuMVSz0O1UqW5dg5b57s3gPb%2F8wcSX3P%2Bgc1R6DAHR&limit=20&time=1323450548&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=120&accuracy=0.003107&signature=zRRgiLtrMb%2BUADw8C%2FLSQw%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR5oVAtskF23aYM2oCyb5h9uWtD6D2NYbPrSxjPe5cMDtgDPJT7hUfzBelwT%2Bd0JlxFP%2FNKrK2OOal0fEyOfa1sDJCKz1meWQam%2BJKbefkAkN&ydid_time_created=1339876900&limit=20&time=1342385276&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=120&lang=en&signature=zVvWk67Dy1J5B4YYu5iGAA%3D%3D&app_version=5.9.1"; 
             break;
         case 8:
-            str = @"http://api.yelp.com/check_ins?device_type=iPhone%2F5.0.1&efs=68%2F4yS5IBAHy%2BlFRxl0AcHOx1uxLBF0LGbeg%2BYEKjT9f%2BD3UM1HWuM6QHJfJJuGkrjv4XMkXWv7XIahbt4096LSXhbugXprSohksBucjF6eUKXs674WgLP2G4Ch%2Bkpkk&limit=20&time=1323450579&locale=en_US&session_token=GwWiRQjvVQDt5Xjoa9kO0adRZLsySfKQ&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&lang=en&offset=140&accuracy=0.003107&signature=%2FkGjOvXFMG0vzPKVVfXkIA%3D%3D&app_version=5.4.4";
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR5oVAtskF23aYM2oCyb5h9uWtD6D2NYbPrSxjPe5cMDtgDPJT7hUfzBelwT%2Bd0JlxFP%2FNKrK2OOal0fEyOfa1sDJCKz1meWQam%2BJKbefkAkN&ydid_time_created=1339876900&limit=20&time=1342385335&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=140&lang=en&signature=mtQztKkzVhlZHSixCBuBPA%3D%3D&app_version=5.9.1"; 
+            break;
+        case 9:
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR3vkDX15jUuyniMit8krtR3F04pxDadh%2B9vKpZ%2BcJAbHH3mRxfYylkOOOjM21rBBhBkdJWljolGs2avnl6Ku6TISOD%2BtM2EuFDyXgn67VDQ%2F&ydid_time_created=1339876900&limit=20&time=1342385387&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=160&lang=en&signature=Si%2FFkuMXvABhFI1VuYc6Yg%3D%3D&app_version=5.9.1"; 
+            break;
+        case 10:
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR0qzdcoXLfZXR5gw88hxXUXBpW2QKr8O9MoQpPZScjZrOc4qMet8xa2ZFMmrB0Yosoybg4FNYl4LnakV66Yn2vIjXG44u32LfDL2LWRCgndP&ydid_time_created=1339876900&limit=20&time=1342385420&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=180&lang=en&signature=vVMzj08%2BDdL5%2B0MjHwYAXg%3D%3D&app_version=5.9.1"; 
+            break;
+        case 11:
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR0qzdcoXLfZXR5gw88hxXUXBpW2QKr8O9MoQpPZScjZrOc4qMet8xa2ZFMmrB0Yosoybg4FNYl4LnakV66Yn2vIjXG44u32LfDL2LWRCgndP&ydid_time_created=1339876900&limit=20&time=1342385452&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=200&lang=en&signature=tV5sKJ4owo37FvkfPDpDLg%3D%3D&app_version=5.9.1"; 
+            break;
+        case 12:
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR%2FSn4%2BkoRrYiw1cjX7NeZVDQiQ3zRAtKY7lhhNjttPiFOvMIdOsYuxFywyVFoXPoiYbeu4qaf4sGp2KdGVX3r79NIgS8S30sGVDvNdBRf%2FLq&ydid_time_created=1339876900&limit=20&time=1342385495&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=220&lang=en&signature=%2B%2FMocKWJvQlVjbp63umesQ%3D%3D&app_version=5.9.1"; 
+            break;
+        case 13:
+            str = @"http://auto-api.yelp.com/check_ins?device_type=iPhone3%2C1%2F5.1.1&efs=mLHUVjDwk2Pm30ESRWYYR2Nqy38Y5Bkcht%2B5iB8oLjNUx4Mgy7ZopjxH%2FWSjWFdWXNK6gc%2FGiHTJ4W5pjrGHR2HXTEumVVGh9jki44JTOPHdWRDIM41sl%2F67VHJ8dvHup5TL%2BNvXWgGgmhyqiiZlLWLpn316jEmFIoLOIy1FW5eSBIDA52j6jfOYbnIBOBNq&ydid_time_created=1339876900&limit=20&time=1342385532&locale=en_US&session_token=f5oziPczcO7E7rpB5P_Ui2NfgRh64J1g&ywsid=gpfz_nbS33avFWL0Ozgz3Q&cc=US&accuracy=0.006214&offset=240&lang=en&signature=hOfi%2FNi94pf0gjokrLf2xg%3D%3D&app_version=5.9.1"; 
             break;
     }
 
@@ -154,7 +169,7 @@
 
 -(void) loadCheckins:(int) pageNumber 
 {
-    if (pageNumber>8)
+    if (pageNumber>13)
         return; //TODO: 
     
    
@@ -193,7 +208,7 @@
 
              BOOL nextPageFlag= YES;        //should we automatically load the next page as well? 
              
-             if (items.count < 20 || pageNumber>=8)
+             if (items.count < 20 || pageNumber>=13)
                  nextPageFlag = NO; 
              
              for (id item in items) 
