@@ -63,7 +63,9 @@
 {
     if (!_refreshBtn)
     {
-        _refreshBtn = [UIButton buttonWithType:UIButtonTypeInfoLight]; 
+        _refreshBtn = [UIButton buttonWithType:UIButtonTypeCustom]; 
+        [_refreshBtn setBackgroundImage:[UIImage imageNamed:@"refresh.png"] forState:UIControlStateNormal]; 
+        
         [_refreshBtn addTarget:self action:@selector(refreshAccount:) forControlEvents:UIControlEventTouchUpInside]; 
     }
     
@@ -143,6 +145,7 @@
 
 -(void) refreshAccount:(id)sender
 {
+    [self.refreshBtn removeFromSuperview]; 
     [self.theAccount syncDataForced]; 
 }
 

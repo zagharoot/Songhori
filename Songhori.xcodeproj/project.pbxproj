@@ -42,6 +42,8 @@
 		082CD8B215ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CD8B115ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m */; };
 		0839DBB1149B92DC00043178 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */; };
 		0839DBB2149B92DC00043178 /* RestaurantDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */; };
+		08479E2C15B36A4D00B9C7C4 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 08479E2A15B36A4D00B9C7C4 /* refresh.png */; };
+		08479E2D15B36A4D00B9C7C4 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08479E2B15B36A4D00B9C7C4 /* refresh@2x.png */; };
 		08503FD215B1DAF4003B0049 /* fourSquareTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */; };
 		08503FD315B1DAF4003B0049 /* fourSquareTableCell.psd in Resources */ = {isa = PBXBuildFile; fileRef = 08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */; };
 		08503FD415B1DAF4003B0049 /* fourSquareTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */; };
@@ -209,6 +211,8 @@
 		0839DBAE149B92DC00043178 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
 		0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailViewController.xib; sourceTree = "<group>"; };
+		08479E2A15B36A4D00B9C7C4 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		08479E2B15B36A4D00B9C7C4 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourSquareTableCell.png; sourceTree = "<group>"; };
 		08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = fourSquareTableCell.psd; sourceTree = "<group>"; };
 		08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourSquareTableCell@2x.png"; sourceTree = "<group>"; };
@@ -644,6 +648,8 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08479E2A15B36A4D00B9C7C4 /* refresh.png */,
+				08479E2B15B36A4D00B9C7C4 /* refresh@2x.png */,
 				08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */,
 				08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */,
 				08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */,
@@ -847,6 +853,8 @@
 				08503FD215B1DAF4003B0049 /* fourSquareTableCell.png in Resources */,
 				08503FD315B1DAF4003B0049 /* fourSquareTableCell.psd in Resources */,
 				08503FD415B1DAF4003B0049 /* fourSquareTableCell@2x.png in Resources */,
+				08479E2C15B36A4D00B9C7C4 /* refresh.png in Resources */,
+				08479E2D15B36A4D00B9C7C4 /* refresh@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
