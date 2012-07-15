@@ -318,7 +318,7 @@
 
 -(UIImage*) logoImage
 {
-    return [UIImage imageNamed:@"YelpAccountTableCell.png"]; 
+    return [UIImage imageNamed:@"fourSquareTableCell.png"]; 
 }
 
 

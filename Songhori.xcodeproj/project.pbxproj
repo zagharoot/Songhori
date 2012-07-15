@@ -42,6 +42,9 @@
 		082CD8B215ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 082CD8B115ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m */; };
 		0839DBB1149B92DC00043178 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */; };
 		0839DBB2149B92DC00043178 /* RestaurantDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */; };
+		08503FD215B1DAF4003B0049 /* fourSquareTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */; };
+		08503FD315B1DAF4003B0049 /* fourSquareTableCell.psd in Resources */ = {isa = PBXBuildFile; fileRef = 08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */; };
+		08503FD415B1DAF4003B0049 /* fourSquareTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */; };
 		0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */; };
 		0875CBFE14B790B4009F16DE /* NewAccountViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */; };
 		087E597614B2410F006120DB /* AccountsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597214B2410F006120DB /* AccountsUIViewController.m */; };
@@ -206,6 +209,9 @@
 		0839DBAE149B92DC00043178 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
 		0839DBAF149B92DC00043178 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
 		0839DBB0149B92DC00043178 /* RestaurantDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailViewController.xib; sourceTree = "<group>"; };
+		08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourSquareTableCell.png; sourceTree = "<group>"; };
+		08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = fourSquareTableCell.psd; sourceTree = "<group>"; };
+		08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourSquareTableCell@2x.png"; sourceTree = "<group>"; };
 		0875CBFA14B790B4009F16DE /* NewAccountViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAccountViewControllerViewController.h; sourceTree = "<group>"; };
 		0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAccountViewControllerViewController.m; sourceTree = "<group>"; };
 		0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewAccountViewControllerViewController.xib; sourceTree = "<group>"; };
@@ -638,6 +644,9 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */,
+				08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */,
+				08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */,
 				08E5163914BF2345005E44DE /* locateMeButtonBusy.png */,
 				08E5163A14BF2345005E44DE /* locateMeButtonBusy@2x.png */,
 				08D0A53314BA332900C30CBC /* color.png */,
@@ -835,6 +844,9 @@
 				08B76E1A15A716FD00EA915C /* StarFull@2x.png in Resources */,
 				08B76E1B15A716FD00EA915C /* StarFullLarge.png in Resources */,
 				08B76E1C15A716FD00EA915C /* StarFullLarge@2x.png in Resources */,
+				08503FD215B1DAF4003B0049 /* fourSquareTableCell.png in Resources */,
+				08503FD315B1DAF4003B0049 /* fourSquareTableCell.psd in Resources */,
+				08503FD415B1DAF4003B0049 /* fourSquareTableCell@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
