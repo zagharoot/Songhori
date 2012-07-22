@@ -10,6 +10,7 @@
 #import "TFHpple.h"
 
 static UIImage* FNLogo; 
+static UIImage* FNDriversShowLogo; 
 
 
 @implementation Restaurant 
@@ -69,7 +70,7 @@ static UIImage* FNLogo;
 
 -(UIImage*) secondaryLogo
 {
-    return [self logo]; //TODO: should return the secondary for each show 
+    return nil; 
 }
 
 -(id) initWithJSONData:(id) json
