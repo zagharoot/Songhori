@@ -47,6 +47,7 @@
 		08503FD215B1DAF4003B0049 /* fourSquareTableCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */; };
 		08503FD315B1DAF4003B0049 /* fourSquareTableCell.psd in Resources */ = {isa = PBXBuildFile; fileRef = 08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */; };
 		08503FD415B1DAF4003B0049 /* fourSquareTableCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */; };
+		08628366160E41C70068E8A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08628365160E41C70068E8A9 /* Default-568h@2x.png */; };
 		0875CBFD14B790B4009F16DE /* NewAccountViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */; };
 		0875CBFE14B790B4009F16DE /* NewAccountViewControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */; };
 		087E597614B2410F006120DB /* AccountsUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087E597214B2410F006120DB /* AccountsUIViewController.m */; };
@@ -73,6 +74,7 @@
 		08B76E1A15A716FD00EA915C /* StarFull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1215A716FD00EA915C /* StarFull@2x.png */; };
 		08B76E1B15A716FD00EA915C /* StarFullLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1315A716FD00EA915C /* StarFullLarge.png */; };
 		08B76E1C15A716FD00EA915C /* StarFullLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B76E1415A716FD00EA915C /* StarFullLarge@2x.png */; };
+		08B8A05615CEAF1D00E0670F /* RestaurantDetailedReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B8A05515CEAF1D00E0670F /* RestaurantDetailedReview.m */; };
 		08B8E0FF1495290E00331505 /* locateMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FA1495290E00331505 /* locateMeButton.png */; };
 		08B8E1001495290E00331505 /* locateMeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FB1495290E00331505 /* locateMeButton@2x.png */; };
 		08B8E1011495290E00331505 /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 08B8E0FC1495290E00331505 /* settingsButton.png */; };
@@ -216,6 +218,7 @@
 		08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourSquareTableCell.png; sourceTree = "<group>"; };
 		08503FD015B1DAF4003B0049 /* fourSquareTableCell.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = fourSquareTableCell.psd; sourceTree = "<group>"; };
 		08503FD115B1DAF4003B0049 /* fourSquareTableCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourSquareTableCell@2x.png"; sourceTree = "<group>"; };
+		08628365160E41C70068E8A9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		0875CBFA14B790B4009F16DE /* NewAccountViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAccountViewControllerViewController.h; sourceTree = "<group>"; };
 		0875CBFB14B790B4009F16DE /* NewAccountViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAccountViewControllerViewController.m; sourceTree = "<group>"; };
 		0875CBFC14B790B4009F16DE /* NewAccountViewControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewAccountViewControllerViewController.xib; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 		08B76E1215A716FD00EA915C /* StarFull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarFull@2x.png"; sourceTree = "<group>"; };
 		08B76E1315A716FD00EA915C /* StarFullLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarFullLarge.png; sourceTree = "<group>"; };
 		08B76E1415A716FD00EA915C /* StarFullLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarFullLarge@2x.png"; sourceTree = "<group>"; };
+		08B8A05415CEAF1D00E0670F /* RestaurantDetailedReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailedReview.h; sourceTree = "<group>"; };
+		08B8A05515CEAF1D00E0670F /* RestaurantDetailedReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailedReview.m; sourceTree = "<group>"; };
 		08B8E0FA1495290E00331505 /* locateMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locateMeButton.png; sourceTree = "<group>"; };
 		08B8E0FB1495290E00331505 /* locateMeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locateMeButton@2x.png"; sourceTree = "<group>"; };
 		08B8E0FC1495290E00331505 /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
@@ -648,6 +653,7 @@
 		08D272B614894C6C00D4A103 /* pics */ = {
 			isa = PBXGroup;
 			children = (
+				08628365160E41C70068E8A9 /* Default-568h@2x.png */,
 				08479E2A15B36A4D00B9C7C4 /* refresh.png */,
 				08479E2B15B36A4D00B9C7C4 /* refresh@2x.png */,
 				08503FCF15B1DAF4003B0049 /* fourSquareTableCell.png */,
@@ -753,6 +759,8 @@
 				08E3C43F15A38A0000C164F4 /* RestaurantReviewProvider.m */,
 				08E3C44115A38FE800C164F4 /* RestaurantReview.h */,
 				08E3C44215A38FE900C164F4 /* RestaurantReview.m */,
+				08B8A05415CEAF1D00E0670F /* RestaurantDetailedReview.h */,
+				08B8A05515CEAF1D00E0670F /* RestaurantDetailedReview.m */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -783,7 +791,7 @@
 		08D2725514894BAC00D4A103 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = Rutgers;
 			};
 			buildConfigurationList = 08D2725814894BAC00D4A103 /* Build configuration list for PBXProject "Songhori" */;
@@ -855,6 +863,7 @@
 				08503FD415B1DAF4003B0049 /* fourSquareTableCell@2x.png in Resources */,
 				08479E2C15B36A4D00B9C7C4 /* refresh.png in Resources */,
 				08479E2D15B36A4D00B9C7C4 /* refresh@2x.png in Resources */,
+				08628366160E41C70068E8A9 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,6 +951,7 @@
 				0820148615A5E426000ABB12 /* OATokenManager.m in Sources */,
 				08B76E0B15A7135A00EA915C /* DYRateView.m in Sources */,
 				082CD8B215ACC8EA00AA7FE1 /* RestaurantReviewTableViewCell.m in Sources */,
+				08B8A05615CEAF1D00E0670F /* RestaurantDetailedReview.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

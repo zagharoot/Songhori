@@ -18,6 +18,8 @@
     NSString* _ratingImageURL; 
     double _rating; 
     int _numberOfReviews; 
+    NSString* _reviewID;        //this is the ID that the provider uses to identify this restaurant or the review
+    NSDictionary* _originalData; //the data received from the website 
 }
 
 
@@ -28,6 +30,8 @@
 @property (nonatomic) double rating; 
 @property (nonatomic) int numberOfReviews; 
 @property (nonatomic, copy) NSString* ratingImageURL; 
+@property (nonatomic, copy) NSString* reviewID; 
+@property (nonatomic, retain) NSDictionary* originalData; 
 
 @property (nonatomic,retain) Class providerClass;               //this says who's providing this review
 

@@ -8,18 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "RestaurantReview.h"
+#import "RestaurantDetailedReview.h"
 #import "Restaurant.h"
 #import "OAuthProvider.h" 
+
 
 
 @class RestaurantReviewProvider; 
 
 @protocol RestaurantReviewDelegate <NSObject>
-
--(void) reviewer:(RestaurantReviewProvider*) provider forRestaurant:(Restaurant*) restaurant reviewDidFinish:(RestaurantReview*) review; 
 @optional
+-(void) reviewer:(RestaurantReviewProvider*) provider forRestaurant:(Restaurant*) restaurant reviewDidFinish:(RestaurantReview*) review; 
 -(void) reviewer:(RestaurantReviewProvider*) provider forRestaurant:(Restaurant *)restaurant reviewDidFailWithError:(NSError*) err; 
 
+//methods for retrieving detailed reviews (individual posts that is) 
+-(void) reviewer:(RestaurantReviewProvider*) provider forRestaurant:(Restaurant*) restaurant detailedReviewDidFinish:(RestaurantReview*) review; 
+-(void) reviewer:(RestaurantReviewProvider*) provider forRestaurant:(Restaurant *)restaurant detailedReviewDidFailWithError:(NSError*) err; 
 @end
 
 
@@ -30,20 +34,24 @@
 {
     id<RestaurantReviewDelegate> _delegate; 
     Restaurant* _restaurant; 
-    
 }
 
 -(void) fetchReviewsForRestaurant:(Restaurant*) restaurant observer:( id<RestaurantReviewDelegate>) observer; 
+-(void) fetchDetailedReviewsForRestaurant:(Restaurant*) restaurant observer:( id<RestaurantReviewDelegate>) observer review:(RestaurantReview*) review; 
 
-//these  methods are written by each provider
+//these  methods are written by each provider for retrieving basic reviews
 -(NSString*) urlForRestaurant:(Restaurant*) restaurant; 
 -(NSDictionary*) argsForRestaurant:(Restaurant*) restaurant; 
 -(RestaurantReview*) processResult:(NSDictionary*) response; 
 
+//these methods are written by each provider for retrieving detailed reviews 
+-(NSString*) urlForDetailedReview:(Restaurant*) restaurant review:(RestaurantReview*) review; 
+-(NSDictionary*) argsForDetailedReview:(Restaurant*) restaurant review:(RestaurantReview*) review; 
+-(RestaurantDetailedReview*) processDetailedReviewResult:(NSDictionary*) response; 
+
+
 @property (nonatomic, assign) id<RestaurantReviewDelegate> delegate; 
 @property (nonatomic, retain) Restaurant* restaurant; 
-
-
 @end
 
 

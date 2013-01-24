@@ -17,6 +17,8 @@
 @synthesize rating=_rating; 
 @synthesize ratingImageURL= _ratingImageURL; 
 @synthesize providerClass; 
+@synthesize reviewID=_reviewID; 
+@synthesize originalData=_originalData; 
 
 -(id) initWithRestaurant:(Restaurant *)r
 {
@@ -34,6 +36,8 @@
 -(void) dealloc
 {
     self.ratingImageURL = nil; 
+    self.reviewID = nil; 
+    self.originalData = nil; 
     
     [super dealloc]; 
 }

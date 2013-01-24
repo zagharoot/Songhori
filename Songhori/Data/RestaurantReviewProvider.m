@@ -110,6 +110,10 @@
 {
 }
 
+-(void) fetchDetailedReviewsForRestaurant:(Restaurant *)restaurant observer:(id<RestaurantReviewDelegate>)observer review:(RestaurantReview *)review
+{
+}
+
 -(NSString*) urlForRestaurant:(Restaurant *)restaurant
 {
     return nil; //should be implemented by each provider 
@@ -120,10 +124,29 @@
     return nil; 
 }
 
+
+-(NSString*) urlForDetailedReview:(Restaurant *)restaurant review:(RestaurantReview *)review
+{
+    return nil; 
+}
+
+-(NSDictionary*) argsForDetailedReview:(Restaurant *)restaurant review:(RestaurantReview *)review
+{
+    return nil; 
+}
+
+
+
 -(RestaurantReview*) processResult:(NSDictionary *)response
 {
     return nil; 
 }
+
+-(RestaurantDetailedReview*) processDetailedReviewResult:(NSDictionary *)response
+{
+    return nil; 
+}
+
 
 
 -(void) dealloc
@@ -159,7 +182,19 @@
     self.urlConnection = [NSURLConnection connectionWithRequest:self.urlRequest delegate:self]; 
 }
 
-
+-(void ) fetchDetailedReviewsForRestaurant:(Restaurant *)restaurant observer:(id<RestaurantReviewDelegate>)observer review:(RestaurantReview *)review
+{
+    self.delegate = observer; 
+    self.restaurant = restaurant;
+    
+    NSString* url = [self urlForDetailedReview:restaurant review:review]; 
+    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]; 
+    
+    self.urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]]; 
+    
+    self.urlConnection = [NSURLConnection connectionWithRequest:self.urlRequest delegate:self];     
+}
 
 -(void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -214,8 +249,6 @@
     
     [super dealloc]; 
 }
-
-
 @end
 
 
@@ -333,6 +366,8 @@
     result.numberOfReviews = [[b objectForKey:@"review_count"] intValue]; 
         
     result.ratingImageURL = [b objectForKey:@"rating_img_url_large"]; 
+    result.originalData = response; 
+    
     
     return [result autorelease]; 
 }
@@ -381,6 +416,8 @@
     //TODO: make sure this business is the same as we looked for
 
     review.rating = [[b objectForKey:@"rating"] doubleValue]; 
+    review.reviewID = [b objectForKey:@"reference"]; 
+    review.originalData  = response; 
     
     return review; 
 }
@@ -429,9 +466,12 @@
     
 
     NSDictionary* stats = [b objectForKey:@"stats"]; 
+    NSString* rid = [b objectForKey:@"id"]; 
     
     review.rating = [[stats objectForKey:@"tipCount"] intValue]; 
     review.numberOfReviews = [[stats objectForKey:@"checkinsCount"] intValue]; 
+    review.reviewID = rid; 
+    review.originalData = response; 
     
     return review; 
 }
